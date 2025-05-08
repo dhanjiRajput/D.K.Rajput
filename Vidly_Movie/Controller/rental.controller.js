@@ -47,11 +47,13 @@ const getRentalById= async (req, res) => {
 };
 
 module.exports = {getRental,getRentalById,createRental};
-const validateRental=(rental)=> {
-    const schema = Joi.object({
-      customerId: Joi.string().required(),
-      movieId: Joi.string().required()
-    });
-    return schema.validate(rental);
+const validateRental = (rental) => {
+  const schema = Joi.object({
+    customerId: Joi.string().required(), 
+    movieId: Joi.string().required()
+  });
+
+  return schema.validate(rental);
 };
+
   

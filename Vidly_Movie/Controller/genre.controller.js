@@ -10,7 +10,7 @@ const createGenre= async (req, res) => {
   const { error } = validateGenre(req.body); 
   if (error) return res.status(400).send(error.message);
 
-  let genre = new Genre.create(req.body);
+  let genre = await Genre.create(req.body);
   res.send(genre);
 };
 

@@ -35,6 +35,7 @@ const createRental=async (req, res) => {
   });
   rental = await rental.save();
 
+  //Using Field Update Operator
   await Movie.updateOne({_id:req.body.movieId},{$inc:{numberInStock:-1}});
   res.send(rental);
 

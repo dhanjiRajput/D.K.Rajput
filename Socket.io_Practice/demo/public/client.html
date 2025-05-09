@@ -1,34 +1,273 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Socket.IO Client</title>
+  <meta charset="UTF-8" />
+  <title>Real-Time Chat</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
   <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+  <style>
+    body {
+      background: linear-gradient(to right, #74ebd5, #ACB6E5);
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    #chatContainer {
+      max-width: 700px;
+      margin: 60px auto;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      padding: 30px;
+    }
+
+    #messages {
+      height: 350px;
+      overflow-y: auto;
+      background-color: #f1f1f1;
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .message {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .you {
+      justify-content: flex-end;
+    }
+
+    .other {
+      justify-content: flex-start;
+    }
+
+    .bubble {
+      max-width: 70%;
+      padding: 10px 15px;
+      border-radius: 20px;
+      background-color: #d1e7dd;
+      color: #0f5132;
+      font-weight: 500;
+    }
+
+    .you .bubble {
+      background-color: #cfe2ff;
+      color: #084298;
+    }
+
+    .profile-icon {
+      width: 36px;
+      height: 36px;
+      background-color: #6c757d;
+      border-radius: 50%;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      margin: 0 10px;
+    }
+
+    .you .profile-icon {
+      background-color: #0d6efd;
+    }
+
+    .system {
+      text-align: center;
+      font-style: italic;
+      color: #6c757d;
+    }
+
+    .bubble {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+    }
+
+    .bubble:hover {
+      transform: scale(1.03);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }
+
+    .profile-icon {
+      transition: transform 0.2s ease, filter 0.2s ease;
+    }
+
+    .profile-icon:hover {
+      transform: scale(1.1);
+      filter: brightness(1.2);
+    }
+
+    button:hover {
+      box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+      transform: scale(1.01);
+      transition: 0.2s ease-in-out;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 767px) {
+      #chatContainer {
+        margin: 20px;
+        padding: 15px;
+      }
+
+      #messages {
+        height: 250px;
+      }
+
+      .input-group {
+        flex-direction: column;
+      }
+
+      .input-group .btn {
+        width: 100%;
+        margin-top: 10px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      #chatContainer {
+        padding: 10px;
+      }
+
+      .message .profile-icon {
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+      }
+
+      .bubble {
+        font-size: 14px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h2>Socket.IO Chat</h2>
-  <input id="msgInput" placeholder="Type a message" />
-  <button onclick="sendMessage()">Send</button>
+  <div id="chatContainer">
+    <h4 class="text-center mb-4"><i class="bi bi-chat-dots-fill"></i> Two User Chat</h4>
 
-  <ul id="messages"></ul>
+    <div class="mb-3">
+      <input id="username" class="form-control mb-2" placeholder="Enter your username" />
+      <input id="room" class="form-control mb-2" placeholder="Enter room name (shared)" />
+      <button onclick="joinChat()" class="btn btn-primary w-100">
+        <i class="bi bi-box-arrow-in-right"></i> Join Chat
+      </button>
+    </div>
+
+    <div id="chatUI" style="display: none;">
+      <div id="messages" class="mb-2"></div>
+      <p id="typingStatus" class="text-muted fst-italic small" style="display: none;"></p>
+
+      <div class="input-group">
+        <input id="msgInput" class="form-control" placeholder="Type a message..." />
+        <button onclick="sendMessage()" class="btn btn-success">
+          <i class="bi bi-send-fill"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- User List Section -->
+    <div id="userList" class="mt-4">
+      <h5>Users in Room:</h5>
+      <ul id="userListItems" class="list-group"></ul>
+    </div>
+  </div>
 
   <script>
     const socket = io("http://localhost:3000");
+    let username = "";
+    let room = "";
+    let typingTimeout;
 
-    socket.on("connect", () => {
-      console.log("Connected:", socket.id);
+    function getInitials(name) {
+      return name.trim().substring(0, 2).toUpperCase();
+    }
+
+    function joinChat() {
+      username = document.getElementById("username").value.trim();
+      room = document.getElementById("room").value.trim();
+      if (!username || !room) return alert("Please enter both username and room.");
+
+      socket.emit("joinRoom", { username, room });
+      document.getElementById("chatUI").style.display = "block";
+    }
+
+    socket.on("userList", (users) => {
+      const userListItems = document.getElementById("userListItems");
+      userListItems.innerHTML = "";
+      users.forEach((user) => {
+        const li = document.createElement("li");
+        li.textContent = user;
+        userListItems.appendChild(li);
+      });
     });
 
-    socket.on("message", (data) => {
-      const li = document.createElement("li");
-      li.innerText = data;
-      document.getElementById("messages").appendChild(li);
+    socket.on("message", ({ user, text }) => {
+      const container = document.createElement("div");
+
+      if (user === "System") {
+        container.className = "system";
+        container.innerText = text;
+      } else {
+        const isYou = user === username;
+        container.className = `message ${isYou ? "you" : "other"}`;
+
+        const profile = document.createElement("div");
+        profile.className = "profile-icon";
+        profile.innerText = getInitials(user);
+
+        const bubble = document.createElement("div");
+        bubble.className = "bubble";
+        bubble.innerText = text;
+
+        if (isYou) {
+          container.appendChild(bubble);
+          container.appendChild(profile);
+        } else {
+          container.appendChild(profile);
+          container.appendChild(bubble);
+        }
+      }
+
+      document.getElementById("messages").appendChild(container);
+      container.scrollIntoView({ behavior: "smooth" });
     });
 
     function sendMessage() {
       const input = document.getElementById("msgInput");
-      socket.emit("message", input.value);
-      input.value = "";
+      const message = input.value.trim();
+      if (message) {
+        socket.emit("sendMessage", message);
+        input.value = "";
+        socket.emit("stopTyping", room);
+      }
     }
+
+    const msgInput = document.getElementById("msgInput");
+    msgInput.addEventListener("input", () => {
+      socket.emit("typing", { room, user: username });
+      clearTimeout(typingTimeout);
+      typingTimeout = setTimeout(() => {
+        socket.emit("stopTyping", room);
+      }, 1500);
+    });
+
+    socket.on("typing", (user) => {
+      if (user !== username) {
+        const status = document.getElementById("typingStatus");
+        status.innerText = `${user} is typing...`;
+        status.style.display = "block";
+      }
+    });
+
+    socket.on("stopTyping", (user) => {
+      if (user !== username) {
+        const status = document.getElementById("typingStatus");
+        status.style.display = "none";
+      }
+    });
   </script>
 </body>
 </html>

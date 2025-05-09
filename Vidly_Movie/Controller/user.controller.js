@@ -34,6 +34,7 @@ const createUser=async(req,res)=>{
         id:user.id,
         username:user.username,
         email:user.email,
+        admin:valid.admin,
     },KEY);
     
     res.header('x-auth-token',token).send(user);
@@ -50,6 +51,7 @@ const userLogin=async(req,res)=>{
     const token=jwt.sign({
         id:valid.id,
         email:valid.email,
+        admin:valid.admin,
     },KEY);
     
     res.header('x-auth-token',token).send(valid);

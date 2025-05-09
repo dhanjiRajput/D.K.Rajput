@@ -1,10 +1,12 @@
+const asyncMiddleware = require("../middleware/async");
 const Genre= require("../model/genre.model");
 const Joi=require("joi");
 
-const getGenre=async (req, res) => {
-  const genres = await Genre.find().sort('name');
-  res.send(genres);
-};
+const getGenre=asyncMiddleware( async (req, res) => {
+    const genres =await Genre.find().sort('name');
+    res.send(genres);
+    throw new Error('could not get genres...');
+});
 
 const createGenre= async (req, res) => {
   const { error } = validateGenre(req.body); 
@@ -27,7 +29,7 @@ const genreUpdate= async (req, res) => {
 };
 
 const genreDelete=async (req, res) => {
-  const genre = await Genre.findByIdAndRemove(req.params.id);
+  const genre = await Genre.findByIdAndDelete(req.params.id);
   if (!genre) return res.status(404).send('The genre with the given ID was not found.');
   res.send(genre);
 };

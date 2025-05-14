@@ -1,15 +1,16 @@
-exports.getproducts=()=>{
-    new Promise((resolve,reject)=>{
-        setTimeout(()=>{
+// products.js
+exports.getproducts = () => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
             resolve({
-                products:[
+                products: [
                     {
-                        id:1,
-                        name:"product 1",
-                        price:200
+                        id: 1,
+                        name: "product 1",
+                        price: 200
                     }
                 ]
-            })
-        },2000)
-    })
+            });
+        }, 2000);
+    });
 };

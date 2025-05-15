@@ -50,6 +50,6 @@ io.on('connection', (socket) => {
 });
 
 server.listen(PORT, async () => {
-    console.log(`🚀 Server started on port ${PORT}`);
+    console.log(`Server started on port ${PORT}`);
     await connectRabbitMQ();
 });

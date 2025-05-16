@@ -1,6 +1,5 @@
 <% layout('layout') -%>
 
-<!-- Bootstrap Icons CDN (remove if already in your layout) -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
 
 <style>
@@ -10,63 +9,20 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
   .container {
-    max-width: 700px;
+    max-width: 900px;
   }
-  h2 {
-    font-weight: 700;
-    color: #2e7d32;
-    margin-bottom: 1.5rem;
-    text-align: center;
-    text-shadow: 1px 1px 2px #c8e6c9;
-  }
-  #tweetForm {
+  .tweet-form-card {
     background: #fff;
     border-radius: 12px;
     box-shadow: 0 6px 18px rgba(46, 125, 50, 0.15);
-    padding: 20px 25px;
-    margin-bottom: 30px;
-  }
-  textarea[name="content"] {
-    resize: none;
-    height: 90px;
-    width: 100%;
-    font-size: 1.1rem;
-    padding: 12px 15px;
-    border: 2px solid #81c784;
-    border-radius: 12px;
-    transition: border-color 0.3s ease;
-  }
-  textarea[name="content"]:focus {
-    border-color: #388e3c;
-    outline: none;
-    box-shadow: 0 0 8px #66bb6a66;
-  }
-  #tweetForm button {
-    background-color: #43a047;
-    border: none;
-    border-radius: 25px;
-    padding: 10px 30px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 12px;
-  }
-  #tweetForm button:hover {
-    background-color: #2e7d32;
+    padding: 25px;
   }
   .tweet-card {
-    background: #ffffff;
+    background: #fff;
     border-radius: 16px;
     box-shadow: 0 6px 18px rgba(0,0,0,0.1);
     padding: 20px;
     margin-bottom: 25px;
-    display: flex;
-    gap: 20px;
     transition: transform 0.2s ease, box-shadow 0.3s ease;
   }
   .tweet-card:hover {
@@ -74,119 +30,74 @@
     box-shadow: 0 10px 25px rgba(0,0,0,0.15);
   }
   .profile-pic {
-    width: 55px;
-    height: 55px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     object-fit: cover;
-    flex-shrink: 0;
     border: 2px solid #66bb6a;
   }
-  .tweet-content {
-    flex-grow: 1;
-  }
   .tweet-author {
-    font-weight: 700;
+    font-weight: bold;
     color: #2e7d32;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 1.15rem;
-  }
-  .tweet-timestamp {
-    font-size: 0.85rem;
-    color: #999;
-    margin-left: auto;
-    font-style: italic;
   }
   .tweet-text {
-    margin: 10px 0 18px;
-    font-size: 1.05rem;
+    font-size: 1rem;
     line-height: 1.4;
+    margin: 10px 0;
     white-space: pre-wrap;
   }
-  .like-btn, .comment-btn {
-    border: none;
-    border-radius: 25px;
-    padding: 8px 20px;
-    font-weight: 600;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    transition: background-color 0.3s ease;
+  .tweet-image {
+    max-height: 350px;
+    border-radius: 12px;
+    margin-top: 10px;
   }
-  .like-btn {
-    background-color: #81c784;
-    color: white;
-    margin-right: 15px;
+  .btn-like, .btn-comment {
+    border-radius: 20px;
+    font-weight: 500;
+    padding: 6px 16px;
   }
-  .like-btn:hover {
-    background-color: #388e3c;
-  }
-  .comment-btn {
-    background-color: #4caf50;
-    color: white;
-  }
-  .comment-btn:hover {
-    background-color: #2e7d32;
-  }
-  .comment-form {
-    display: flex;
-    gap: 12px;
-  }
-  .comment-form input {
-    flex-grow: 1;
-    border-radius: 25px;
-    border: 2px solid #a5d6a7;
-    padding: 7px 15px;
-    font-size: 1rem;
-    transition: border-color 0.3s ease;
-  }
-  .comment-form input:focus {
-    outline: none;
-    border-color: #388e3c;
-    box-shadow: 0 0 6px #66bb6a99;
-  }
-  ul.comments-list {
-    list-style: none;
-    padding-left: 0;
-    margin-top: 15px;
-    max-height: 150px;
+  .comments-list {
+    max-height: 160px;
     overflow-y: auto;
-    border-top: 1px solid #e0e0e0;
+    margin-top: 10px;
+    padding-left: 0;
+    border-top: 1px solid #eee;
   }
-  ul.comments-list li {
+  .comments-list li {
     padding: 8px 0;
     border-bottom: 1px solid #eee;
-    font-size: 0.95rem;
-    color: #444;
-  }
-  ul.comments-list li b {
-    color: #2e7d32;
   }
 </style>
 
 <div class="container py-4">
-  <h2>Welcome, <%= user?.username %>!</h2>
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="fw-bold text-success">Welcome, <%= user?.username %>!</h2>
+    <a href="/api/v1/users/logout" class="btn btn-danger">Logout</a>
+  </div>
 
-  <form id="tweetForm">
-    <textarea name="content" placeholder="What's happening?" required></textarea>
-    <button type="submit">
-      <i class="bi bi-send-fill"></i> Tweet
-    </button>
-  </form>
+  <div class="tweet-form-card mb-4">
+    <form id="tweetForm" enctype="multipart/form-data">
+      <div class="mb-3">
+        <textarea name="content" class="form-control" placeholder="What's happening?" required rows="3"></textarea>
+      </div>
+      <div class="mb-3">
+        <input type="file" name="photo" accept="image/*" class="form-control" />
+      </div>
+      <button type="submit" class="btn btn-success d-flex align-items-center gap-2">
+        <i class="bi bi-send-fill"></i> Tweet
+      </button>
+    </form>
+  </div>
 
   <div id="tweets"></div>
 </div>
 
 <script>
   const socket = io();
-
   const defaultAvatar = 'https://cdn-icons-png.flaticon.com/512/847/847969.png';
+  const currentUserId = '<%= user?._id %>';
 
   function timeSince(date) {
-    // Placeholder function to convert date to human readable time ago
-    // Replace with actual timestamp from tweet.createdAt
     const seconds = Math.floor((new Date() - new Date(date)) / 1000);
     let interval = Math.floor(seconds / 31536000);
     if (interval > 1) return interval + " years ago";
@@ -206,8 +117,18 @@
 
     $('#tweetForm').on('submit', function (e) {
       e.preventDefault();
-      $.post('/api/v1/tweets/create', { content: $('textarea[name="content"]').val() }, function () {
-        $('textarea[name="content"]').val('');
+      const formData = new FormData(this);
+
+      $.ajax({
+        url: '/api/v1/tweets/create',
+        method: 'POST',
+        data: formData,
+        contentType: false,
+        processData: false,
+        success: function () {
+          $('textarea[name="content"]').val('');
+          $('input[name="photo"]').val('');
+        }
       });
     });
 
@@ -222,127 +143,79 @@
     function fetchTweets() {
       $.get('/api/v1/tweets/get', function (tweets) {
         $('#tweets').html('');
-        tweets.forEach(t => {
-          $('#tweets').append(renderTweet(t));
-        });
+        tweets.forEach(t => $('#tweets').append(renderTweet(t)));
       });
     }
 
-    // function renderTweet(tweet) {
-    //   const profilePic = tweet.author.profilePic || defaultAvatar;
-    //   const timeAgo = tweet.createdAt ? timeSince(tweet.createdAt) : '';
+    function renderTweet(tweet) {
+      const profilePic = tweet.author.profilePic || defaultAvatar;
+      const timeAgo = tweet.createdAt ? timeSince(tweet.createdAt) : '';
+      const userLiked = tweet.likes.some(id => id.toString() === currentUserId);
 
-    //   let html = `<div id="tweet-${tweet._id}" class="tweet-card">
-    //     <img src="${profilePic}" alt="User Avatar" class="profile-pic" />
-    //     <div class="tweet-content">
-    //       <div class="d-flex align-items-center mb-2">
-    //         <div class="tweet-author">
-    //           <i class="bi bi-person-circle"></i> ${tweet.author.username}
-    //         </div>
-    //         <div class="tweet-timestamp ms-auto text-muted">${timeAgo}</div>
-    //       </div>
-    //       <p class="tweet-text">${tweet.content}</p>
-    //       <button class="like-btn" data-id="${tweet._id}">
-    //         <i class="bi bi-heart-fill"></i>(${tweet.likes.length})
-    //       </button>
-
-    //       <form class="comment-form mt-3" data-id="${tweet._id}">
-    //         <input type="text" name="text" placeholder="Add comment" required />
-    //         <button type="submit" class="comment-btn">
-    //           <i class="bi bi-chat-left-text-fill"></i>
-    //         </button>
-    //       </form>
-
-    //       <ul class="comments-list mt-3">`;
-    //   tweet.comments.forEach(c => {
-    //     html += `<li><b>${c.user.username}</b>: ${c.text}</li>`;
-    //   });
-    //   html += `</ul></div></div>`;
-    //   return html;
-    // }
-
-    // $(document).on('click', '.like-btn', function () {
-    //   const id = $(this).data('id');
-    //   $.post(`/api/v1/tweets/like/${id}`);
-    // });
-
-    // $(document).on('submit', '.comment-form', function (e) {
-    //   e.preventDefault();
-    //   const id = $(this).data('id');
-    //   const text = $(this).find('input[name="text"]').val();
-    //   $.post(`/api/v1/tweets/comment/${id}`, { text }, function () {
-    //     $(e.target).find('input[name="text"]').val('');
-    //   });
-    // });
-
-    const currentUserId = '<%= user?._id %>'; // add this to your EJS from server
-
-function renderTweet(tweet) {
-  const profilePic = tweet.author.profilePic || defaultAvatar;
-  const timeAgo = tweet.createdAt ? timeSince(tweet.createdAt) : '';
-
-  const userLiked = tweet.likes.some(id => id.toString() === currentUserId);
-
-  let html = `<div id="tweet-${tweet._id}" class="tweet-card">
-    <img src="${profilePic}" alt="User Avatar" class="profile-pic" />
-    <div class="tweet-content">
-      <div class="d-flex align-items-center mb-2">
-        <div class="tweet-author">
-          <i class="bi bi-person-circle"></i> ${tweet.author.username}
+      let html = `<div id="tweet-${tweet._id}" class="tweet-card">
+        <div class="d-flex mb-2 align-items-center">
+          <img src="${profilePic}" class="profile-pic me-3" />
+          <div class="tweet-author">${tweet.author.username}</div>
+          <div class="ms-auto text-muted small fst-italic">${timeAgo}</div>
         </div>
-        <div class="tweet-timestamp ms-auto text-muted">${timeAgo}</div>
-      </div>
-      <p class="tweet-text">${tweet.content}</p>
-      <button class="like-btn" data-id="${tweet._id}" data-liked="${userLiked}">
-        <i class="bi bi-heart${userLiked ? '-fill text-danger' : ''}"></i>(${tweet.likes.length})
-      </button>
+        <hr/>
+        <div class="tweet-text">${tweet.content}</div>
+        <div class="text-center">${tweet.photo ? `<img src="${tweet.photo}" class="img-fluid tweet-image" />` : ''}</div>
+        <div class="mt-3">
+          <button class="btn btn-like btn-success me-2 like-btn" data-id="${tweet._id}" data-liked="${userLiked}">
+            <i class="bi bi-heart${userLiked ? '-fill text-danger' : ''}"></i> (${tweet.likes.length})
+          </button>
+        </div>
 
-      <form class="comment-form mt-3" data-id="${tweet._id}">
-        <input type="text" name="text" placeholder="Add comment" required />
-        <button type="submit" class="comment-btn">
-          <i class="bi bi-chat-left-text-fill"></i>
-        </button>
-      </form>
+        <form class="comment-form mt-3 d-flex" data-id="${tweet._id}">
+          <input type="text" name="text" class="form-control me-2" placeholder="Add comment" required />
+          <button type="submit" class="btn btn-comment btn-success">
+            <i class="bi bi-chat-left-text-fill"></i>
+          </button>
+        </form>
 
-      <ul class="comments-list mt-3">`;
-  
-  tweet.comments.forEach(c => {
-    html += `<li>
-      <b>${c.user.username}</b>: ${c.text}`;
-    if (c.user._id.toString() === currentUserId) {
-      html += ` <button class="btn btn-sm btn-outline-danger delete-comment-btn" data-tweet-id="${tweet._id}" data-comment-id="${c._id}" title="Delete comment">
-        <i class="bi bi-trash-fill"></i>
-      </button>`;
+        <ul class="comments-list mt-3">`;
+
+      tweet.comments.forEach(c => {
+        html += `<li><b>${c.user.username}</b>: ${c.text}`;
+        if (c.user._id.toString() === currentUserId) {
+          html += ` <button class="btn btn-sm btn-danger ms-2 delete-comment-btn" data-tweet-id="${tweet._id}" data-comment-id="${c._id}">
+            <i class="bi bi-trash-fill"></i>
+          </button>`;
+        }
+        html += `</li>`;
+      });
+
+      html += `</ul></div>`;
+      return html;
     }
-    html += `</li>`;
-  });
-  html += `</ul></div></div>`;
-  return html;
-}
 
-$(document).on('click', '.like-btn', function () {
-  const id = $(this).data('id');
-  const liked = $(this).data('liked');
+    $(document).on('click', '.like-btn', function () {
+      const btn = $(this);
+      const id = btn.data('id');
+      const liked = btn.data('liked');
+      const url = liked ? `/api/v1/tweets/unlike/${id}` : `/api/v1/tweets/like/${id}`;
+      $.post(url);
+    });
 
-  if (liked) {
-    $.post(`/api/v1/tweets/unlike/${id}`, function () {});
-  } else {
-    $.post(`/api/v1/tweets/like/${id}`, function () {});
-  }
-});
+    $(document).on('submit', '.comment-form', function (e) {
+      e.preventDefault();
+      const form = $(this);
+      const text = form.find('input[name="text"]').val().trim();
+      if (!text) return;
+      const tweetId = form.data('id');
+      $.post(`/api/v1/tweets/comment/${tweetId}`, { text }, function () {
+        form.find('input[name="text"]').val('');
+      });
+    });
 
-$(document).on('click', '.delete-comment-btn', function () {
-  const tweetId = $(this).data('tweet-id');
-  const commentId = $(this).data('comment-id');
-  $.ajax({
-    url: `/api/v1/tweets/${tweetId}/comment/${commentId}`,
-    type: 'DELETE',
-    success: function () {
-      // Optionally fetch tweets or update UI, here we'll fetch all again:
-      fetchTweets();
-    },
-  });
-});
-
+    $(document).on('click', '.delete-comment-btn', function () {
+      const tweetId = $(this).data('tweet-id');
+      const commentId = $(this).data('comment-id');
+      $.ajax({
+        url: `/api/v1/tweets/${tweetId}/comment/${commentId}`,
+        type: 'DELETE',
+      });
+    });
   });
 </script>

@@ -7,6 +7,7 @@ const getPopulatedTweet = async (tweetId) => {
     .populate("comments.user", "username");
 };
 
+
 const createTweet = (io) => async (req, res) => {
   try {
     const photoPath = req.file ? `/uploads/${req.file.filename}` : null;
@@ -18,6 +19,7 @@ const createTweet = (io) => async (req, res) => {
     });
 
     const populated = await getPopulatedTweet(tweet._id);
+    
     io.emit("newTweet", populated);
     res.status(201).json(populated);
   } catch (err) {

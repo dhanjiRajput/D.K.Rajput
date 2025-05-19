@@ -67,6 +67,14 @@
     padding: 8px 0;
     border-bottom: 1px solid #eee;
   }
+  .alert {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1050;
+    min-width: 250px;
+    transition: opacity 0.4s ease-out;
+  }
 </style>
 
 <div class="container py-4">
@@ -74,6 +82,9 @@
     <h2 class="fw-bold text-success">Welcome, <%= user?.username %>!</h2>
     <a href="/api/v1/users/logout" class="btn btn-danger">Logout</a>
   </div>
+
+  <!-- Alert Container -->
+  <div id="alert-container"></div>
 
   <div class="tweet-form-card mb-4">
     <form id="tweetForm" enctype="multipart/form-data">
@@ -112,6 +123,24 @@
     return "Just now";
   }
 
+  function showAlert(message, type = "success") {
+  const id = `alert-${Date.now()}`;
+  const alertHTML = `
+    <div id="${id}" class="alert alert-${type} alert-dismissible fade show" role="alert">
+      ${message}
+      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>`;
+  $('#alert-container').append(alertHTML);
+
+  // Fade out after 2.5 seconds, then remove after transition
+  setTimeout(() => {
+    $(`#${id}`).fadeOut(400, function () {
+      $(this).alert('close');
+    });
+  }, 2500);
+}
+
+
   $(document).ready(function () {
     fetchTweets();
 
@@ -128,6 +157,10 @@
         success: function () {
           $('textarea[name="content"]').val('');
           $('input[name="photo"]').val('');
+          showAlert("Tweet posted!", "success");
+        },
+        error: function () {
+          showAlert("Failed to post tweet!", "danger");
         }
       });
     });
@@ -138,6 +171,11 @@
 
     socket.on('tweet_updated', function (tweet) {
       $(`#tweet-${tweet._id}`).replaceWith(renderTweet(tweet));
+    });
+
+    socket.on("tweet_deleted", function (data) {
+      $(`#tweet-${data.tweetId}`).remove(); 
+      showAlert("Tweet deleted", "info");
     });
 
     function fetchTweets() {
@@ -161,19 +199,24 @@
         <hr/>
         <div class="tweet-text">${tweet.content}</div>
         <div class="text-center">${tweet.photo ? `<img src="${tweet.photo}" class="img-fluid tweet-image" />` : ''}</div>
-        <div class="mt-3">
+        <div class="mt-3 d-flex align-items-center">
           <button class="btn btn-like btn-success me-2 like-btn" data-id="${tweet._id}" data-liked="${userLiked}">
             <i class="bi bi-heart${userLiked ? '-fill text-danger' : ''}"></i> (${tweet.likes.length})
-          </button>
-        </div>
+          </button>`;
 
+      if (tweet.author._id?.toString() === currentUserId) {
+        html += `<button class="btn btn-danger btn-sm delete-tweet-btn ms-2" data-id="${tweet._id}">
+          <i class="bi bi-trash-fill"></i> Delete
+        </button>`;
+      }
+
+      html += `</div>
         <form class="comment-form mt-3 d-flex" data-id="${tweet._id}">
           <input type="text" name="text" class="form-control me-2" placeholder="Add comment" required />
           <button type="submit" class="btn btn-comment btn-success">
             <i class="bi bi-chat-left-text-fill"></i>
           </button>
         </form>
-
         <ul class="comments-list mt-3">`;
 
       tweet.comments.forEach(c => {
@@ -215,6 +258,23 @@
       $.ajax({
         url: `/api/v1/tweets/${tweetId}/comment/${commentId}`,
         type: 'DELETE',
+        success: () => showAlert("Comment deleted", "warning"),
+        error: () => showAlert("Failed to delete comment", "danger"),
+      });
+    });
+
+    $(document).on("click", ".delete-tweet-btn", function () {
+      const tweetId = $(this).data("id");
+      $.ajax({
+        url: `/api/v1/tweets/${tweetId}`,
+        type: "DELETE",
+        success: function (res) {
+          console.log("Tweet deleted:", res);
+        },
+        error: function (err) {
+          console.error("Failed to delete tweet", err);
+          showAlert("Failed to delete tweet", "danger");
+        }
       });
     });
   });

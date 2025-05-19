@@ -1,5 +1,5 @@
 const {Router} = require('express');
-const { createTweet, getTweets, likeTweet, commentTweet, unlikeTweet, deleteComment } = require('../controllers/twitter.controller');
+const { createTweet, getTweets, likeTweet, commentTweet, unlikeTweet, deleteComment, deleteTweet } = require('../controllers/twitter.controller');
 const requireLogin = require('../middleware/require.login');
 const upload = require('../utils/upload');
 
@@ -12,6 +12,7 @@ module.exports = (io) => {
   twitterRoutes.post('/unlike/:id',unlikeTweet(io));
   twitterRoutes.post('/comment/:id',requireLogin,commentTweet(io));
   twitterRoutes.delete('/:tweetId/comment/:commentId',deleteComment(io));
+  twitterRoutes.delete('/:id',deleteTweet(io));
 
   
   return twitterRoutes;

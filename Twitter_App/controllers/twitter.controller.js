@@ -42,6 +42,29 @@ const getTweets = async (req, res) => {
   }
 };
 
+const deleteTweet = (io) => async (req, res) => {
+  try {
+    const tweet = await Tweet.findById(req.params.id);
+
+    if (!tweet) {
+      return res.status(404).json({ message: "Tweet not found"});
+    }
+
+    if (tweet.author.toString() !== req.session.userId) {
+      return res.status(403).json({ message: "Unauthorized: Not your tweet"});
+    }
+
+    await Tweet.findByIdAndDelete(req.params.id);
+
+    io.emit("tweet_deleted", { tweetId: tweet._id });
+    res.json({ message: "Tweet deleted", tweetId: tweet._id });
+  } catch (err) {
+    console.error("Error deleting tweet:", err);
+    res.status(500).json({ message: "Failed to delete tweet", error: err.message });
+  }
+};
+
+
 const likeTweet = (io) => async (req, res) => {
   try {
     const tweet = await Tweet.findById(req.params.id);
@@ -128,4 +151,5 @@ module.exports = {
   unlikeTweet,
   commentTweet,
   deleteComment,
+  deleteTweet
 };

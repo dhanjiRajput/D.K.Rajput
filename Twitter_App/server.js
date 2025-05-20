@@ -5,6 +5,7 @@ const session = require('express-session');
 const sharedSession = require('express-socket.io-session');
 const cors = require('cors');
 const { Server } = require('socket.io');
+const flash = require("connect-flash");
 const engine = require('ejs-mate');
 require('dotenv').config();
 
@@ -43,6 +44,13 @@ const sessionMiddleware = session({
 app.use(sessionMiddleware);
 io.use(sharedSession(sessionMiddleware, { autoSave: true }));
 
+app.use(flash());
+
+app.use((req, res, next) => {
+  res.locals.success_msg = req.flash("success_msg");
+  res.locals.error_msg = req.flash("error_msg");
+  next();
+});
 
 
 // ========== Home Routes ==========

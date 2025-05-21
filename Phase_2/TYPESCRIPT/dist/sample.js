@@ -14,4 +14,10 @@ const users = [
         age: 30,
     },
 ];
-const filterByPeoples = (arr, property, value) => { };
+const filterByPeoples = (arr, property, value) => {
+    return arr.filter((item) => item[property] === value);
+};
+const filterByPeopleName = filterByPeoples(users, "name", "dk");
+const filterByPeopleAge = filterByPeoples(users, "age", 29);
+console.log(filterByPeopleName);
+console.log(filterByPeopleAge);

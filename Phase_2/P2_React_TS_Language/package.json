@@ -1,5 +1,5 @@
 {
-  "name": "p1-react-ts-todo",
+  "name": "p2-react-ts-language",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -12,11 +12,19 @@
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
+    "@fontsource/roboto": "^5.2.5",
     "@mui/icons-material": "^7.1.0",
     "@mui/material": "^7.1.0",
     "@mui/styled-engine-sc": "^7.1.0",
+    "@reduxjs/toolkit": "^2.8.2",
+    "@types/lodash": "^4.17.17",
+    "axios": "^1.9.0",
+    "lodash": "^4.17.21",
+    "random-words": "^2.0.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-redux": "^9.2.0",
+    "react-router-dom": "^7.6.0",
     "styled-components": "^6.1.18"
   },
   "devDependencies": {

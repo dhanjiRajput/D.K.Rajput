@@ -1,0 +1,35 @@
+Project About User Authentication using Typescript, nodejs, express
+
+Terminal Command used:
+    npm i -y        - used for install all node package managers
+    npm i express   - used for install express
+    npm i -D typescript ts-node nodemon @types/node @types/express
+    npm tsc --init
+    npm i -D concurrently
+
+
+Configure file should be like:
+    {
+        "compilerOptions": 
+        {
+            "target": "ES6",                                  /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
+            "module": "commonjs",                                /* Specify what module code is generated. */
+            "rootDir": "./src",                                  /* Specify the root folder within your source files. */
+            "outDir": "./dist",
+            "moduleResolution": "node",                     /* Specify how TypeScript looks up a file from a given module specifier. */
+            "esModuleInterop": true,                             /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */
+            "forceConsistentCasingInFileNames": true,            /* Ensure that casing is correct in imports. */
+            "strict": true,                                      /* Enable all strict type-checking options. */
+            "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
+        }
+    }
+
+
+Run both file automatically designed scripts in package.json
+    "scripts": {
+        "dev": "concurrently \"npm run ts-watch\" \"nodemon src/app.ts\"",
+        "ts-watch": "tsc --watch",
+        "build": "tsc",
+        "start": "node dist/app.js"
+    },
+

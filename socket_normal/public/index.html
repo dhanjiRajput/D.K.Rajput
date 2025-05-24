@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Socket.IO Chat</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <style>
+    body { margin: 0; padding-bottom: 3rem; font-family: sans-serif; }
+    #form { position: fixed; bottom: 0; left: 0; right: 0; background: #eee; display: flex; padding: 10px; }
+    #input { flex: 1; padding: 10px; border-radius: 5px; border: 1px solid #ccc; }
+    #form button { padding: 10px; }
+    #messages { list-style: none; padding: 20px; margin: 0; }
+    #messages li { padding: 5px; }
+  </style>
+</head>
+<body>
+  <ul id="messages"></ul>
+  <form id="form">
+    <input id="input" autocomplete="off" /><button>Send</button>
+  </form>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+    const form = document.getElementById('form');
+    const input = document.getElementById('input');
+    const messages = document.getElementById('messages');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      if (input.value) {
+        socket.emit('user1', input.value);
+        input.value = '';
+      }
+    });
+
+    socket.on('user2', function(msg) {
+      console.log('Received from server:', msg);
+      const li = document.createElement('li');
+      li.textContent = msg;
+      messages.appendChild(li);
+    });
+  </script>
+</body>
+</html>

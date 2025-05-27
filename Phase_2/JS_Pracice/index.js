@@ -256,10 +256,155 @@
 //     });
 //   }
 
+//Print data next by next
+// function getData(data,nextDatta){
+//     console.log(`Data ${data} is Fetching...`);
+//     setTimeout(() => {
+//         console.log(data);
+//         nextDatta();
+//     },2000);
+// };
+// //This is a Callback Hell(Nested Callback)
+// getData(1,()=>{
+//     getData(2,()=>{
+//         getData(3,()=>console.log("You Fetched All Data..."));
+//     })
+// })
+
+// let promise=new Promise((resolve,reject)=>{
+//     console.log("i am Promise");
+//     reject("fail");
+// });
+// console.log(promise);
+
+
+// function getData(data){
+//     return promise=new Promise((resolve,reject)=>{
+//         setTimeout(()=>{
+//             console.log(data);
+//             resolve("successs get Data");
+//         },5000)
+//     })
+// };
+
+// getData(123);
+// promise.then((result) => {
+//     console.log("success");
+// }).catch((err) => {
+//     console.log("Failed...");
+// });
+
+// promise chaining
+// function getData(data){
+//     console.log(`Data is fetching....`);
+    
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(()=>{
+//             console.log(data);
+//             resolve("successs get Data");
+//         },2000)
+//     });
+    
+// };
+
+// getData(123)
+//     .then((res)=> getData(456))
+//     .then((res)=> getData(789))
+//     .then((res)=> getData(1011))
+//     .then((res)=> getData(1213))
+
+
+// async await
+// function getData(data){
+//     console.log(`Data is fetching....`);
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(()=>{
+//             console.log(data);
+//             resolve("successs get Data");
+//         },2000)
+//     });
+// };
+
+// async function getAllData() {
+//     await getData(123);
+//     await getData(456);
+//     await getData(789);
+// }
 
 // codes  => call Stack  => starting Execute
             // (if in call stack we will get the asychnous function like settimeout function etc..)
             //              => Web Api   => Task Queu (this resolve timer function)
             //                           => Miecro Task Queu (this resolve primise)  
                         
+
+// function Person(fname,lname,contact){
+//     this.fname=fname;
+//     this.lname=lname;
+//     this.contact=contact;
+//     this.getName=function(){
+//         console.log(this.fname,this.lname);
+//     }
+// };
+
+// const p1=new Person("DK","Rajput","4343434");
+
+
+// console.log(p1);
+
+
+// const p1={
+//     fname:"dk",
+//     lname:"rajput",
+//     getFullName(){
+//         return `${this.fname}  ${this.lname}`
+//     }
+// };
+
+// const p2=Object.create(p1);
+
+// console.log("P1 is :",p1);
+// console.log("P2 is :",p2);
+
+
+// function makeIterator(start=0,end=Infinity,step=1){
+//     let nextStart=start;
+//     let iterationCount=0;
+
+//     return{
+//         next(){
+//             let result;
+//             if(iterationCount<end){
+//                 result={value:nextStart,done:false}
+//                 nextStart=nextStart+step;
+//                 iterationCount++;
+//                 return result;
+//             }
+//             return {value:iterationCount,done:true}
+//         }
+//     }
+// }
+
+// const myIterator=makeIterator(15,20,1);
+// let result=myIterator.next();
+
+// while(!result.done){
+//     console.log(result.value);
+//     result=myIterator.next();
+// }
+
+//Genrators 
+
+// function* makeMyIterator(start,end){
+//     for(let i=start;i<=end;i++){
+//         yield i;
+//     }
+// }
+
+// const one=makeMyIterator(10,20)
+
+// for(const val of one){
+//     console.log(val);
+// }
+
+
 

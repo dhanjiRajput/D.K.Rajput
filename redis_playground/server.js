@@ -12,6 +12,14 @@ app.get('/',async(req,res)=>{
 
  await client.set("todos",JSON.stringify(data));
  client.expire("todos",30);
+
+  let secondsLeft = 30;
+    const interval = setInterval(() => {
+        console.log(`Data will expire in ${secondsLeft} seconds`);
+        secondsLeft--;
+        if (secondsLeft <= 0) clearInterval(interval);
+    }, 1000);
+ 
  return res.json(data);
 })
 

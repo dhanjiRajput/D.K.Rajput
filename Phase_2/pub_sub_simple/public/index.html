@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Live Notifications</title>
+  <title>Redis Pub/Sub with Socket.IO</title>
 </head>
 <body>
-  <h2>Live Notifications</h2>
-  <ul id="notifications"></ul>
+  <h1>Messages:</h1>
+  <ul id="messages"></ul>
 
   <script src="/socket.io/socket.io.js"></script>
   <script>
     const socket = io();
-    socket.on('notification', (msg) => {
+    const messages = document.getElementById('messages');
+
+    socket.on('chat-message', (msg) => {
       const li = document.createElement('li');
       li.textContent = msg;
-      document.getElementById('notifications').appendChild(li);
+      messages.appendChild(li);
     });
   </script>
 </body>

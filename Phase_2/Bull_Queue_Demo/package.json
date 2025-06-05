@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@bull-board/ui": "^6.9.6",
+    "bull": "^4.16.5",
+    "dotenv": "^16.5.0"
+  },
+  "type": "module"
+}

@@ -13,7 +13,7 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 setInterval(() => {
     publishNotification(`Notification at ${new Date().toLocaleTimeString()}`);
-},1000);
+},5000);
 
 io.on('connection', (socket) => {
     console.log('Client Connected:', socket.id);

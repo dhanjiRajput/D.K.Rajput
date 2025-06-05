@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <div class="container mt-5">
+      <h1>Add Blog</h1>
+      <form action="/upload" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="profilePicture">Cover Image</label>
+          <input type="file" id="profilePicture" name="profilePicture" class="form-control-file" required />
+        </div>
+        <div class="form-group">
+          <label for="title">Blog Title</label>
+          <input type="text" id="title" name="title" class="form-control" required />
+        </div>
+        <button type="submit" class="btn btn-primary">Add Blog</button>
+      </form>
+    </div>
+</body>
+</html>

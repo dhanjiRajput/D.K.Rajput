@@ -1,9 +1,9 @@
 const {Router} = require('express');
 const { createBlog, getPage } = require('../controllers/user.controller');
 const uploads = require('../utils/multer');
-const routerss = Router();
+const userRoutes = Router();
 
-routerss.get("/",getPage);
-routerss.post("/upload",uploads.single('profilePicture'),createBlog);
+userRoutes.get("/upload",getPage);
+userRoutes.post("/upload",uploads.single('profilePicture'),createBlog);
 
-module.exports = routerss;
+module.exports = userRoutes;

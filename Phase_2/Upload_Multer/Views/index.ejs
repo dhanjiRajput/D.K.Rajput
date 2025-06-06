@@ -1,24 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog Upload</title>
+  <!-- Bootstrap 5 CSS CDN -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .card-img-top {
+    max-height: 800px;
+    width: 100%;
+    object-fit: contain;
+  }
+    h1 {
+      font-weight: bold;
+      color: #343a40;
+    }
+    .container {
+      padding-top: 30px;
+    }
+  </style>
 </head>
 <body>
-     <div class="container mt-5">
-      <h1>Add Blog</h1>
-      <form action="/upload" method="POST" enctype="multipart/form-data">
-        <div class="form-group">
-          <label for="profilePicture">Cover Image</label>
-          <input type="file" id="profilePicture" name="profilePicture" class="form-control-file" required />
+
+  <div class="container">
+    <h1 class="text-center mb-4">Add Blog</h1>
+    <form action="/upload" method="POST" enctype="multipart/form-data" class="border p-4 bg-white shadow-sm rounded">
+      <div class="mb-3">
+        <label for="profilePicture" class="form-label">Cover Image</label>
+        <input type="file" id="profilePicture" name="profilePicture" class="form-control" required />
+      </div>
+      <div class="mb-3">
+        <label for="title" class="form-label">Blog Title</label>
+        <input type="text" id="title" name="title" class="form-control" required />
+      </div>
+      <button type="submit" class="btn btn-primary">Add Blog</button>
+    </form>
+  </div>
+
+  <div class="container">
+    <h2 class="mt-5 mb-3">Uploaded Blogs</h2>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+      <% if (Array.isArray(data)) { %>
+        <% data.forEach(element => { %>
+          <div class="col">
+            <div class="card shadow-lg border-0 h-100">
+              <img src="<%= element.profilePicture %>" class="card-img-top img-fluid" alt="Blog Image" />
+
+              <div class="card-body d-flex flex-column justify-content-between">
+                <h5 class="card-title text-primary fw-bold"><%= element.title %></h5>
+              </div>
+            </div>
+          </div>
+        <% }) %>
+      <% } else { %>
+        <div class="col-12">
+          <p class="text-muted">No blog data available.</p>
         </div>
-        <div class="form-group">
-          <label for="title">Blog Title</label>
-          <input type="text" id="title" name="title" class="form-control" required />
-        </div>
-        <button type="submit" class="btn btn-primary">Add Blog</button>
-      </form>
+      <% } %>
     </div>
+  </div>
+
+  <!-- Bootstrap JS (optional) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -1,7 +1,13 @@
 const User = require("../models/user.model");
 
-exports.getPage = (req, res) => {
-    res.render("index");
+exports.getPage = async (req, res) => {
+  try {
+    const data = await User.find(); // assuming Mongoose
+    res.render('index', { data }); // this must be an array
+  } catch (err) {
+    console.error(err);
+    res.render('index', { data: [] }); // fallback to empty array
+  }
 };
 
 exports.createBlog = async (req, res) => {
@@ -9,6 +15,6 @@ exports.createBlog = async (req, res) => {
     const blog=await User.create({
         title,
         profilePicture: `/uploads/${req.file.filename}`,
-    })
-    res.send("Successfully created blog");
+    });
+    res.redirect("http://localhost:3000/upload");
 };

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<!-- index.html -->
+<script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+<script>
+  const socket = io("http://localhost:5000");
+
+  // Register user after connection
+  socket.emit('register', {
+    userId: 'user42',
+    tableId: 'table7'
+  });
+
+  // Send message
+  socket.emit('send-message', 'Hello everyone at table 7!');
+
+  // Listen for messages
+  socket.on('receive-message', ({ userId, message }) => {
+    console.log(`${userId} says: ${message}`);
+  });
+</script>
+
+</html>

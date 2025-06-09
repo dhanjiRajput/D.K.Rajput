@@ -1,0 +1,3208 @@
+[
+  {
+    "name": "Oorja Golla",
+    "house_number": "H.No. 08",
+    "city": "Pune",
+    "state": "Sikkim",
+    "pincode": "889776",
+    "email": "smann@yahoo.com",
+    "phone": "+912813684378",
+    "gender": "Male",
+    "dob": "1971-11-11",
+    "orders": [
+      {
+        "order_id": "d9b89e2f-56f1-4c23-ab8e-f31243cd7441",
+        "order_date": "2023-09-25",
+        "products": [
+          {
+            "product_name": "Backpack",
+            "category": "Accessories",
+            "price": 69.0,
+            "quantity": 1
+          },
+          {
+            "product_name": "Notebook",
+            "category": "Stationery",
+            "price": 84.56,
+            "quantity": 3
+          },
+          {
+            "product_name": "Bluetooth Speaker",
+            "category": "Electronics",
+            "price": 252.56,
+            "quantity": 2
+          },
+          {
+            "product_name": "Notebook",
+            "category": "Stationery",
+            "price": 413.07,
+            "quantity": 2
+          }
+        ]
+      },
+      {
+        "order_id": "d2cdd6dc-d6c4-4b4e-8b7d-5bcd213833f6",
+        "order_date": "2024-06-17",
+        "products": [
+          {
+            "product_name": "Denim Jacket",
+            "category": "Clothing",
+            "price": 160.44,
+            "quantity": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Tara Anand",
+    "house_number": "113",
+    "city": "Miryalaguda",
+    "state": "Odisha",
+    "pincode": "456140",
+    "email": "balanika@chowdhury-mani.com",
+    "phone": "08549965883",
+    "gender": "Male",
+    "dob": "2005-10-18",
+    "orders": [
+      {
+        "order_id": "fea3d09d-58e6-4760-9e67-9693ccfec5b8",
+        "order_date": "2023-08-10",
+        "products": [
+          {
+            "product_name": "Backpack",
+            "category": "Accessories",
+            "price": 82.51,
+            "quantity": 3
+          }
+        ]
+      },
+      {
+        "order_id": "c2d132b9-0417-428a-91f3-92e468dc1c2a",
+        "order_date": "2025-02-16",
+        "products": [
+          {
+            "product_name": "Coffee Maker",
+            "category": "Home Appliances",
+            "price": 339.27,
+            "quantity": 3
+          },
+          {
+            "product_name": "Yoga Mat",
+            "category": "Fitness",
+            "price": 80.62,
+            "quantity": 1
+          },
+          {
+            "product_name": "Sneakers",
+            "category": "Footwear",
+            "price": 288.44,
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "order_id": "19196fcf-9fcb-4c1c-bf2d-71ad0b5c9f0b",
+        "order_date": "2023-12-15",
+        "products": [
+          {
+            "product_name": "Wireless Mouse",
+            "category": "Electronics",
+            "price": 198.37,
+            "quantity": 1
+          },
+          {
+            "product_name": "Coffee Maker",
+            "category": "Home Appliances",
+            "price": 497.86,
+            "quantity": 3
+          },
+          {
+            "product_name": "Bluetooth Speaker",
+            "category": "Electronics",
+            "price": 256.03,
+            "quantity": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Sana Rama",
+    "house_number": "12",
+    "city": "Indore",
+    "state": "Tamil Nadu",
+    "pincode": "184664",
+    "email": "berashaan@roy.org",
+    "phone": "4980193537",
+    "gender": "Male",
+    "dob": "1975-08-20",
+    "orders": [
+      {
+        "order_id": "aab7be0c-567e-4b1c-a2be-354e7ddcafcd",
+        "order_date": "2024-05-25",
+        "products": [
+          {
+            "product_name": "Sunglasses",
+            "category": "Accessories",
+            "price": 69.24,
+            "quantity": 2
+          },
+          {
+            "product_name": "Sunglasses",
+            "category": "Accessories",
+            "price": 350.96,
+            "quantity": 1
+          },
+          {
+            "product_name": "Denim Jacket",
+            "category": "Clothing",
+            "price": 259.57,
+            "quantity": 3
+          },
+          {
+            "product_name": "Smart Watch",
+            "category": "Electronics",
+            "price": 82.96,
+            "quantity": 1
+          },
+          {
+            "product_name": "Denim Jacket",
+            "category": "Clothing",
+            "price": 484.27,
+            "quantity": 2
+          }
+        ]
+      },
+      {
+        "order_id": "935cfde8-0e7c-4fd1-8ff7-c4d89bba2156",
+        "order_date": "2025-05-27",
+        "products": [
+          {
+            "product_name": "Coffee Maker",
+            "category": "Home Appliances",
+            "price": 151.93,
+            "quantity": 1
+          },
+          {
+            "product_name": "Sunglasses",
+            "category": "Accessories",
+            "price": 262.52,
+            "quantity": 1
+          },
+          {
+            "product_name": "Denim Jacket",
+            "category": "Clothing",
+            "price": 306.14,
+            "quantity": 2
+          },
+          {
+            "product_name": "Notebook",
+            "category": "Stationery",
+            "price": 238.67,
+            "quantity": 3
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Oorja Rattan",
+    "house_number": "01/708",
+    "city": "Bathinda",
+    "state": "Sikkim",
+    "pincode": "180133",
+    "email": "babusumer@yahoo.com",
+    "phone": "+915520081355",
+    "gender": "Male",
+    "dob": "1977-11-21",
+    "orders": [
+      {
+        "order_id": "8f808652-9fac-4594-9448-5575f152e9ac",
+        "order_date": "2023-07-19",
+        "products": [
+          {
+            "product_name": "Yoga Mat",
+            "category": "Fitness",
+            "price": 120.77,
+            "quantity": 1
+          },
+          {
+            "product_name": "Smart Watch",
+            "category": "Electronics",
+            "price": 457.8,
+            "quantity": 3
+          },
+          {
+            "product_name": "Coffee Maker",
+            "category": "Home Appliances",
+            "price": 405.71,
+            "quantity": 3
+          },
+          {
+            "product_name": "Backpack",
+            "category": "Accessories",
+            "price": 384.41,
+            "quantity": 3
+          },
+          {
+            "product_name": "Wireless Mouse",
+            "category": "Electronics",
+            "price": 413.86,
+            "quantity": 2
+          }
+        ]
+      },
+      {
+        "order_id": "cf5c8f98-b2a0-4992-b95f-6b532bdf8032",
+        "order_date": "2025-01-14",
+        "products": [
+          {
+            "product_name": "Wireless Mouse",
+            "category": "Electronics",
+            "price": 396.85,
+            "quantity": 2
+          },
+          {
+            "product_name": "Coffee Maker",
+            "category": "Home Appliances",
+            "price": 227.18,
+            "quantity": 1
+          },
+          {
+            "product_name": "Bluetooth Speaker",
+            "category": "Electronics",
+            "price": 55.19,
+            "quantity": 2
+          },
+          {
+            "product_name": "Notebook",
+            "category": "Stationery",
+            "price": 257.33,
+            "quantity": 3
+          },
+          {
+            "product_name": "Sneakers",
+            "category": "Footwear",
+            "price": 488.75,
+            "quantity": 2
+          }
+        ]
+      },
+      {
+        "order_id": "b12940b7-d15b-4923-9a04-ca4335d976a1",
+        "order_date": "2024-06-15",
+        "products": [
+          {
+            "product_name": "Bluetooth Speaker",
+            "category": "Electronics",
+            "price": 225.5,
+            "quantity": 3
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Gokul Saxena",
+    "house_number": "070",
+    "city": "Adoni",
+    "state": "Madhya Pradesh",
+    "pincode": "473286",
+    "email": "pari01@brar-trivedi.net",
+    "phone": "+919583505591",
+    "gender": "Female",
+    "dob": "1974-06-07",
+    "orders": [
+      {
+        "order_id": "99ed6bf2-6664-4fa8-9590-ba1479b39985",
+        "order_date": "2024-08-11",
+        "products": [
+          {
+            "product_name": "Sneakers",
+            "category": "Footwear",
+            "price": 330.77,
+            "quantity": 1
+          },
+          {
+            "product_name": "Notebook",
+            "category": "Stationery",
+            "price": 294.34,
+            "quantity": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Anvi Barad",
+    "house_number": "470",
+    "city": "Dhule",
+    "state": "Tripura",
+    "pincode": "612558",
+    "email": "rasha87@bandi-jhaveri.com",
+    "phone": "02137548249",
+    "gender": "Female",
+    "dob": "1992-10-08",
+    "orders": [
+      {
+        "order_id": "e4db1cc7-97a8-4cd8-980b-80e851eaacd8",
+        "order_date": "2024-10-11",
+        "products": [
+          {
+            "product_name": "Coffee Maker",
+            "category": "Home Appliances",
+            "price": 37.16,
+            "quantity": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Suhana Kar",
+    "house_number": "H.No. 853",
+    "city": "Rampur",
+    "state": "Madhya Pradesh",
+    "pincode": "034879",
+    "email": "tara59@yahoo.com",
+    "phone": "05834168500",
+    "gender": "Female",
+    "dob": "2005-08-15",
+    "orders": [
+      {
+        "order_id": "34e2835f-5f0d-4941-a1b9-74324785d7a4",
+        "order_date": "2024-08-08",
+        "products": [
+          {
+            "product_name": "Smart Watch",
+            "category": "Electronics",
+            "price": 91.48,
+            "quantity": 1
+          },
+          {
+            "product_name": "Bluetooth Speaker",
+            "category": "Electronics",
+            "price": 438.39,
+            "quantity": 1
+          },
+          {
+            "product_name": "Sneakers",
+            "category": "Footwear",
+            "price": 35.42,
+            "quantity": 2
+          }
+        ]
+      },
+      {
+        "order_id": "12cb3e34-815e-4995-a5a4-b3dc46755609",
+        "order_date": "2024-07-11",
+        "products": [
+          {
+            "product_name": "Backpack",
+            "category": "Accessories",
+            "price": 429.08,
+            "quantity": 2
+          },
+          {
+            "product_name": "Smart Watch",
+            "category": "Electronics",
+            "price": 423.27,
+            "quantity": 3
+          },
+          {
+            "product_name": "Backpack",
+            "category": "Accessories",
+            "price": 403.65,
+            "quantity": 1
+          },
+          {
+            "product_name": "Backpack",
+            "category": "Accessories",
+            "price": 64.48,
+            "quantity": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Priyansh Shan",
+    "house_number": "609",
+    "city": "Nandyal",
+    "state": "Tamil Nadu",
+    "pincode": "696551",
+    "email": "anahitakorpal@yahoo.com",
+    "phone": "+911402895230",
+    "gender": "Male",
+    "dob": "1988-06-23",
+    "orders": [
+      {
+        "order_id": "11dff7f0-731e-44f7-a1a5-cf3e0cd6542b",
+        "order_date": "2025-04-20",
+        "products": [
+          {
+            "product_name": "Smart Watch",
+            "category": "Electronics",
+            "price": 241.62,
+            "quantity": 2
+          },
+          {
+            "product_name": "Bluetooth Speaker",
+            "category": "Electronics",
+            "price": 479.38,
+            "quantity": 1
+          },
+          {
+            "product_name": "Coffee Maker",
+            "category": "Home Appliances",
+            "price": 314.73,
+            "quantity": 1
+          },
+          {
+            "product_name": "Bluetooth Speaker",
+            "category": "Electronics",
+            "price": 300.71,
+            "quantity": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Vedika Bera",
+    "house_number": "071",
+    "city": "Hyderabad",
+    "state": "Nagaland",
+    "pincode": "062531",
+    "email": "choudhryaaina@hotmail.com",
+    "phone": "7635174979",
+    "gender": "Male",
+    "dob": "2000-04-16",
+    "orders": [
+      {
+        "order_id": "9ca4b605-423b-4859-9957-956f55fbae2e",
+        "order_date": "2025-04-03",
+        "products": [
+          {
+            "product_name": "Yoga Mat",
+            "category": "Fitness",
+            "price": 113.58,
+            "quantity": 1
+          },
+          {
+            "product_name": "Sunglasses",
+            "category": "Accessories",
+            "price": 272.92,
+            "quantity": 3
+          },
+          {
+            "product_name": "Yoga Mat",
+            "category": "Fitness",
+            "price": 91.17,
+            "quantity": 2
+          },
+          {
+            "product_name": "Wireless Mouse",
+            "category": "Electronics",
+            "price": 158.62,
+            "quantity": 3
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Umang Chowdhury",
+    "house_number": "07/514",
+    "city": "Sonipat",
+    "state": "Gujarat",
+    "pincode": "421598",
+    "email": "lallajiya@yahoo.com",
+    "phone": "+917558582086",
+    "gender": "Female",
+    "dob": "1974-09-12",
+    "orders": [
+      {
+        "order_id": "1e5405c7-fe10-4242-be15-bd3e86083a25",
+        "order_date": "2023-07-03",
+        "products": [
+          {
+            "product_name": "Wireless Mouse",
+            "category": "Electronics",
+            "price": 497.11,
+            "quantity": 1
+          },
+          {
+            "product_name": "Coffee Maker",
+            "category": "Home Appliances",
+            "price": 469.04,
+            "quantity": 3
+          },
+          {
+            "product_name": "Yoga Mat",
+            "category": "Fitness",
+            "price": 489.6,
+            "quantity": 1
+          },
+          {
+            "product_name": "Notebook",
+            "category": "Stationery",
+            "price": 294.63,
+            "quantity": 3
+          },
+          {
+            "product_name": "Coffee Maker",
+            "category": "Home Appliances",
+            "price": 190.18,
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "order_id": "47639bf3-1b43-4545-afd4-5505499dab72",
+        "order_date": "2025-06-02",
+        "products": [
+          {
+            "product_name": "Smart Watch",
+            "category": "Electronics",
+            "price": 129.84,
+            "quantity": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Onkar Shere",
+    "house_number": "H.No. 80",
+    "city": "Bihar Sharif",
+    "state": "Odisha",
+    "pincode": "894511",
+    "email": "oorja21@yahoo.com",
+    "phone": "7436566782",
+    "gender": "Female",
+    "dob": "1989-03-21",
+    "orders": [
+      {
+        "order_id": "77b32589-57a7-4cce-8ba2-1c67daa381cb",
+        "order_date": "2023-11-19",
+        "products": [
+          {
+            "product_name": "Notebook",
+            "category": "Stationery",
+            "price": 232.05,
+            "quantity": 3
+          },
+          {
+            "product_name": "Sneakers",
+            "category": "Footwear",
+            "price": 227.66,
+            "quantity": 3
+          },
+          {
+            "product_name": "Sunglasses",
+            "category": "Accessories",
+            "price": 382.25,
+            "quantity": 2
+          }
+        ]
+      },
+      {
+        "order_id": "1f0b2b90-588b-4aa4-867d-73f37f3d4603",
+        "order_date": "2025-04-19",
+        "products": [
+          {
+            "product_name": "Denim Jacket",
+            "category": "Clothing",
+            "price": 154.4,
+            "quantity": 1
+          },
+          {
+            "product_name": "Smart Watch",
+            "category": "Electronics",
+            "price": 177.41,
+            "quantity": 3
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Madhav Dua",
+    "house_number": "85/45",
+    "city": "Mira-Bhayandar",
+    "state": "Bihar",
+    "pincode": "054958",
+    "email": "nehmatsen@gmail.com",
+    "phone": "+913284121882",
+    "gender": "Male",
+    "dob": "1969-05-20",
+    "orders": [
+      {
+        "order_id": "4e8cdce1-2851-4f56-a365-da017785f69f",
+        "order_date": "2024-08-27",
+        "products": [
+          {
+            "product_name": "Coffee Maker",
+            "category": "Home Appliances",
+            "price": 294.1,
+            "quantity": 3
+          },
+          {
+            "product_name": "Denim Jacket",
+            "category": "Clothing",
+            "price": 51.17,
+            "quantity": 3
+          },
+          {
+            "product_name": "Notebook",
+            "category": "Stationery",
+            "price": 40.79,
+            "quantity": 2
+          },
+          {
+            "product_name": "Backpack",
+            "category": "Accessories",
+            "price": 245.97,
+            "quantity": 3
+          },
+          {
+            "product_name": "Sunglasses",
+            "category": "Accessories",
+            "price": 499.25,
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "order_id": "b89e7a4e-3a6f-463d-97b6-0a0caa7c5816",
+        "order_date": "2024-07-30",
+        "products": [
+          {
+            "product_name": "Sneakers",
+            "category": "Footwear",
+            "price": 397.49,
+            "quantity": 2
+          },
+          {
+            "product_name": "Sneakers",
+            "category": "Footwear",
+            "price": 364.44,
+            "quantity": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Rohan Thakkar",
+    "house_number": "756",
+    "city": "Berhampore",
+    "state": "Karnataka",
+    "pincode": "867980",
+    "email": "vidur74@bahl.com",
+    "phone": "6424297887",
+    "gender": "Female",
+    "dob": "2006-07-21",
+    "orders": [
+      {
+        "order_id": "e746a96d-be8e-400a-a0d9-699dfebb02b8",
+        "order_date": "2024-07-16",
+        "products": [
+          {
+            "product_name": "Smart Watch",
+            "category": "Electronics",
+            "price": 278.6,
+            "quantity": 1
+          },
+          {
+            "product_name": "Bluetooth Speaker",
+            "category": "Electronics",
+            "price": 299.76,
+            "quantity": 3
+          },
+          {
+            "product_name": "Bluetooth Speaker",
+            "category": "Electronics",
+            "price": 127.31,
+            "quantity": 3
+          },
+          {
+            "product_name": "Smart Watch",
+            "category": "Electronics",
+            "price": 316.96,
+            "quantity": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Yasmin Dua",
+    "house_number": "844",
+    "city": "Bidhannagar",
+    "state": "Kerala",
+    "pincode": "159084",
+    "email": "balayfateh@kulkarni.com",
+    "phone": "04023412912",
+    "gender": "Male",
+    "dob": "1979-06-16",
+    "orders": [
+      {
+        "order_id": "349cd4ad-84ba-415a-982f-7badf0f205fd",
+        "order_date": "2023-07-05",
+        "products": [
+          {
+            "product_name": "Sunglasses",
+            "category": "Accessories",
+            "price": 389.28,
+            "quantity": 1
+          },
+          {
+            "product_name": "Sunglasses",
+            "category": "Accessories",
+            "price": 129.57,
+            "quantity": 1
+          },
+          {
+            "product_name": "Wireless Mouse",
+            "category": "Electronics",
+            "price": 219.49,
+            "quantity": 3
+          },
+          {
+            "product_name": "Yoga Mat",
+            "category": "Fitness",
+            "price": 153.12,
+            "quantity": 3
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Aaina Gole",
+    "house_number": "H.No. 650",
+    "city": "Vadodara",
+    "state": "Kerala",
+    "pincode": "327196",
+    "email": "arhaansrivastava@saini.com",
+    "phone": "+912857948514",
+    "gender": "Female",
+    "dob": "1969-08-01",
+    "orders": [
+      {
+        "order_id": "49f663a1-d20f-455f-b6e5-6ad2c5258760",
+        "order_date": "2024-04-19",
+        "products": [
+          {
+            "product_name": "Sneakers",
+            "category": "Footwear",
+            "price": 128.65,
+            "quantity": 3
+          },
+          {
+            "product_name": "Notebook",
+            "category": "Stationery",
+            "price": 348.28,
+            "quantity": 1
+          },
+          {
+            "product_name": "Wireless Mouse",
+            "category": "Electronics",
+            "price": 215.06,
+            "quantity": 3
+          },
+          {
+            "product_name": "Notebook",
+            "category": "Stationery",
+            "price": 422.33,
+            "quantity": 3
+          },
+          {
+            "product_name": "Yoga Mat",
+            "category": "Fitness",
+            "price": 12.87,
+            "quantity": 2
+          }
+        ]
+      },
+      {
+        "order_id": "7551851a-0925-4257-a26e-7e8e364b30ab",
+        "order_date": "2023-10-20",
+        "products": [
+          {
+            "product_name": "Notebook",
+            "category": "Stationery",
+            "price": 147.83,
+            "quantity": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Urvi Kohli",
+    "house_number": "646",
+    "city": "Gangtok",
+    "state": "Goa",
+    "pincode": "765378",
+    "email": "pborah@hotmail.com",
+    "phone": "+918310563283",
+    "gender": "Male",
+    "dob": "1994-08-04",
+    "orders": [
+      {
+        "order_id": "8d4a7ef9-c87b-4777-a7b5-1f192bb6386d",
+        "order_date": "2024-08-07",
+        "products": [
+          {
+            "product_name": "Backpack",
+            "category": "Accessories",
+            "price": 87.47,
+            "quantity": 3
+          },
+          {
+            "product_name": "Denim Jacket",
+            "category": "Clothing",
+            "price": 390.5,
+            "quantity": 2
+          },
+          {
+            "product_name": "Smart Watch",
+            "category": "Electronics",
+            "price": 66.4,
+            "quantity": 1
+          },
+          {
+            "product_name": "Wireless Mouse",
+            "category": "Electronics",
+            "price": 42.99,
+            "quantity": 2
+          },
+          {
+            "product_name": "Sunglasses",
+            "category": "Accessories",
+            "price": 334.55,
+            "quantity": 3
+          }
+        ]
+      },
+      {
+        "order_id": "d98e48cb-488b-40c2-8aff-a4c320d13033",
+        "order_date": "2024-06-11",
+        "products": [
+          {
+            "product_name": "Backpack",
+            "category": "Accessories",
+            "price": 49.28,
+            "quantity": 2
+          },
+          {
+            "product_name": "Yoga Mat",
+            "category": "Fitness",
+            "price": 162.47,
+            "quantity": 3
+          },
+          {
+            "product_name": "Yoga Mat",
+            "category": "Fitness",
+            "price": 261.15,
+            "quantity": 3
+          },
+          {
+            "product_name": "Backpack",
+            "category": "Accessories",
+            "price": 474.48,
+            "quantity": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Himmat Gulati",
+    "house_number": "925",
+    "city": "Bhilai",
+    "state": "Telangana",
+    "pincode": "071371",
+    "email": "lsibal@hotmail.com",
+    "phone": "8703581376",
+    "gender": "Female",
+    "dob": "1981-06-07",
+    "orders": [
+      {
+        "order_id": "a8d0b776-b422-4630-9b88-448434304a8f",
+        "order_date": "2023-10-25",
+        "products": [
+          {
+            "product_name": "Wireless Mouse",
+            "category": "Electronics",
+            "price": 90.2,
+            "quantity": 1
+          },
+          {
+            "product_name": "Backpack",
+            "category": "Accessories",
+            "price": 106.83,
+            "quantity": 3
+          },
+          {
+            "product_name": "Bluetooth Speaker",
+            "category": "Electronics",
+            "price": 19.83,
+            "quantity": 3
+          },
+          {
+            "product_name": "Notebook",
+            "category": "Stationery",
+            "price": 365.54,
+            "quantity": 3
+          },
+          {
+            "product_name": "Wireless Mouse",
+            "category": "Electronics",
+            "price": 391.52,
+            "quantity": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Taimur Tandon",
+    "house_number": "34/49",
+    "city": "Madurai",
+    "state": "Maharashtra",
+    "pincode": "174566",
+    "email": "iravel@kalla-kothari.com",
+    "phone": "+910191482780",
+    "gender": "Female",
+    "dob": "1986-12-06",
+    "orders": [
+      {
+        "order_id": "713615ee-1b42-44f2-82e2-6ce4437c78d4",
+        "order_date": "2024-06-17",
+        "products": [
+          {
+            "product_name": "Sunglasses",
+            "category": "Accessories",
+            "price": 190.55,
+            "quantity": 3
+          },
+          {
+            "product_name": "Wireless Mouse",
+            "category": "Electronics",
+            "price": 312.55,
+            "quantity": 3
+          },
+          {
+            "product_name": "Coffee Maker",
+            "category": "Home Appliances",
+            "price": 393.85,
+            "quantity": 3
+          },
+          {
+            "product_name": "Coffee Maker",
+            "category": "Home Appliances",
+            "price": 176.68,
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "order_id": "c0b69062-dcfb-463b-8bfa-b882342a65ed",
+        "order_date": "2024-02-29",
+        "products": [
+          {
+            "product_name": "Sunglasses",
+            "category": "Accessories",
+            "price": 479.3,
+            "quantity": 3
+          },
+          {
+            "product_name": "Yoga Mat",
+            "category": "Fitness",
+            "price": 197.17,
+            "quantity": 2
+          },
+          {
+            "product_name": "Denim Jacket",
+            "category": "Clothing",
+            "price": 211.21,
+            "quantity": 1
+          },
+          {
+            "product_name": "Wireless Mouse",
+            "category": "Electronics",
+            "price": 478.33,
+            "quantity": 1
+          },
+          {
+            "product_name": "Wireless Mouse",
+            "category": "Electronics",
+            "price": 228.33,
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "order_id": "2ec33382-1691-4e1c-8c53-82b778f2bbfb",
+        "order_date": "2024-03-01",
+        "products": [
+          {
+            "product_name": "Smart Watch",
+            "category": "Electronics",
+            "price": 419.76,
+            "quantity": 2
+          },
+          {
+            "product_name": "Coffee Maker",
+            "category": "Home Appliances",
+            "price": 143.27,
+            "quantity": 2
+          },
+          {
+            "product_name": "Backpack",
+            "category": "Accessories",
+            "price": 232.15,
+            "quantity": 1
+          },
+          {
+            "product_name": "Sunglasses",
+            "category": "Accessories",
+            "price": 422.43,
+            "quantity": 1
+          },
+          {
+            "product_name": "Notebook",
+            "category": "Stationery",
+            "price": 12.67,
+            "quantity": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Ishita Deo",
+    "house_number": "26/24",
+    "city": "Thoothukudi",
+    "state": "Karnataka",
+    "pincode": "111994",
+    "email": "vramakrishnan@bansal.biz",
+    "phone": "00982034395",
+    "gender": "Male",
+    "dob": "1992-10-27",
+    "orders": [
+      {
+        "order_id": "4f9808b2-3331-48e0-bcd6-c7b21f1ac8a9",
+        "order_date": "2025-05-14",
+        "products": [
+          {
+            "product_name": "Bluetooth Speaker",
+            "category": "Electronics",
+            "price": 401.8,
+            "quantity": 1
+          },
+          {
+            "product_name": "Smart Watch",
+            "category": "Electronics",
+            "price": 471.94,
+            "quantity": 3
+          },
+          {
+            "product_name": "Sunglasses",
+            "category": "Accessories",
+            "price": 478.51,
+            "quantity": 3
+          }
+        ]
+      },
+      {
+        "order_id": "924a937e-f44d-4385-9f6f-2ff0f35a78fd",
+        "order_date": "2024-06-19",
+        "products": [
+          {
+            "product_name": "Backpack",
+            "category": "Accessories",
+            "price": 213.08,
+            "quantity": 2
+          },
+          {
+            "product_name": "Smart Watch",
+            "category": "Electronics",
+            "price": 431.11,
+            "quantity": 3
+          },
+          {
+            "product_name": "Coffee Maker",
+            "category": "Home Appliances",
+            "price": 496.21,
+            "quantity": 1
+          },
+          {
+            "product_name": "Sneakers",
+            "category": "Footwear",
+            "price": 440.71,
+            "quantity": 1
+          },
+          {
+            "product_name": "Sunglasses",
+            "category": "Accessories",
+            "price": 230.52,
+            "quantity": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Zoya Deo",
+    "house_number": "037",
+    "city": "Singrauli",
+    "state": "Arunachal Pradesh",
+    "pincode": "023993",
+    "email": "zara44@manda-rau.com",
+    "phone": "2864649341",
+    "gender": "Male",
+    "dob": "1998-07-09",
+    "orders": [
+      {
+        "order_id": "d80f6b5f-f948-46a4-a162-e0744d366385",
+        "order_date": "2024-04-28",
+        "products": [
+          {
+            "product_name": "Coffee Maker",
+            "category": "Home Appliances",
+            "price": 162.08,
+            "quantity": 2
+          },
+          {
+            "product_name": "Bluetooth Speaker",
+            "category": "Electronics",
+            "price": 20.13,
+            "quantity": 2
+          },
+          {
+            "product_name": "Yoga Mat",
+            "category": "Fitness",
+            "price": 243.96,
+            "quantity": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Taimur Jani",
+    "house_number": "81/155",
+    "city": "Indore",
+    "state": "Andhra Pradesh",
+    "pincode": "768748",
+    "email": "jde@gmail.com",
+    "phone": "08462744727",
+    "gender": "Female",
+    "dob": "1968-01-02",
+    "orders": [
+      {
+        "order_id": "814e7ea3-256f-4ddd-9fee-a1ef7a8cc172",
+        "order_date": "2025-05-19",
+        "products": [
+          {
+            "product_name": "Backpack",
+            "category": "Accessories",
+            "price": 227.86,
+            "quantity": 1
+          },
+          {
+            "product_name": "Bluetooth Speaker",
+            "category": "Electronics",
+            "price": 140.19,
+            "quantity": 3
+          },
+          {
+            "product_name": "Coffee Maker",
+            "category": "Home Appliances",
+            "price": 204.24,
+            "quantity": 1
+          },
+          {
+            "product_name": "Sunglasses",
+            "category": "Accessories",
+            "price": 347.29,
+            "quantity": 2
+          },
+          {
+            "product_name": "Bluetooth Speaker",
+            "category": "Electronics",
+            "price": 115.88,
+            "quantity": 3
+          }
+        ]
+      },
+      {
+        "order_id": "58ecb121-eece-4187-8836-7e80859828f4",
+        "order_date": "2025-04-06",
+        "products": [
+          {
+            "product_name": "Yoga Mat",
+            "category": "Fitness",
+            "price": 282.36,
+            "quantity": 1
+          },
+          {
+            "product_name": "Sneakers",
+            "category": "Footwear",
+            "price": 102.7,
+            "quantity": 1
+          },
+          {
+            "product_name": "Smart Watch",
+            "category": "Electronics",
+            "price": 251.05,
+            "quantity": 2
+          },
+          {
+            "product_name": "Sunglasses",
+            "category": "Accessories",
+            "price": 419.1,
+            "quantity": 3
+          },
+          {
+            "product_name": "Smart Watch",
+            "category": "Electronics",
+            "price": 472.29,
+            "quantity": 3
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Ira Dugar",
+    "house_number": "70/708",
+    "city": "Nizamabad",
+    "state": "Meghalaya",
+    "pincode": "593627",
+    "email": "dreddy@johal-zachariah.com",
+    "phone": "00122028611",
+    "gender": "Male",
+    "dob": "1998-04-04",
+    "orders": [
+      {
+        "order_id": "9cc3130a-6849-4294-9b34-717bd00f0264",
+        "order_date": "2024-08-09",
+        "products": [
+          {
+            "product_name": "Notebook",
+            "category": "Stationery",
+            "price": 346.89,
+            "quantity": 3
+          },
+          {
+            "product_name": "Sunglasses",
+            "category": "Accessories",
+            "price": 129.48,
+            "quantity": 1
+          },
+          {
+            "product_name": "Denim Jacket",
+            "category": "Clothing",
+            "price": 208.45,
+            "quantity": 1
+          },
+          {
+            "product_name": "Wireless Mouse",
+            "category": "Electronics",
+            "price": 143.86,
+            "quantity": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Sahil D\u2019Alia",
+    "house_number": "H.No. 027",
+    "city": "Saharanpur",
+    "state": "Arunachal Pradesh",
+    "pincode": "324392",
+    "email": "aarav52@taneja-dugar.info",
+    "phone": "+919901478043",
+    "gender": "Female",
+    "dob": "1988-02-21",
+    "orders": [
+      {
+        "order_id": "bee73b5a-f909-4cd2-af0c-eb9bdb6d621c",
+        "order_date": "2024-11-23",
+        "products": [
+          {
+            "product_name": "Yoga Mat",
+            "category": "Fitness",
+            "price": 364.02,
+            "quantity": 3
+          },
+          {
+            "product_name": "Coffee Maker",
+            "category": "Home Appliances",
+            "price": 391.08,
+            "quantity": 2
+          },
+          {
+            "product_name": "Sneakers",
+            "category": "Footwear",
+            "price": 315.11,
+            "quantity": 3
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Anaya Sarkar",
+    "house_number": "51",
+    "city": "Solapur",
+    "state": "Gujarat",
+    "pincode": "729077",
+    "email": "deshmukhvanya@hotmail.com",
+    "phone": "+914234566820",
+    "gender": "Female",
+    "dob": "1991-12-01",
+    "orders": [
+      {
+        "order_id": "e523c9ef-a0c7-43ed-ba48-3cc67121e55b",
+        "order_date": "2024-04-17",
+        "products": [
+          {
+            "product_name": "Denim Jacket",
+            "category": "Clothing",
+            "price": 425.8,
+            "quantity": 1
+          },
+          {
+            "product_name": "Bluetooth Speaker",
+            "category": "Electronics",
+            "price": 215.65,
+            "quantity": 2
+          },
+          {
+            "product_name": "Yoga Mat",
+            "category": "Fitness",
+            "price": 143.15,
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "order_id": "d3aa3fec-1f92-406e-8d4a-cd82e2bb3d62",
+        "order_date": "2023-11-08",
+        "products": [
+          {
+            "product_name": "Bluetooth Speaker",
+            "category": "Electronics",
+            "price": 171.87,
+            "quantity": 1
+          },
+          {
+            "product_name": "Backpack",
+            "category": "Accessories",
+            "price": 370.14,
+            "quantity": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Kavya Choudhary",
+    "house_number": "H.No. 66",
+    "city": "Malda",
+    "state": "Gujarat",
+    "pincode": "573877",
+    "email": "amirabandi@yahoo.com",
+    "phone": "+914998460295",
+    "gender": "Female",
+    "dob": "2002-09-09",
+    "orders": [
+      {
+        "order_id": "8b05bdcc-ad99-4340-a580-1d8aaeb392e9",
+        "order_date": "2025-05-24",
+        "products": [
+          {
+            "product_name": "Yoga Mat",
+            "category": "Fitness",
+            "price": 232.13,
+            "quantity": 1
+          },
+          {
+            "product_name": "Denim Jacket",
+            "category": "Clothing",
+            "price": 244.21,
+            "quantity": 1
+          },
+          {
+            "product_name": "Denim Jacket",
+            "category": "Clothing",
+            "price": 453.79,
+            "quantity": 3
+          },
+          {
+            "product_name": "Wireless Mouse",
+            "category": "Electronics",
+            "price": 82.42,
+            "quantity": 2
+          },
+          {
+            "product_name": "Backpack",
+            "category": "Accessories",
+            "price": 48.45,
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "order_id": "bb0edf25-e3ef-4e8b-8d2b-32f16fd1d9ea",
+        "order_date": "2025-01-19",
+        "products": [
+          {
+            "product_name": "Wireless Mouse",
+            "category": "Electronics",
+            "price": 225.31,
+            "quantity": 3
+          },
+          {
+            "product_name": "Sunglasses",
+            "category": "Accessories",
+            "price": 306.25,
+            "quantity": 1
+          },
+          {
+            "product_name": "Wireless Mouse",
+            "category": "Electronics",
+            "price": 438.4,
+            "quantity": 1
+          },
+          {
+            "product_name": "Notebook",
+            "category": "Stationery",
+            "price": 391.63,
+            "quantity": 3
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Divyansh Dar",
+    "house_number": "813",
+    "city": "Baranagar",
+    "state": "Arunachal Pradesh",
+    "pincode": "327887",
+    "email": "gram@sridhar.com",
+    "phone": "+911259389065",
+    "gender": "Female",
+    "dob": "2004-08-21",
+    "orders": [
+      {
+        "order_id": "76ce1198-3c78-4e64-ad55-db0bfcbe73bc",
+        "order_date": "2025-05-14",
+        "products": [
+          {
+            "product_name": "Wireless Mouse",
+            "category": "Electronics",
+            "price": 272.51,
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "order_id": "d85d2fdb-bd39-4525-90a0-31c176f593b0",
+        "order_date": "2025-03-10",
+        "products": [
+          {
+            "product_name": "Denim Jacket",
+            "category": "Clothing",
+            "price": 488.54,
+            "quantity": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Ishita Goyal",
+    "house_number": "H.No. 785",
+    "city": "Khammam",
+    "state": "Punjab",
+    "pincode": "831055",
+    "email": "farhansha@gmail.com",
+    "phone": "06406991187",
+    "gender": "Female",
+    "dob": "1974-04-08",
+    "orders": [
+      {
+        "order_id": "03398b63-147d-432d-b53f-ca1a80d921e2",
+        "order_date": "2024-12-08",
+        "products": [
+          {
+            "product_name": "Smart Watch",
+            "category": "Electronics",
+            "price": 306.88,
+            "quantity": 2
+          },
+          {
+            "product_name": "Yoga Mat",
+            "category": "Fitness",
+            "price": 107.31,
+            "quantity": 2
+          },
+          {
+            "product_name": "Coffee Maker",
+            "category": "Home Appliances",
+            "price": 459.6,
+            "quantity": 1
+          },
+          {
+            "product_name": "Sunglasses",
+            "category": "Accessories",
+            "price": 192.08,
+            "quantity": 1
+          },
+          {
+            "product_name": "Sunglasses",
+            "category": "Accessories",
+            "price": 21.03,
+            "quantity": 3
+          }
+        ]
+      },
+      {
+        "order_id": "b87c7f63-0f4e-4afd-885d-7d7ba9472e95",
+        "order_date": "2023-09-07",
+        "products": [
+          {
+            "product_name": "Sunglasses",
+            "category": "Accessories",
+            "price": 214.04,
+            "quantity": 2
+          },
+          {
+            "product_name": "Coffee Maker",
+            "category": "Home Appliances",
+            "price": 77.24,
+            "quantity": 3
+          },
+          {
+            "product_name": "Bluetooth Speaker",
+            "category": "Electronics",
+            "price": 90.97,
+            "quantity": 2
+          },
+          {
+            "product_name": "Bluetooth Speaker",
+            "category": "Electronics",
+            "price": 310.94,
+            "quantity": 1
+          },
+          {
+            "product_name": "Sunglasses",
+            "category": "Accessories",
+            "price": 120.35,
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "order_id": "341a2f91-92cf-46df-82f9-e22abf06a4f6",
+        "order_date": "2025-04-17",
+        "products": [
+          {
+            "product_name": "Sneakers",
+            "category": "Footwear",
+            "price": 285.71,
+            "quantity": 2
+          },
+          {
+            "product_name": "Sneakers",
+            "category": "Footwear",
+            "price": 197.11,
+            "quantity": 2
+          },
+          {
+            "product_name": "Sneakers",
+            "category": "Footwear",
+            "price": 470.64,
+            "quantity": 1
+          },
+          {
+            "product_name": "Smart Watch",
+            "category": "Electronics",
+            "price": 297.78,
+            "quantity": 2
+          },
+          {
+            "product_name": "Wireless Mouse",
+            "category": "Electronics",
+            "price": 252.71,
+            "quantity": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Nitara Barad",
+    "house_number": "81/716",
+    "city": "Tumkur",
+    "state": "Jharkhand",
+    "pincode": "465083",
+    "email": "tahuja@gmail.com",
+    "phone": "00049425146",
+    "gender": "Male",
+    "dob": "1998-02-15",
+    "orders": [
+      {
+        "order_id": "b3ee73ad-f8ad-41a9-ad51-e0d87aa0d0fc",
+        "order_date": "2023-09-20",
+        "products": [
+          {
+            "product_name": "Wireless Mouse",
+            "category": "Electronics",
+            "price": 458.78,
+            "quantity": 2
+          },
+          {
+            "product_name": "Wireless Mouse",
+            "category": "Electronics",
+            "price": 450.19,
+            "quantity": 1
+          },
+          {
+            "product_name": "Wireless Mouse",
+            "category": "Electronics",
+            "price": 34.5,
+            "quantity": 3
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Sahil Bhandari",
+    "house_number": "30/48",
+    "city": "Mumbai",
+    "state": "Maharashtra",
+    "pincode": "330275",
+    "email": "rsachdev@bail-mahal.com",
+    "phone": "3172004246",
+    "gender": "Female",
+    "dob": "1993-08-01",
+    "orders": [
+      {
+        "order_id": "6d3d02fd-26cd-4602-bf02-94a45bf87275",
+        "order_date": "2024-03-21",
+        "products": [
+          {
+            "product_name": "Sunglasses",
+            "category": "Accessories",
+            "price": 216.72,
+            "quantity": 2
+          }
+        ]
+      },
+      {
+        "order_id": "f8af87e3-e5bf-4ae3-a6d0-8777ad9d4744",
+        "order_date": "2024-12-25",
+        "products": [
+          {
+            "product_name": "Yoga Mat",
+            "category": "Fitness",
+            "price": 385.81,
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "order_id": "81a7e39b-3ea6-4493-b6c8-849b532ea762",
+        "order_date": "2025-03-11",
+        "products": [
+          {
+            "product_name": "Smart Watch",
+            "category": "Electronics",
+            "price": 76.61,
+            "quantity": 3
+          },
+          {
+            "product_name": "Backpack",
+            "category": "Accessories",
+            "price": 190.73,
+            "quantity": 3
+          },
+          {
+            "product_name": "Sneakers",
+            "category": "Footwear",
+            "price": 89.86,
+            "quantity": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Nehmat Butala",
+    "house_number": "96/85",
+    "city": "Thiruvananthapuram",
+    "state": "Telangana",
+    "pincode": "701541",
+    "email": "alia81@dayal.com",
+    "phone": "03010313511",
+    "gender": "Female",
+    "dob": "1990-05-11",
+    "orders": [
+      {
+        "order_id": "a60ed214-875f-4f67-9086-2f3926f3eb72",
+        "order_date": "2024-01-17",
+        "products": [
+          {
+            "product_name": "Backpack",
+            "category": "Accessories",
+            "price": 466.13,
+            "quantity": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Chirag Srivastava",
+    "house_number": "H.No. 60",
+    "city": "Berhampore",
+    "state": "West Bengal",
+    "pincode": "508836",
+    "email": "neelofarbala@malhotra.biz",
+    "phone": "+910876100350",
+    "gender": "Male",
+    "dob": "1981-07-21",
+    "orders": [
+      {
+        "order_id": "164125f1-d4b0-4fba-bc7c-e570076df9b1",
+        "order_date": "2024-02-06",
+        "products": [
+          {
+            "product_name": "Denim Jacket",
+            "category": "Clothing",
+            "price": 284.82,
+            "quantity": 2
+          }
+        ]
+      },
+      {
+        "order_id": "18634e85-7eca-403b-8a3d-39726f47b037",
+        "order_date": "2023-06-27",
+        "products": [
+          {
+            "product_name": "Sunglasses",
+            "category": "Accessories",
+            "price": 451.48,
+            "quantity": 2
+          },
+          {
+            "product_name": "Notebook",
+            "category": "Stationery",
+            "price": 412.74,
+            "quantity": 2
+          }
+        ]
+      },
+      {
+        "order_id": "6353a541-987d-410e-8f71-50f0f387de1a",
+        "order_date": "2023-12-08",
+        "products": [
+          {
+            "product_name": "Sneakers",
+            "category": "Footwear",
+            "price": 67.44,
+            "quantity": 2
+          },
+          {
+            "product_name": "Yoga Mat",
+            "category": "Fitness",
+            "price": 309.24,
+            "quantity": 2
+          },
+          {
+            "product_name": "Backpack",
+            "category": "Accessories",
+            "price": 379.0,
+            "quantity": 3
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Neelofar Mann",
+    "house_number": "92/99",
+    "city": "Dhule",
+    "state": "Rajasthan",
+    "pincode": "824029",
+    "email": "lalsahil@apte.com",
+    "phone": "+919819844723",
+    "gender": "Male",
+    "dob": "1967-05-06",
+    "orders": [
+      {
+        "order_id": "21710e4b-ddb1-4bbf-b386-9c0736a18abc",
+        "order_date": "2023-06-21",
+        "products": [
+          {
+            "product_name": "Coffee Maker",
+            "category": "Home Appliances",
+            "price": 425.57,
+            "quantity": 3
+          },
+          {
+            "product_name": "Sunglasses",
+            "category": "Accessories",
+            "price": 177.52,
+            "quantity": 3
+          },
+          {
+            "product_name": "Bluetooth Speaker",
+            "category": "Electronics",
+            "price": 406.46,
+            "quantity": 2
+          },
+          {
+            "product_name": "Denim Jacket",
+            "category": "Clothing",
+            "price": 203.11,
+            "quantity": 3
+          },
+          {
+            "product_name": "Backpack",
+            "category": "Accessories",
+            "price": 452.93,
+            "quantity": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Ojas Dyal",
+    "house_number": "71",
+    "city": "Moradabad",
+    "state": "Mizoram",
+    "pincode": "174818",
+    "email": "dattadevansh@yahoo.com",
+    "phone": "6544986491",
+    "gender": "Male",
+    "dob": "1972-04-24",
+    "orders": [
+      {
+        "order_id": "3d8f04ab-95c5-4c3f-882a-32f231c053ca",
+        "order_date": "2024-12-10",
+        "products": [
+          {
+            "product_name": "Coffee Maker",
+            "category": "Home Appliances",
+            "price": 163.39,
+            "quantity": 2
+          },
+          {
+            "product_name": "Backpack",
+            "category": "Accessories",
+            "price": 384.54,
+            "quantity": 1
+          },
+          {
+            "product_name": "Sunglasses",
+            "category": "Accessories",
+            "price": 416.58,
+            "quantity": 2
+          },
+          {
+            "product_name": "Smart Watch",
+            "category": "Electronics",
+            "price": 463.83,
+            "quantity": 2
+          },
+          {
+            "product_name": "Wireless Mouse",
+            "category": "Electronics",
+            "price": 478.0,
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "order_id": "5f8b99ab-e889-48cf-af5b-8ec9f7581b93",
+        "order_date": "2024-09-12",
+        "products": [
+          {
+            "product_name": "Coffee Maker",
+            "category": "Home Appliances",
+            "price": 213.05,
+            "quantity": 3
+          },
+          {
+            "product_name": "Bluetooth Speaker",
+            "category": "Electronics",
+            "price": 264.81,
+            "quantity": 2
+          },
+          {
+            "product_name": "Coffee Maker",
+            "category": "Home Appliances",
+            "price": 138.5,
+            "quantity": 2
+          },
+          {
+            "product_name": "Denim Jacket",
+            "category": "Clothing",
+            "price": 190.47,
+            "quantity": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Reyansh Koshy",
+    "house_number": "84/49",
+    "city": "Alwar",
+    "state": "Bihar",
+    "pincode": "936926",
+    "email": "rohandara@gmail.com",
+    "phone": "8372335435",
+    "gender": "Male",
+    "dob": "1965-09-19",
+    "orders": [
+      {
+        "order_id": "a2bebc80-02a3-4c72-81d7-af76c63403c0",
+        "order_date": "2023-07-22",
+        "products": [
+          {
+            "product_name": "Denim Jacket",
+            "category": "Clothing",
+            "price": 421.62,
+            "quantity": 3
+          }
+        ]
+      },
+      {
+        "order_id": "73af8b5a-242e-4e6f-b42c-8c5fcc47c7a5",
+        "order_date": "2024-10-31",
+        "products": [
+          {
+            "product_name": "Sunglasses",
+            "category": "Accessories",
+            "price": 280.47,
+            "quantity": 1
+          },
+          {
+            "product_name": "Coffee Maker",
+            "category": "Home Appliances",
+            "price": 314.79,
+            "quantity": 3
+          },
+          {
+            "product_name": "Smart Watch",
+            "category": "Electronics",
+            "price": 436.3,
+            "quantity": 2
+          },
+          {
+            "product_name": "Denim Jacket",
+            "category": "Clothing",
+            "price": 153.56,
+            "quantity": 3
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Kiara Kunda",
+    "house_number": "758",
+    "city": "Patiala",
+    "state": "Uttarakhand",
+    "pincode": "723769",
+    "email": "mishti14@yahoo.com",
+    "phone": "06319252475",
+    "gender": "Female",
+    "dob": "2006-07-23",
+    "orders": [
+      {
+        "order_id": "045a7971-39fa-47f9-86a8-7e819fe9e189",
+        "order_date": "2023-06-14",
+        "products": [
+          {
+            "product_name": "Yoga Mat",
+            "category": "Fitness",
+            "price": 84.19,
+            "quantity": 1
+          },
+          {
+            "product_name": "Bluetooth Speaker",
+            "category": "Electronics",
+            "price": 33.64,
+            "quantity": 1
+          },
+          {
+            "product_name": "Sneakers",
+            "category": "Footwear",
+            "price": 399.88,
+            "quantity": 2
+          }
+        ]
+      },
+      {
+        "order_id": "f725e576-14ec-480a-b439-4a10225cce06",
+        "order_date": "2024-05-31",
+        "products": [
+          {
+            "product_name": "Smart Watch",
+            "category": "Electronics",
+            "price": 30.19,
+            "quantity": 2
+          },
+          {
+            "product_name": "Sunglasses",
+            "category": "Accessories",
+            "price": 382.04,
+            "quantity": 3
+          },
+          {
+            "product_name": "Backpack",
+            "category": "Accessories",
+            "price": 144.1,
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "order_id": "b27bede5-0c25-4e4e-a0e3-7fb29d44307f",
+        "order_date": "2024-09-01",
+        "products": [
+          {
+            "product_name": "Smart Watch",
+            "category": "Electronics",
+            "price": 301.58,
+            "quantity": 3
+          },
+          {
+            "product_name": "Denim Jacket",
+            "category": "Clothing",
+            "price": 294.84,
+            "quantity": 3
+          },
+          {
+            "product_name": "Backpack",
+            "category": "Accessories",
+            "price": 346.37,
+            "quantity": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Rasha Bahl",
+    "house_number": "49/429",
+    "city": "Satara",
+    "state": "West Bengal",
+    "pincode": "242241",
+    "email": "kgera@bassi.com",
+    "phone": "03492638102",
+    "gender": "Male",
+    "dob": "1991-04-12",
+    "orders": [
+      {
+        "order_id": "f9b871c3-1661-4bcd-a69b-773b5892659b",
+        "order_date": "2024-06-08",
+        "products": [
+          {
+            "product_name": "Notebook",
+            "category": "Stationery",
+            "price": 141.55,
+            "quantity": 2
+          },
+          {
+            "product_name": "Coffee Maker",
+            "category": "Home Appliances",
+            "price": 467.86,
+            "quantity": 1
+          },
+          {
+            "product_name": "Sunglasses",
+            "category": "Accessories",
+            "price": 492.48,
+            "quantity": 3
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Siya Dani",
+    "house_number": "H.No. 22",
+    "city": "Noida",
+    "state": "Madhya Pradesh",
+    "pincode": "141861",
+    "email": "zain35@wali-lall.info",
+    "phone": "4492133173",
+    "gender": "Male",
+    "dob": "1972-04-09",
+    "orders": [
+      {
+        "order_id": "06926373-86a6-4641-a99e-f4c1532a5eb0",
+        "order_date": "2023-08-02",
+        "products": [
+          {
+            "product_name": "Smart Watch",
+            "category": "Electronics",
+            "price": 383.31,
+            "quantity": 2
+          },
+          {
+            "product_name": "Notebook",
+            "category": "Stationery",
+            "price": 106.63,
+            "quantity": 3
+          },
+          {
+            "product_name": "Denim Jacket",
+            "category": "Clothing",
+            "price": 299.35,
+            "quantity": 1
+          },
+          {
+            "product_name": "Sneakers",
+            "category": "Footwear",
+            "price": 30.05,
+            "quantity": 3
+          }
+        ]
+      },
+      {
+        "order_id": "f1538823-51ae-48ae-bf1d-48dbb1774425",
+        "order_date": "2025-02-12",
+        "products": [
+          {
+            "product_name": "Smart Watch",
+            "category": "Electronics",
+            "price": 449.92,
+            "quantity": 2
+          },
+          {
+            "product_name": "Notebook",
+            "category": "Stationery",
+            "price": 310.81,
+            "quantity": 1
+          },
+          {
+            "product_name": "Denim Jacket",
+            "category": "Clothing",
+            "price": 103.92,
+            "quantity": 3
+          },
+          {
+            "product_name": "Denim Jacket",
+            "category": "Clothing",
+            "price": 195.13,
+            "quantity": 2
+          },
+          {
+            "product_name": "Bluetooth Speaker",
+            "category": "Electronics",
+            "price": 442.44,
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "order_id": "5520ac79-d0a4-440f-a679-8f1a09c2da2f",
+        "order_date": "2025-03-08",
+        "products": [
+          {
+            "product_name": "Notebook",
+            "category": "Stationery",
+            "price": 416.22,
+            "quantity": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Gokul Kakar",
+    "house_number": "H.No. 62",
+    "city": "Aurangabad",
+    "state": "Tripura",
+    "pincode": "833015",
+    "email": "aaravlad@yahoo.com",
+    "phone": "+918673331631",
+    "gender": "Male",
+    "dob": "1971-04-17",
+    "orders": [
+      {
+        "order_id": "c371084b-f9a6-4f39-a487-5326af94d9a7",
+        "order_date": "2024-01-31",
+        "products": [
+          {
+            "product_name": "Notebook",
+            "category": "Stationery",
+            "price": 283.88,
+            "quantity": 3
+          },
+          {
+            "product_name": "Smart Watch",
+            "category": "Electronics",
+            "price": 315.7,
+            "quantity": 1
+          },
+          {
+            "product_name": "Sneakers",
+            "category": "Footwear",
+            "price": 31.72,
+            "quantity": 2
+          }
+        ]
+      },
+      {
+        "order_id": "62212b4d-b911-4166-87e9-f03be97a93b2",
+        "order_date": "2024-10-25",
+        "products": [
+          {
+            "product_name": "Sneakers",
+            "category": "Footwear",
+            "price": 325.22,
+            "quantity": 2
+          },
+          {
+            "product_name": "Sunglasses",
+            "category": "Accessories",
+            "price": 204.86,
+            "quantity": 3
+          },
+          {
+            "product_name": "Wireless Mouse",
+            "category": "Electronics",
+            "price": 49.59,
+            "quantity": 2
+          }
+        ]
+      },
+      {
+        "order_id": "d2a8f01e-ca84-40e9-9103-ce9839792609",
+        "order_date": "2024-07-20",
+        "products": [
+          {
+            "product_name": "Denim Jacket",
+            "category": "Clothing",
+            "price": 164.98,
+            "quantity": 3
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Ojas Dhawan",
+    "house_number": "08/064",
+    "city": "Karawal Nagar",
+    "state": "Rajasthan",
+    "pincode": "932186",
+    "email": "suramohanlal@hotmail.com",
+    "phone": "8742450377",
+    "gender": "Male",
+    "dob": "1971-08-22",
+    "orders": [
+      {
+        "order_id": "04461c2d-2bea-4d77-9753-1507b9e91152",
+        "order_date": "2024-01-26",
+        "products": [
+          {
+            "product_name": "Denim Jacket",
+            "category": "Clothing",
+            "price": 85.95,
+            "quantity": 1
+          },
+          {
+            "product_name": "Bluetooth Speaker",
+            "category": "Electronics",
+            "price": 496.35,
+            "quantity": 3
+          },
+          {
+            "product_name": "Smart Watch",
+            "category": "Electronics",
+            "price": 321.82,
+            "quantity": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Urvi Wable",
+    "house_number": "H.No. 578",
+    "city": "Secunderabad",
+    "state": "Sikkim",
+    "pincode": "714328",
+    "email": "hanshchana@hotmail.com",
+    "phone": "08227856812",
+    "gender": "Female",
+    "dob": "2007-01-06",
+    "orders": [
+      {
+        "order_id": "087492f6-5621-45f9-ae78-be7075c17c4f",
+        "order_date": "2025-05-24",
+        "products": [
+          {
+            "product_name": "Coffee Maker",
+            "category": "Home Appliances",
+            "price": 103.72,
+            "quantity": 2
+          },
+          {
+            "product_name": "Backpack",
+            "category": "Accessories",
+            "price": 26.34,
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "order_id": "22be27e8-dbb2-4746-9def-944ee0fdc519",
+        "order_date": "2024-01-15",
+        "products": [
+          {
+            "product_name": "Yoga Mat",
+            "category": "Fitness",
+            "price": 371.05,
+            "quantity": 3
+          },
+          {
+            "product_name": "Denim Jacket",
+            "category": "Clothing",
+            "price": 451.02,
+            "quantity": 2
+          },
+          {
+            "product_name": "Wireless Mouse",
+            "category": "Electronics",
+            "price": 335.69,
+            "quantity": 1
+          },
+          {
+            "product_name": "Smart Watch",
+            "category": "Electronics",
+            "price": 152.78,
+            "quantity": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Lagan Jaggi",
+    "house_number": "137",
+    "city": "Madurai",
+    "state": "Uttarakhand",
+    "pincode": "017032",
+    "email": "divitsharaf@gmail.com",
+    "phone": "09424317026",
+    "gender": "Male",
+    "dob": "1997-04-19",
+    "orders": [
+      {
+        "order_id": "b07c3d94-7664-4429-870a-055e2f08f557",
+        "order_date": "2024-11-25",
+        "products": [
+          {
+            "product_name": "Sneakers",
+            "category": "Footwear",
+            "price": 371.23,
+            "quantity": 1
+          },
+          {
+            "product_name": "Yoga Mat",
+            "category": "Fitness",
+            "price": 371.16,
+            "quantity": 2
+          },
+          {
+            "product_name": "Yoga Mat",
+            "category": "Fitness",
+            "price": 150.31,
+            "quantity": 3
+          },
+          {
+            "product_name": "Notebook",
+            "category": "Stationery",
+            "price": 411.44,
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "order_id": "634c2cee-56c9-4762-9317-0cd329df26cc",
+        "order_date": "2023-07-06",
+        "products": [
+          {
+            "product_name": "Denim Jacket",
+            "category": "Clothing",
+            "price": 129.8,
+            "quantity": 3
+          },
+          {
+            "product_name": "Notebook",
+            "category": "Stationery",
+            "price": 343.96,
+            "quantity": 2
+          },
+          {
+            "product_name": "Bluetooth Speaker",
+            "category": "Electronics",
+            "price": 11.28,
+            "quantity": 1
+          },
+          {
+            "product_name": "Notebook",
+            "category": "Stationery",
+            "price": 102.21,
+            "quantity": 1
+          },
+          {
+            "product_name": "Coffee Maker",
+            "category": "Home Appliances",
+            "price": 237.3,
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "order_id": "400ccea1-a7d1-41de-9ebb-bcce71dac66c",
+        "order_date": "2024-04-21",
+        "products": [
+          {
+            "product_name": "Notebook",
+            "category": "Stationery",
+            "price": 51.96,
+            "quantity": 2
+          },
+          {
+            "product_name": "Smart Watch",
+            "category": "Electronics",
+            "price": 134.13,
+            "quantity": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Lakshit Ahluwalia",
+    "house_number": "362",
+    "city": "Avadi",
+    "state": "Uttarakhand",
+    "pincode": "692507",
+    "email": "sgolla@yahoo.com",
+    "phone": "07339409946",
+    "gender": "Male",
+    "dob": "1965-08-27",
+    "orders": [
+      {
+        "order_id": "f8cbf932-64bc-4e6c-a9b4-f2a649564df8",
+        "order_date": "2024-08-01",
+        "products": [
+          {
+            "product_name": "Notebook",
+            "category": "Stationery",
+            "price": 47.68,
+            "quantity": 2
+          },
+          {
+            "product_name": "Yoga Mat",
+            "category": "Fitness",
+            "price": 196.74,
+            "quantity": 3
+          }
+        ]
+      },
+      {
+        "order_id": "8626c656-59e1-4a12-b5d5-1c3e8109f438",
+        "order_date": "2024-09-19",
+        "products": [
+          {
+            "product_name": "Denim Jacket",
+            "category": "Clothing",
+            "price": 498.63,
+            "quantity": 2
+          },
+          {
+            "product_name": "Backpack",
+            "category": "Accessories",
+            "price": 90.52,
+            "quantity": 3
+          }
+        ]
+      },
+      {
+        "order_id": "c0501fe4-f2ac-406e-8438-2fe452fa9ead",
+        "order_date": "2024-09-26",
+        "products": [
+          {
+            "product_name": "Sneakers",
+            "category": "Footwear",
+            "price": 187.23,
+            "quantity": 2
+          },
+          {
+            "product_name": "Notebook",
+            "category": "Stationery",
+            "price": 47.24,
+            "quantity": 1
+          },
+          {
+            "product_name": "Yoga Mat",
+            "category": "Fitness",
+            "price": 143.75,
+            "quantity": 3
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Gatik Mani",
+    "house_number": "062",
+    "city": "Allahabad",
+    "state": "Chhattisgarh",
+    "pincode": "293605",
+    "email": "pjohal@gmail.com",
+    "phone": "+919728786960",
+    "gender": "Male",
+    "dob": "1986-04-19",
+    "orders": [
+      {
+        "order_id": "fc123a42-9bb3-4cb8-8c0a-4025040793ec",
+        "order_date": "2023-06-30",
+        "products": [
+          {
+            "product_name": "Yoga Mat",
+            "category": "Fitness",
+            "price": 329.92,
+            "quantity": 1
+          },
+          {
+            "product_name": "Sneakers",
+            "category": "Footwear",
+            "price": 487.6,
+            "quantity": 2
+          },
+          {
+            "product_name": "Smart Watch",
+            "category": "Electronics",
+            "price": 207.91,
+            "quantity": 3
+          },
+          {
+            "product_name": "Sunglasses",
+            "category": "Accessories",
+            "price": 448.46,
+            "quantity": 2
+          }
+        ]
+      },
+      {
+        "order_id": "898c21b8-cfb0-4972-b9b9-19e1f75b4094",
+        "order_date": "2024-02-14",
+        "products": [
+          {
+            "product_name": "Backpack",
+            "category": "Accessories",
+            "price": 182.79,
+            "quantity": 2
+          },
+          {
+            "product_name": "Yoga Mat",
+            "category": "Fitness",
+            "price": 109.93,
+            "quantity": 3
+          },
+          {
+            "product_name": "Smart Watch",
+            "category": "Electronics",
+            "price": 229.72,
+            "quantity": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Prisha Mallick",
+    "house_number": "H.No. 465",
+    "city": "Jorhat",
+    "state": "Manipur",
+    "pincode": "324493",
+    "email": "drishyagoda@yahoo.com",
+    "phone": "4621133836",
+    "gender": "Male",
+    "dob": "1991-05-02",
+    "orders": [
+      {
+        "order_id": "e44e43ce-3566-479e-b010-76a269aff580",
+        "order_date": "2024-12-09",
+        "products": [
+          {
+            "product_name": "Yoga Mat",
+            "category": "Fitness",
+            "price": 79.2,
+            "quantity": 3
+          },
+          {
+            "product_name": "Backpack",
+            "category": "Accessories",
+            "price": 286.36,
+            "quantity": 1
+          },
+          {
+            "product_name": "Bluetooth Speaker",
+            "category": "Electronics",
+            "price": 442.33,
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "order_id": "4c01075c-cd61-432b-88c0-03803ee3b662",
+        "order_date": "2025-02-08",
+        "products": [
+          {
+            "product_name": "Coffee Maker",
+            "category": "Home Appliances",
+            "price": 283.79,
+            "quantity": 2
+          },
+          {
+            "product_name": "Smart Watch",
+            "category": "Electronics",
+            "price": 366.75,
+            "quantity": 3
+          }
+        ]
+      },
+      {
+        "order_id": "f93f1960-66bb-42ee-b1d3-da308c1e1459",
+        "order_date": "2023-08-02",
+        "products": [
+          {
+            "product_name": "Wireless Mouse",
+            "category": "Electronics",
+            "price": 30.25,
+            "quantity": 1
+          },
+          {
+            "product_name": "Bluetooth Speaker",
+            "category": "Electronics",
+            "price": 54.89,
+            "quantity": 3
+          },
+          {
+            "product_name": "Bluetooth Speaker",
+            "category": "Electronics",
+            "price": 170.03,
+            "quantity": 1
+          },
+          {
+            "product_name": "Coffee Maker",
+            "category": "Home Appliances",
+            "price": 491.55,
+            "quantity": 3
+          },
+          {
+            "product_name": "Sunglasses",
+            "category": "Accessories",
+            "price": 295.66,
+            "quantity": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Yakshit Agarwal",
+    "house_number": "769",
+    "city": "Miryalaguda",
+    "state": "Mizoram",
+    "pincode": "596733",
+    "email": "zeeshan52@kulkarni.net",
+    "phone": "0980268760",
+    "gender": "Female",
+    "dob": "1997-03-14",
+    "orders": [
+      {
+        "order_id": "8a18d496-14bd-4980-801d-41de68e35954",
+        "order_date": "2025-04-21",
+        "products": [
+          {
+            "product_name": "Coffee Maker",
+            "category": "Home Appliances",
+            "price": 298.41,
+            "quantity": 2
+          },
+          {
+            "product_name": "Sneakers",
+            "category": "Footwear",
+            "price": 216.61,
+            "quantity": 1
+          },
+          {
+            "product_name": "Backpack",
+            "category": "Accessories",
+            "price": 54.62,
+            "quantity": 1
+          },
+          {
+            "product_name": "Notebook",
+            "category": "Stationery",
+            "price": 312.97,
+            "quantity": 3
+          }
+        ]
+      },
+      {
+        "order_id": "3517ebb9-dd01-4acf-831c-6346c97f9b60",
+        "order_date": "2024-05-05",
+        "products": [
+          {
+            "product_name": "Notebook",
+            "category": "Stationery",
+            "price": 53.8,
+            "quantity": 3
+          },
+          {
+            "product_name": "Sunglasses",
+            "category": "Accessories",
+            "price": 143.02,
+            "quantity": 1
+          },
+          {
+            "product_name": "Smart Watch",
+            "category": "Electronics",
+            "price": 205.71,
+            "quantity": 1
+          },
+          {
+            "product_name": "Denim Jacket",
+            "category": "Clothing",
+            "price": 84.48,
+            "quantity": 1
+          },
+          {
+            "product_name": "Sneakers",
+            "category": "Footwear",
+            "price": 255.8,
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "order_id": "73eb6885-b7fb-4798-8a3e-201ba946eb18",
+        "order_date": "2023-06-29",
+        "products": [
+          {
+            "product_name": "Yoga Mat",
+            "category": "Fitness",
+            "price": 351.3,
+            "quantity": 2
+          },
+          {
+            "product_name": "Backpack",
+            "category": "Accessories",
+            "price": 415.4,
+            "quantity": 2
+          },
+          {
+            "product_name": "Sneakers",
+            "category": "Footwear",
+            "price": 90.52,
+            "quantity": 3
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Urvi Kar",
+    "house_number": "96/892",
+    "city": "Hosur",
+    "state": "Assam",
+    "pincode": "343306",
+    "email": "shaan19@maharaj.info",
+    "phone": "+913638581828",
+    "gender": "Female",
+    "dob": "1980-11-02",
+    "orders": [
+      {
+        "order_id": "a4fccb6f-92df-4693-a874-3819294d995a",
+        "order_date": "2025-02-15",
+        "products": [
+          {
+            "product_name": "Bluetooth Speaker",
+            "category": "Electronics",
+            "price": 13.94,
+            "quantity": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Khushi Konda",
+    "house_number": "50/16",
+    "city": "Nagercoil",
+    "state": "Bihar",
+    "pincode": "595711",
+    "email": "ykannan@gmail.com",
+    "phone": "7773587205",
+    "gender": "Female",
+    "dob": "1967-09-04",
+    "orders": [
+      {
+        "order_id": "7f271ce6-4532-4e6d-a85d-bb74b2a3eb6a",
+        "order_date": "2024-12-17",
+        "products": [
+          {
+            "product_name": "Coffee Maker",
+            "category": "Home Appliances",
+            "price": 189.43,
+            "quantity": 3
+          },
+          {
+            "product_name": "Bluetooth Speaker",
+            "category": "Electronics",
+            "price": 76.52,
+            "quantity": 2
+          },
+          {
+            "product_name": "Bluetooth Speaker",
+            "category": "Electronics",
+            "price": 66.88,
+            "quantity": 3
+          },
+          {
+            "product_name": "Denim Jacket",
+            "category": "Clothing",
+            "price": 483.45,
+            "quantity": 3
+          }
+        ]
+      },
+      {
+        "order_id": "4c33f1b5-f9b9-486a-a8c4-b2bfda2ba904",
+        "order_date": "2025-02-20",
+        "products": [
+          {
+            "product_name": "Yoga Mat",
+            "category": "Fitness",
+            "price": 339.87,
+            "quantity": 1
+          },
+          {
+            "product_name": "Coffee Maker",
+            "category": "Home Appliances",
+            "price": 487.38,
+            "quantity": 2
+          },
+          {
+            "product_name": "Wireless Mouse",
+            "category": "Electronics",
+            "price": 166.78,
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "order_id": "8dbf79e9-9169-4642-ad33-592275f92b63",
+        "order_date": "2024-10-25",
+        "products": [
+          {
+            "product_name": "Denim Jacket",
+            "category": "Clothing",
+            "price": 280.36,
+            "quantity": 1
+          },
+          {
+            "product_name": "Bluetooth Speaker",
+            "category": "Electronics",
+            "price": 86.46,
+            "quantity": 3
+          },
+          {
+            "product_name": "Backpack",
+            "category": "Accessories",
+            "price": 275.64,
+            "quantity": 2
+          },
+          {
+            "product_name": "Smart Watch",
+            "category": "Electronics",
+            "price": 203.89,
+            "quantity": 1
+          },
+          {
+            "product_name": "Backpack",
+            "category": "Accessories",
+            "price": 391.26,
+            "quantity": 3
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Prerak Shetty",
+    "house_number": "54/72",
+    "city": "Allahabad",
+    "state": "Sikkim",
+    "pincode": "059096",
+    "email": "ivanshroff@yahoo.com",
+    "phone": "+910581571983",
+    "gender": "Male",
+    "dob": "1989-11-25",
+    "orders": [
+      {
+        "order_id": "ea055c60-0551-4d05-8e9e-a7fff2b60e18",
+        "order_date": "2023-11-29",
+        "products": [
+          {
+            "product_name": "Backpack",
+            "category": "Accessories",
+            "price": 267.13,
+            "quantity": 2
+          }
+        ]
+      },
+      {
+        "order_id": "b76994ef-4728-43bc-8edc-b9f8ef0db5be",
+        "order_date": "2025-01-19",
+        "products": [
+          {
+            "product_name": "Smart Watch",
+            "category": "Electronics",
+            "price": 19.74,
+            "quantity": 3
+          },
+          {
+            "product_name": "Wireless Mouse",
+            "category": "Electronics",
+            "price": 103.02,
+            "quantity": 1
+          },
+          {
+            "product_name": "Sunglasses",
+            "category": "Accessories",
+            "price": 268.19,
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "order_id": "a174ac37-0a60-48ef-b968-acbd947a0d34",
+        "order_date": "2024-03-19",
+        "products": [
+          {
+            "product_name": "Sneakers",
+            "category": "Footwear",
+            "price": 468.2,
+            "quantity": 1
+          },
+          {
+            "product_name": "Sunglasses",
+            "category": "Accessories",
+            "price": 391.29,
+            "quantity": 3
+          },
+          {
+            "product_name": "Notebook",
+            "category": "Stationery",
+            "price": 309.13,
+            "quantity": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Aaryahi Tara",
+    "house_number": "80/878",
+    "city": "Jamalpur",
+    "state": "Goa",
+    "pincode": "866809",
+    "email": "aurorariya@hotmail.com",
+    "phone": "04950885769",
+    "gender": "Male",
+    "dob": "1995-06-16",
+    "orders": [
+      {
+        "order_id": "a786f052-99a2-4363-800c-68836b88d937",
+        "order_date": "2025-01-27",
+        "products": [
+          {
+            "product_name": "Sunglasses",
+            "category": "Accessories",
+            "price": 144.47,
+            "quantity": 3
+          }
+        ]
+      },
+      {
+        "order_id": "c1f94bbb-a784-442a-b561-b2a35b8b854a",
+        "order_date": "2023-12-24",
+        "products": [
+          {
+            "product_name": "Yoga Mat",
+            "category": "Fitness",
+            "price": 253.19,
+            "quantity": 2
+          },
+          {
+            "product_name": "Smart Watch",
+            "category": "Electronics",
+            "price": 322.34,
+            "quantity": 1
+          },
+          {
+            "product_name": "Notebook",
+            "category": "Stationery",
+            "price": 495.58,
+            "quantity": 1
+          },
+          {
+            "product_name": "Sunglasses",
+            "category": "Accessories",
+            "price": 167.9,
+            "quantity": 3
+          },
+          {
+            "product_name": "Coffee Maker",
+            "category": "Home Appliances",
+            "price": 405.55,
+            "quantity": 3
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Vardaniya Viswanathan",
+    "house_number": "35",
+    "city": "Bulandshahr",
+    "state": "Uttarakhand",
+    "pincode": "287020",
+    "email": "ikeer@gandhi.biz",
+    "phone": "04251184483",
+    "gender": "Female",
+    "dob": "1965-09-26",
+    "orders": [
+      {
+        "order_id": "c5d38786-0935-486e-8cdf-1ced9e425414",
+        "order_date": "2023-10-29",
+        "products": [
+          {
+            "product_name": "Sunglasses",
+            "category": "Accessories",
+            "price": 433.95,
+            "quantity": 2
+          },
+          {
+            "product_name": "Notebook",
+            "category": "Stationery",
+            "price": 25.11,
+            "quantity": 3
+          },
+          {
+            "product_name": "Bluetooth Speaker",
+            "category": "Electronics",
+            "price": 209.96,
+            "quantity": 2
+          },
+          {
+            "product_name": "Yoga Mat",
+            "category": "Fitness",
+            "price": 114.93,
+            "quantity": 3
+          },
+          {
+            "product_name": "Sunglasses",
+            "category": "Accessories",
+            "price": 49.42,
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "order_id": "62e9f16a-0548-4684-bd0d-724ddfb56b13",
+        "order_date": "2023-11-29",
+        "products": [
+          {
+            "product_name": "Bluetooth Speaker",
+            "category": "Electronics",
+            "price": 110.62,
+            "quantity": 3
+          },
+          {
+            "product_name": "Notebook",
+            "category": "Stationery",
+            "price": 457.74,
+            "quantity": 2
+          },
+          {
+            "product_name": "Sunglasses",
+            "category": "Accessories",
+            "price": 349.54,
+            "quantity": 3
+          },
+          {
+            "product_name": "Notebook",
+            "category": "Stationery",
+            "price": 266.76,
+            "quantity": 2
+          }
+        ]
+      },
+      {
+        "order_id": "dbbf66d1-7162-4bc2-a643-0c6fe17c9bf2",
+        "order_date": "2024-07-17",
+        "products": [
+          {
+            "product_name": "Backpack",
+            "category": "Accessories",
+            "price": 494.09,
+            "quantity": 2
+          },
+          {
+            "product_name": "Sunglasses",
+            "category": "Accessories",
+            "price": 388.18,
+            "quantity": 2
+          },
+          {
+            "product_name": "Coffee Maker",
+            "category": "Home Appliances",
+            "price": 96.62,
+            "quantity": 2
+          }
+        ]
+      }
+    ]
+  }
+]

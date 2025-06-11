@@ -1,6 +1,7 @@
 export interface User {
-    id: string,
-    username: string,
+  id: string;        // Socket ID or user ID
+  username: string;
+  email?: string;    // Optional, if you want
 }
 
 export interface LoginProps {

@@ -1,10 +1,10 @@
 Project About User Authentication using Typescript, nodejs, express
 
 Terminal Command used:
-    npm i -y        - used for install all node package managers
+    npm init -y        - used for install all node package managers
     npm i express   - used for install express
     npm i -D typescript ts-node nodemon @types/node @types/express
-    npm tsc --init
+    npx tsc --init
     npm i -D concurrently
 
 

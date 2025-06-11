@@ -1,59 +1,34 @@
-import express from "express";
-import { createServer } from "http";
-import { Server } from "socket.io"
-import cors from "cors"
-import { Message, User } from "./interface";
+// src/index.ts
+import express from 'express';
+import mongoose from 'mongoose';
+import cors from 'cors';
+import authRoutes from './routes/auth';
+import { createServer } from 'http';
+import { Server } from 'socket.io';
+import { handleSocket } from './socket';
 
 const app = express();
-app.use(cors())
-
-const httpServer = createServer(app)
+const httpServer = createServer(app);
 const io = new Server(httpServer, {
-    cors: {
-        origin: "http://localhost:5173",
-        methods: ["GET", "POST"]
-    }
-})
+    cors: { origin: 'http://localhost:5173', methods: ['GET', 'POST'] },
+});
 
+app.use(cors({
+  origin: 'http://localhost:5173', // frontend origin
+  credentials: true, // allow cookies and auth headers
+}));
+app.use(express.json());
+app.use('/api/auth', authRoutes);
 
-const users = new Map<string, User>();
-const messages: Message[] = []
+// MongoDB connection
+mongoose.connect('mongodb://localhost:27017/chatting_app')
+    .then(() => console.log('MongoDB connected'))
+    .catch((err) => console.error('MongoDB error:', err));
 
-io.on("connection", (socket) => {
-    console.log(`User connected: ${socket.id}`);
+// Socket.IO logic
+handleSocket(io);
 
-    socket.on("join", (username: string) => {
-        users.set(socket.id, { id: socket.id, username: username });
-        io.emit("userList", Array.from(users.values()))
-        io.emit("userJoined", username);
-        io.emit("messageHistory", messages)
-    })
-
-    socket.on("sendMessage", (message: string) => {
-        const user = users.get(socket.id);
-        if (user) {
-            const msg: Message = {
-                user,
-                message,
-                timestamp: new Date()
-            }
-            messages.push(msg)
-            io.emit("newMessage", msg)
-        }
-    })
-
-    socket.on("disconnect", () => {
-        const user = users.get(socket.id)
-        if (user) {
-            console.log(`${user.username} left the chat`);
-            users.delete(socket.id);
-            io.emit("userList", Array.from(users.values()));
-            io.emit("userLeft", user.username)
-        }
-    })
-})
-
-const PORT = 8080;
+const PORT = 8088;
 httpServer.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`)
-})
+    console.log(`Server running on http://localhost:${PORT}`);
+});

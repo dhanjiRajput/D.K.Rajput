@@ -1,33 +1,29 @@
 import { useState } from "react";
-import type { User } from "./interface";
 import { socket } from "./services/socket";
-import Login from "./components/Login";
 import Chat from "./components/Chat";
+import AuthForm from "./components/AuthForm";
+import type { User } from "./interface";
 
-const App = () => {
+function App() {
+    const [currentUser, setCurrentUser] = useState<User | null>(null);
 
-  const [currentUser, setCurrentUser] = useState<User | null>(null);
-  const handleLogin=(username:string)=>{
-    socket.connect();
-    socket.emit("join", username );
-    setCurrentUser({id: socket.id, username: username});
-  }
+    const handleLogin = (user: User) => {
+        setCurrentUser(user);
+        socket.connect();
+        socket.emit("join", user.username);
+    };
 
-  const handleLogout = (username:string) => {
-   socket.emit("userLeft",username);
-    socket.disconnect();
-    setCurrentUser(null);
-  }
+    const handleLogout = () => {
+        socket.disconnect();
+        setCurrentUser(null);
+        localStorage.removeItem("token");
+    };
 
-  return (
-    <>
-      <div className="min-h-screen bg-gray-100 flex flex-col ">
-      {
-        !currentUser ? <Login onLogin={handleLogin} /> : <Chat currentUser={currentUser} onLogout={handleLogout} />
-      }
-    </div>
-    </>
-  )
+    return currentUser ? (
+        <Chat currentUser={currentUser} onLogout={handleLogout} />
+    ) : (
+        <AuthForm onLoginSuccess={handleLogin} />
+    );
 }
 
-export default App
+export default App;

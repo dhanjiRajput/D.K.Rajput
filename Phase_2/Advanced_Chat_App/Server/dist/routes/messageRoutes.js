@@ -6,6 +6,6 @@ const messageController_1 = require("../controllers/messageController");
 const messageRouter = (0, express_1.Router)();
 messageRouter.get("/users", auth_1.protectRoutes, messageController_1.getuserForSidebar);
 messageRouter.get("/:id", auth_1.protectRoutes, messageController_1.getMessages);
-messageRouter.get("/mark/:id", auth_1.protectRoutes, messageController_1.getMessages);
+messageRouter.get("/mark/:id", auth_1.protectRoutes, messageController_1.markMessageAsSeen);
 messageRouter.post("/send/:id", auth_1.protectRoutes, messageController_1.sendMessage);
 exports.default = messageRouter;

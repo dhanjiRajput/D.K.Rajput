@@ -47,7 +47,7 @@ app.use(cors());
 //Route setup
 app.use("/api/status",(req:any,res:any)=>res.send("Server Is Alive.."));
 app.use("/api/auth",userRouter);
-app.use("/api/message",messageRouter);
+app.use("/api/messages",messageRouter);
 
 const PORT=process.env.PORT;
 server.listen(PORT, () => {

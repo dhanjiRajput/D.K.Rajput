@@ -1,20 +1,29 @@
+import { useContext, useEffect, useState } from "react";
 import avatar from "../assets/avatar.png";
-import { dummyMessages } from "../assets/dummuMessage";
+import { AuthContext } from "../context/AuthContext";
+import { ChatContext } from "../context/ChatContext";
 
-interface User {
-  id: string;
-  _id?: string;
-  fullName: string;
-  profilePic: string;
-  bio?: string;
-  // Add more fields as needed
-}
+const RightSideBar = () => {
+  const auth = useContext(AuthContext);
+  const chat = useContext(ChatContext);
 
-interface RightSideBarProps {
-  selectedUser: User | null;
-}
+  if (!auth) throw new Error("AuthContext is undefined. Make sure your app is wrapped with AuthProvider.");
+  if (!chat) throw new Error("ChatContext is undefined. Make sure your app is wrapped with ChatProvider.");
 
-const RightSideBar: React.FC<RightSideBarProps> = ({ selectedUser }) => {
+  const { logout, onlineUsers } = auth;
+  const { selectedUser, messages } = chat;
+
+  const [msgImages, setMsgImages] = useState<string[]>([]);
+
+  useEffect(() => {
+    setMsgImages(
+      messages
+        .filter(msg => msg.image)
+        .map(msg => msg.image!)
+        .filter((img): img is string => Boolean(img))
+    );
+  }, [messages]);
+
   return (
     selectedUser && (
       <div className={`bg-[#8185B2]/10 text-white w-full relative overflow-y-scroll ${selectedUser ? "max-md:hidden" : ""}`}>
@@ -25,10 +34,10 @@ const RightSideBar: React.FC<RightSideBarProps> = ({ selectedUser }) => {
             className="w-20 aspect-[1/1] rounded-full"
           />
           <h1 className="px-10 text-xl font-medium mx-auto flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-green-500"></span>
+            {onlineUsers?.includes(selectedUser._id) && <p className="w-2 h-2 rounded-full bg-green-500"></p>}
             {selectedUser.fullName}
           </h1>
-          <p className="px-10 mx-auto">{selectedUser.bio || "No bio available"}</p>
+          <p className="text-center px-4 mx-auto">{selectedUser.bio || "No bio available"}</p>
         </div>
 
         <hr className="border-[#ffffff50] my-4" />
@@ -36,17 +45,18 @@ const RightSideBar: React.FC<RightSideBarProps> = ({ selectedUser }) => {
         <div className="px-5 text-xs">
           <p>Media</p>
           <div className="mt-2 max-h-[400px] overflow-y-scroll grid grid-cols-2 gap-4 opacity-80">
-            {dummyMessages
-              .filter((msg) => msg.senderImage) // Only images
-              .map((msg, index) => (
-                <div key={index} onClick={() => window.open(msg.senderImage)} className="cursor-pointer rounded">
-                  <img src={msg.senderImage} alt="Media" className="h-full rounded-md" />
-                </div>
-              ))}
+            {msgImages.map((url, index) => (
+              <div key={index} onClick={() => window.open(url)} className="cursor-pointer rounded">
+                <img src={url} alt="Media" className="h-full rounded-md" />
+              </div>
+            ))}
           </div>
         </div>
 
-        <button className="absolute bottom-5 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-purple-400 to-violet-600 text-white border-none text-lg font-bold py-2 px-20 rounded-full cursor-pointer">
+        <button
+          onClick={() => logout && logout()}
+          className="absolute bottom-5 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-purple-400 to-violet-600 text-white border-none text-lg font-bold py-2 px-20 rounded-full cursor-pointer"
+        >
           Logout
         </button>
       </div>

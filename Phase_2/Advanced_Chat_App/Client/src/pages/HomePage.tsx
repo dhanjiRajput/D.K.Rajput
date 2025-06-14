@@ -1,19 +1,16 @@
-import { useState } from "react";
+import { useContext } from "react";
 import ChatContainer from "../components/ChatContainer";
 import RightSideBar from "../components/RightSideBar";
 import SideBar from "../components/SideBar";
+import { ChatContext } from "../context/ChatContext";
 
-// Define User interface here or import it from a shared types file
-interface User {
-  id: string;
-  _id?: string;
-  fullName: string;
-  profilePic: string;
-  // other optional fields like `bio` if needed
-}
 
 const HomePage = () => {
-  const [selectedUser, setSelectedUser] = useState<User | null>(null);
+    const chat = useContext(ChatContext);
+
+    if (!chat) throw new Error("ChatContext is undefined. Make sure your app is wrapped with ChatProvider.");
+
+    const {selectedUser}= chat;
 
   return (
     <div className="border w-full h-screen sm:px-[15%] sm:py-[5%]">
@@ -27,7 +24,7 @@ const HomePage = () => {
       >
         <SideBar/>
         <ChatContainer/>
-        <RightSideBar selectedUser={selectedUser} />
+        <RightSideBar/>
       </div>
     </div>
   );

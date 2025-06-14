@@ -50,7 +50,10 @@ app.use("/api/auth",userRouter);
 app.use("/api/messages",messageRouter);
 
 const PORT=process.env.PORT;
-server.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-  connectDB();
-});
+if(process.env.NODE_ENV!=="production"){
+  server.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+    connectDB();
+  });
+}
+ export default server;

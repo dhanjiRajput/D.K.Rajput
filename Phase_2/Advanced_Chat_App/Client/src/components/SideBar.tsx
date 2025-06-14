@@ -19,7 +19,7 @@ const SideBar= () => {
   if (!chat) throw new Error("ChatContext is undefined. Make sure your app is wrapped with ChatProvider.");
 
   const {logout,onlineUsers} = auth;
-  const {getUsers,users,selectedUser,setSelectedUser,unseenMessages}= chat;
+  const {getUsers,users,selectedUser,setSelectedUser,unseenMessages,setUnseenMessages}= chat;
 
   const [input, setInput] = useState<string>("");
 
@@ -60,7 +60,7 @@ const SideBar= () => {
       <div className="flex flex-col">
         {filteredUsers.map((user, index) => (
           <div
-            onClick={() => {setSelectedUser(user)}}
+            onClick={() => {setSelectedUser(user);setUnseenMessages(pre=>({...pre,[user._id]:0}))}}
             key={index}
             className={`relative flex items-center gap-2 p-2 pl-4 rounded cursor-pointer max-sm:text-sm ${selectedUser?._id === user.id ? "bg-[#282142]/50" : ""}`}
           >

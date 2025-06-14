@@ -45,7 +45,10 @@ app.use("/api/status", (req, res) => res.send("Server Is Alive.."));
 app.use("/api/auth", userRoutes_1.default);
 app.use("/api/messages", messageRoutes_1.default);
 const PORT = process.env.PORT;
-server.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-    (0, db_1.connectDB)();
-});
+if (process.env.NODE_ENV !== "production") {
+    server.listen(PORT, () => {
+        console.log(`Server is running on http://localhost:${PORT}`);
+        (0, db_1.connectDB)();
+    });
+}
+exports.default = server;

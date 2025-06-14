@@ -1,52 +1,49 @@
-import profile1 from "../assets/profile1.png";
 import arrow from "../assets/arrow.png";
 import help from "../assets/help.png";
 import logo from "../assets/logo.png";
 import avatar from "../assets/avatar.png";
 import gallery from "../assets/gallery.png";
 import send_btn from "../assets/send.png";
-import { dummyMessages } from "../assets/dummuMessage";
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { formateMessageTime } from "../lib/utils";
 import { AuthContext } from "../context/AuthContext";
 import { ChatContext } from "../context/ChatContext";
 import toast from "react-hot-toast";
 
-
 const ChatContainer = () => {
-
   const auth = useContext(AuthContext);
-    const chat = useContext(ChatContext);
-  
-    if (!auth) throw new Error("AuthContext is undefined. Make sure your app is wrapped with AuthProvider.");
-    if (!chat) throw new Error("ChatContext is undefined. Make sure your app is wrapped with ChatProvider.");
-  
-    const {authUser,onlineUsers} = auth;
-    const {messages,sendMessage,selectedUser,setSelectedUser,getMessages}= chat;
+  const chat = useContext(ChatContext);
+
+  if (!auth) throw new Error("AuthContext is undefined. Make sure your app is wrapped with AuthProvider.");
+  if (!chat) throw new Error("ChatContext is undefined. Make sure your app is wrapped with ChatProvider.");
+
+  const { authUser, onlineUsers } = auth;
+  const { messages, sendMessage, selectedUser, setSelectedUser, getMessages } = chat;
 
   const scrollEnd = useRef<HTMLDivElement | null>(null);
+  const [input, setInput] = useState("");
 
-  const [input,setInput]=useState("");
-
-  //Handle sending message
-  const handleSendMessage=async(e)=>{
+  // Handle sending text message
+  const handleSendMessage = async (
+    e: React.FormEvent<HTMLFormElement> | React.KeyboardEvent<HTMLInputElement> | React.MouseEvent<HTMLImageElement>
+  ) => {
     e.preventDefault();
     if (input.trim() === "") return;
     await sendMessage({ text: input.trim() });
     setInput("");
   };
 
-  //Hnadle Sending Image
+  // Handle sending image
   const handleSendImage = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file= e.target.files?.[0];
-    if(!file || !file.type.startsWith("image/")) {
+    const file = e.target.files?.[0];
+    if (!file || !file.type.startsWith("image/")) {
       toast.error("Please select a valid image file.");
       return;
     }
     const reader = new FileReader();
     reader.onloadend = async () => {
       await sendMessage({ image: reader.result as string });
-      e.target.value = ""; // Clear the input after sending
+      e.target.value = ""; // Clear the input
     };
     reader.readAsDataURL(file);
   };
@@ -63,15 +60,20 @@ const ChatContainer = () => {
     }
   }, [messages]);
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      handleSendMessage(e);
+    }
+  };
+
   return selectedUser ? (
     <div className="h-full overflow-scroll relative backdrop-blur-lg">
       {/* Header */}
       <div className="flex items-center gap-3 py-3 mx-4 border-b border-stone-500">
-        <img src={selectedUser?.profilePic||avatar} alt="Profile" className="w-8 rounded-full" />
+        <img src={selectedUser?.profilePic || avatar} alt="Profile" className="w-8 rounded-full" />
         <p className="flex-1 text-lg text-white flex items-center gap-2">
           {selectedUser.fullName}
-          {onlineUsers?.includes(selectedUser._id)}
-          <span className="w-2 h-2 rounded-full bg-green-500"></span>
+          {onlineUsers?.includes(selectedUser._id) && <span className="w-2 h-2 rounded-full bg-green-500"></span>}
         </p>
         <img
           onClick={() => setSelectedUser(null)}
@@ -83,7 +85,7 @@ const ChatContainer = () => {
       </div>
 
       {/* Chat Messages */}
-      <div className="flex flex-col h-[calc(100%-120px)] overflow-y-scroll p-3 pb-6">
+      <div className="flex flex-col h-[calc(95%-100px)] overflow-y-scroll p-3 pb-6">
         {messages.map((msg, index) => (
           <div
             key={index}
@@ -94,7 +96,7 @@ const ChatContainer = () => {
             {msg.image ? (
               <img
                 src={msg.image}
-                alt=""
+                alt="sent"
                 className="max-w-[230px] border border-gray-700 rounded-lg overflow-hidden mb-8"
               />
             ) : (
@@ -108,8 +110,12 @@ const ChatContainer = () => {
             )}
             <div className="text-center text-xs">
               <img
-                src={msg.senderId === authUser._id ? authUser?.profilePic||avatar : selectedUser?.profilePic||avatar}
-                alt=""
+                src={
+                  msg.senderId === authUser._id
+                    ? authUser?.profilePic || avatar
+                    : selectedUser?.profilePic || avatar
+                }
+                alt="avatar"
                 className="w-7 rounded-full"
               />
               <p className="text-gray-500">{formateMessageTime(msg.createdAt)}</p>
@@ -119,13 +125,13 @@ const ChatContainer = () => {
         <div ref={scrollEnd} />
       </div>
 
-      {/* Bottom Area Message Input */}
+      {/* Bottom Input Area */}
       <div className="absolute bottom-0 left-0 right-0 flex items-center gap-3 p-3 mx-3 border-t border-stone-500">
         <div className="flex-1 flex items-center bg-gray-100/12 px-3 rounded-full">
           <input
             onChange={(e) => setInput(e.target.value)}
             value={input}
-            onKeyDown={(e) =>e.key==="Enter" ? handleSendMessage(e):null} 
+            onKeyDown={handleKeyDown}
             type="text"
             placeholder="Send A Message"
             className="flex-1 text-sm p-3 border-none rounded-lg outline-none text-white placeholder-gray-400 bg-transparent"

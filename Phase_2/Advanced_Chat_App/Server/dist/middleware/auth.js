@@ -19,15 +19,20 @@ const User_1 = __importDefault(require("../models/User"));
 const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY;
 //Middleware to Protect Routes
 const protectRoutes = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    var _a;
     try {
-        const token = req.headers.token;
+        const token = (_a = req.cookies) === null || _a === void 0 ? void 0 : _a.token;
+        console.log("Token from cookies:", token);
+        // If token is not present in cookies, return unauthorized
+        if (!token)
+            return res.status(401).json({ message: "Unauthorized" });
         if (!JWT_SECRET_KEY) {
             throw new Error("JWT secret key is not defined");
         }
         const decode = jsonwebtoken_1.default.verify(token, JWT_SECRET_KEY);
         const user = yield User_1.default.findById(decode.userId).select('-password');
         if (!user) {
-            return res.json({ success: false, message: "User Not Found...." });
+            return res.status(401).json({ success: false, message: "User Not Found...." });
         }
         req.user = user;
         next();

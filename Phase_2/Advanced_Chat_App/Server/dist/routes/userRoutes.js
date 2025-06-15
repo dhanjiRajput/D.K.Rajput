@@ -8,4 +8,5 @@ userRouter.post('/signup', userController_1.signup);
 userRouter.post('/login', userController_1.login);
 userRouter.put('/update-profile', auth_1.protectRoutes, userController_1.updateProfile);
 userRouter.get('/check', auth_1.protectRoutes, userController_1.checkAuth);
+userRouter.post('/logout', auth_1.protectRoutes, userController_1.logout);
 exports.default = userRouter;

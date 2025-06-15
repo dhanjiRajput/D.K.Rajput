@@ -12,12 +12,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.updateProfile = exports.checkAuth = exports.login = exports.signup = void 0;
+exports.logout = exports.updateProfile = exports.checkAuth = exports.login = exports.signup = void 0;
 const cloudinary_1 = __importDefault(require("../lib/cloudinary"));
 const utils_1 = require("../lib/utils");
 const User_1 = __importDefault(require("../models/User"));
 const bcryptjs_1 = __importDefault(require("bcryptjs"));
-//Signup New User
+// -------------------- Signup --------------------
 const signup = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { fullName, email, password, bio } = req.body;
     try {
@@ -26,7 +26,10 @@ const signup = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         }
         const user = yield User_1.default.findOne({ email });
         if (user) {
-            return res.json({ success: false, message: "Account already exist, try Another one" });
+            return res.json({
+                success: false,
+                message: "Account already exist, try Another one",
+            });
         }
         const hashed = yield bcryptjs_1.default.hash(password, 10);
         const newUser = yield User_1.default.create({
@@ -36,7 +39,19 @@ const signup = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             bio,
         });
         const token = (0, utils_1.generateToken)(newUser._id.toString());
-        res.json({ success: true, userData: newUser, token, message: "Account created Successfully....." });
+        // res.cookie("token", token, {
+        //   httpOnly: true,
+        //   secure: process.env.NODE_ENV === "production",
+        //   sameSite: "lax",
+        //   maxAge: 7 * 24 * 60 * 60 * 1000,
+        // });
+        res.cookie("token", token);
+        res.json({
+            success: true,
+            userData: newUser,
+            token,
+            message: "Account created Successfully.....",
+        });
     }
     catch (error) {
         if (error instanceof Error) {
@@ -50,7 +65,7 @@ const signup = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     }
 });
 exports.signup = signup;
-//Login User
+// -------------------- Login --------------------
 const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { email, password } = req.body;
@@ -63,7 +78,19 @@ const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             return res.json({ success: false, message: "Invalid Credentials.." });
         }
         const token = (0, utils_1.generateToken)(userData._id.toString());
-        res.json({ success: true, userData, token, message: "Login Successfully....." });
+        // res.cookie("token", token, {
+        //   httpOnly: true,
+        //   secure: process.env.NODE_ENV === "production",
+        //   sameSite: "lax",
+        //   maxAge: 7 * 24 * 60 * 60 * 1000,
+        // });
+        res.cookie("token", token);
+        res.json({
+            success: true,
+            userData,
+            token,
+            message: "Login Successfully.....",
+        });
     }
     catch (error) {
         if (error instanceof Error) {
@@ -77,15 +104,19 @@ const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     }
 });
 exports.login = login;
-//controller to check if user is authenticated
+// -------------------- Check Auth --------------------
 const checkAuth = (req, res) => {
-    res.json({ success: true, user: req.user });
+    console.log("User in check route:", req.user);
+    if (!req.user) {
+        return res.status(401).json({ success: false, message: "Unauthorized" });
+    }
+    res.status(200).json({
+        success: true,
+        user: req.user,
+    });
 };
 exports.checkAuth = checkAuth;
-//controller to update user Profile Details using Clodinary
-//1. Open Account in Cloudinary website
-//2. Declare cloud_Name,api_key,and secret_key in .env file
-//3. after that create here this controller updateProfile
+// -------------------- Update Profile --------------------
 const updateProfile = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { profilePic, bio, fullName } = req.body;
@@ -96,7 +127,11 @@ const updateProfile = (req, res) => __awaiter(void 0, void 0, void 0, function* 
         }
         else {
             const upload = yield cloudinary_1.default.uploader.upload(profilePic);
-            updatedUser = yield User_1.default.findByIdAndUpdate(userId, { profilePic: upload.secure_url, bio, fullName }, { new: true });
+            updatedUser = yield User_1.default.findByIdAndUpdate(userId, {
+                profilePic: upload.secure_url,
+                bio,
+                fullName,
+            }, { new: true });
         }
         res.json({ success: true, user: updatedUser });
     }
@@ -112,3 +147,14 @@ const updateProfile = (req, res) => __awaiter(void 0, void 0, void 0, function* 
     }
 });
 exports.updateProfile = updateProfile;
+// -------------------- Logout --------------------
+const logout = (req, res) => {
+    // res.clearCookie("token", {
+    //   httpOnly: true,
+    //   secure: process.env.NODE_ENV === "production", // must match cookie setting
+    //   sameSite: "lax",
+    // });
+    res.clearCookie("token");
+    return res.json({ success: true, message: "Logged out successfully" });
+};
+exports.logout = logout;

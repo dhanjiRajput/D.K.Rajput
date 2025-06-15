@@ -49,10 +49,10 @@ export const ChatProvider = ({ children }: { children: ReactNode }) => {
   }
   const { socket, axios } = authContext;
 
-  // Function to get All Users for Sidebar
+  // ✅ Function to get All Users for Sidebar
   const getUsers = async () => {
     try {
-      const { data } = await axios.get("/api/messages/users");
+      const { data } = await axios.get("/messages/users");
       if (data.success) {
         setUsers(data.users);
         setUnseenMessages(data.unseenMessages || {});
@@ -63,10 +63,10 @@ export const ChatProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
-  // Function to get Messages for Selected User
+  // ✅ Function to get Messages for Selected User
   const getMessages = async (userId: string) => {
     try {
-      const { data } = await axios.get(`/api/messages/${userId}`);
+      const { data } = await axios.get(`/messages/${userId}`);
       if (data.success) {
         setMessages(data.messages);
       }
@@ -76,12 +76,12 @@ export const ChatProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
-  // Function to send a message to the selected user
+  // ✅ Function to send a message to the selected user
   const sendMessage = async (messageData: { text?: string; image?: string }) => {
     if (!selectedUser) return;
 
     try {
-      const { data } = await axios.post(`/api/messages/send/${selectedUser._id}`, messageData);
+      const { data } = await axios.post(`/messages/send/${selectedUser._id}`, messageData);
       if (data.success) {
         setMessages((prevMessages) => [...prevMessages, data.newMessage]);
       } else {
@@ -101,7 +101,7 @@ export const ChatProvider = ({ children }: { children: ReactNode }) => {
       if (selectedUser && newMessage.senderId === selectedUser._id) {
         newMessage.seen = true;
         setMessages((prevMessages) => [...prevMessages, newMessage]);
-        axios.put(`/api/messages/mark/${newMessage._id}`);
+        axios.put(`/messages/mark/${newMessage._id}`);
       } else {
         setUnseenMessages((prevUnseen) => ({
           ...prevUnseen,

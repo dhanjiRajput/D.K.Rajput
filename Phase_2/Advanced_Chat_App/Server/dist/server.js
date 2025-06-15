@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.userSocketMap = exports.io = void 0;
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
+const cookie_parser_1 = __importDefault(require("cookie-parser"));
 require("dotenv/config");
 const http_1 = __importDefault(require("http"));
 const db_1 = require("./lib/db");
@@ -15,9 +16,20 @@ const socket_io_1 = require("socket.io");
 //Create Express App and HTTP Server
 const app = (0, express_1.default)();
 const server = http_1.default.createServer(app);
+//Middlewarre Setup
+app.use((0, cookie_parser_1.default)());
+app.use(express_1.default.urlencoded({ extended: true }));
+app.use(express_1.default.json({ limit: "4mb" }));
+app.use((0, cors_1.default)({
+    origin: 'http://localhost:5173', // your frontend origin
+    credentials: true, // 🔥 allow sending cookies
+}));
 //Initialize socket.io server
 exports.io = new socket_io_1.Server(server, {
-    cors: { origin: "*" },
+    cors: {
+        origin: "http://localhost:5173", // <--- same frontend origin
+        credentials: true, // <--- allow sending cookies with socket
+    }
 });
 //store online users
 exports.userSocketMap = {};
@@ -37,18 +49,13 @@ exports.io.on("connection", (socket) => {
         exports.io.emit("getOnlineUsers", Object.keys(exports.userSocketMap));
     });
 });
-//Middlewarre Setup
-app.use(express_1.default.json({ limit: "4mb" }));
-app.use((0, cors_1.default)());
 //Route setup
 app.use("/api/status", (req, res) => res.send("Server Is Alive.."));
 app.use("/api/auth", userRoutes_1.default);
 app.use("/api/messages", messageRoutes_1.default);
 const PORT = process.env.PORT;
-if (process.env.NODE_ENV !== "production") {
-    server.listen(PORT, () => {
-        console.log(`Server is running on http://localhost:${PORT}`);
-        (0, db_1.connectDB)();
-    });
-}
+server.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+    (0, db_1.connectDB)();
+});
 exports.default = server;

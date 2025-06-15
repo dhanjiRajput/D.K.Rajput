@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import cookieParser from 'cookie-parser';
 import "dotenv/config";
 import http from 'http';
 import { connectDB } from './lib/db';
@@ -12,9 +13,23 @@ import {Server} from 'socket.io';
 const app = express();
 const server=http.createServer(app);
 
+//Middlewarre Setup
+app.use(cookieParser());
+app.use(express.urlencoded({extended:true}));
+app.use(express.json({limit:"4mb"}));
+
+app.use(cors({
+  origin: 'http://localhost:5173',  // your frontend origin
+  credentials: true,                // 🔥 allow sending cookies
+}));
+
+
 //Initialize socket.io server
 export const io=new Server(server,{
-  cors:{origin:"*"},
+  cors: {
+    origin: "http://localhost:5173", // <--- same frontend origin
+    credentials: true,              // <--- allow sending cookies with socket
+  }
 })
 
 //store online users
@@ -40,9 +55,6 @@ io.on("connection",(socket)=>{
   
 });
 
-//Middlewarre Setup
-app.use(express.json({limit:"4mb"}));
-app.use(cors());
 
 //Route setup
 app.use("/api/status",(req:any,res:any)=>res.send("Server Is Alive.."));
@@ -50,10 +62,8 @@ app.use("/api/auth",userRouter);
 app.use("/api/messages",messageRouter);
 
 const PORT=process.env.PORT;
-if(process.env.NODE_ENV!=="production"){
   server.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
     connectDB();
   });
-}
  export default server;

@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState, useCallback } from "react";
 import type { ReactNode } from "react";
 import toast from "react-hot-toast";
 import { io } from "socket.io-client";
@@ -15,6 +15,7 @@ export interface AuthContextType {
   ) => Promise<void>;
   logout?: () => Promise<void>;
   updateProfile?: (body: { [key: string]: any }) => Promise<void>;
+  checkAuth?: () => Promise<void>;
 }
 
 export const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -28,7 +29,23 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [onlineUsers, setOnlineUsers] = useState<any[]>([]);
   const [socket, setSocket] = useState<any>(null);
 
-  const checkAuth = async () => {
+  const connectSocket = useCallback((userData: { _id: string }) => {
+    if (!userData || socket?.connected) return;
+
+    const newSocket = io("http://localhost:5000", {
+      query: { userId: userData._id },
+      withCredentials: true,
+    });
+
+    newSocket.connect();
+    setSocket(newSocket);
+
+    newSocket.on("getOnlineUsers", (userIds: any[]) => {
+      setOnlineUsers(userIds);
+    });
+  }, [socket]);
+
+  const checkAuth = useCallback(async () => {
     try {
       const { data } = await API.get("/auth/check");
       if (data.success) {
@@ -36,14 +53,14 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         connectSocket(data.user);
       }
     } catch (error: any) {
-      toast.error("Error checking auth");
+      console.error("Error checking auth:", error);
     }
-  };
+  }, [connectSocket]);
 
   const login = async (
     state: "login" | "signup",
     credentials: { email: string; password: string; [key: string]: any }
-  ): Promise<void> => {
+  ) => {
     try {
       const { data } = await API.post(`/auth/${state}`, credentials);
       if (data.success) {
@@ -60,8 +77,9 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   const logout = async () => {
     try {
-      await API.post("/auth/logout"); // <- Make sure backend clears the cookie
+      await API.post("/auth/logout");
     } catch {}
+
     setAuthUser(null);
     setOnlineUsers([]);
     if (socket) {
@@ -86,23 +104,6 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     }
   };
 
-  const connectSocket = (userData: { _id: string }) => {
-    if (!userData || socket?.connected) return;
-    const newSocket = io("http://localhost:5000", {
-      query: { userId: userData._id },
-      withCredentials: true, // <--- VERY IMPORTANT if cookies used
-    });
-    newSocket.connect();
-    setSocket(newSocket);
-    newSocket.on("getOnlineUsers", (userIds: any[]) => {
-      setOnlineUsers(userIds);
-    });
-  };
-
-  useEffect(() => {
-    checkAuth(); // run once on mount
-  }, []);
-
   const value: AuthContextType = {
     axios: API,
     authUser,
@@ -111,6 +112,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     login,
     logout,
     updateProfile,
+    checkAuth,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

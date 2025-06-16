@@ -107,4 +107,35 @@ export const sendMessage=async(req:any,res:any)=>{
             res.json({success:false,message: "An error occurred"});
         }
     }
-}
+};
+
+export const deleteMessage = async (req: any, res: any) => {
+  try {
+    const { id } = req.params;
+
+    const message = await Message.findById(id);
+    if (!message) return res.status(404).json({ success: false, message: "Message not found" });
+
+    if (message.senderId.toString() !== req.user._id.toString()) {
+      return res.status(403).json({ success: false, message: "Not allowed to delete this message" });
+    }
+
+    await Message.findByIdAndDelete(id);
+
+    // Emit to both sender and receiver in real-time
+    const senderSocketId = userSocketMap[message.senderId.toString()];
+    const receiverSocketId = userSocketMap[message.receiverId.toString()];
+
+    [senderSocketId, receiverSocketId].forEach(socketId => {
+      if (socketId) {
+        io.to(socketId).emit("messageDeleted", { messageId: id });
+      }
+    });
+
+    res.json({ success: true, message: "Message deleted", messageId: id });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ success: false, message: "Internal Server Error" });
+  }
+};
+

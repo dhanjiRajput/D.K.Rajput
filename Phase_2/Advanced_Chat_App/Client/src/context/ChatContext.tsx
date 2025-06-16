@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import { AuthContext } from "./AuthContext";
 import toast from "react-hot-toast";
 
-// Define types
+// -------------------- Types --------------------
 interface Message {
   _id: string;
   senderId: string;
@@ -29,6 +29,7 @@ interface ChatContextType {
   getUsers: () => void;
   getMessages: (userId: string) => void;
   sendMessage: (messageData: { text?: string; image?: string }) => void;
+  deleteMessage: (messageId: string) => void;
   setMessages: React.Dispatch<React.SetStateAction<Message[]>>;
   setSelectedUser: React.Dispatch<React.SetStateAction<User | null>>;
   unseenMessages: { [userId: string]: number };
@@ -44,12 +45,10 @@ export const ChatProvider = ({ children }: { children: ReactNode }) => {
   const [unseenMessages, setUnseenMessages] = useState<{ [userId: string]: number }>({});
 
   const authContext = useContext(AuthContext);
-  if (!authContext) {
-    throw new Error("AuthContext must be used within an AuthProvider");
-  }
-  const { socket, axios } = authContext;
+  if (!authContext) throw new Error("AuthContext must be used within an AuthProvider");
 
-  // ✅ Function to get All Users for Sidebar
+  const { socket, axios, authUser } = authContext;
+
   const getUsers = async () => {
     try {
       const { data } = await axios.get("/messages/users");
@@ -57,46 +56,56 @@ export const ChatProvider = ({ children }: { children: ReactNode }) => {
         setUsers(data.users);
         setUnseenMessages(data.unseenMessages || {});
       }
-    } catch (error) {
-      toast.error(error instanceof Error ? error.message : "An unknown error occurred");
-      console.error("Error fetching All users:", error);
+    } catch (error: any) {
+      console.error("Error fetching users:", error);
     }
   };
 
-  // ✅ Function to get Messages for Selected User
   const getMessages = async (userId: string) => {
     try {
       const { data } = await axios.get(`/messages/${userId}`);
       if (data.success) {
         setMessages(data.messages);
       }
-    } catch (error) {
-      toast.error(error instanceof Error ? error.message : "An unknown error occurred");
+    } catch (error: any) {
+      toast.error(error?.response?.data?.message || "Failed to fetch messages");
       console.error("Error fetching messages:", error);
     }
   };
 
-  // ✅ Function to send a message to the selected user
   const sendMessage = async (messageData: { text?: string; image?: string }) => {
     if (!selectedUser) return;
 
     try {
       const { data } = await axios.post(`/messages/send/${selectedUser._id}`, messageData);
       if (data.success) {
-        setMessages((prevMessages) => [...prevMessages, data.newMessage]);
+        setMessages((prev) => [...prev, data.newMessage]);
       } else {
         toast.error(data.message);
       }
-    } catch (error) {
-      toast.error(error instanceof Error ? error.message : "An unknown error occurred");
+    } catch (error: any) {
+      toast.error(error?.response?.data?.message || "Failed to send message");
       console.error("Error sending message:", error);
     }
   };
 
-  // Function to subscribe to messages for selected user
+  const deleteMessage = async (messageId: string) => {
+    try {
+      const { data } = await axios.delete(`/messages/delete/${messageId}`);
+      if (data.success) {
+        setMessages((prev) => prev.filter((msg) => msg._id !== messageId));
+        toast.success("Message deleted");
+      }
+    } catch (error: any) {
+      toast.error("Error deleting message");
+      console.error("Delete Error:", error);
+    }
+  };
+
   const subscribeToMessages = () => {
     if (!socket) return;
 
+    // New message
     socket.on("newMessage", (newMessage: Message) => {
       if (selectedUser && newMessage.senderId === selectedUser._id) {
         newMessage.seen = true;
@@ -105,23 +114,32 @@ export const ChatProvider = ({ children }: { children: ReactNode }) => {
       } else {
         setUnseenMessages((prevUnseen) => ({
           ...prevUnseen,
-          [newMessage.senderId]: prevUnseen[newMessage.senderId]
-            ? prevUnseen[newMessage.senderId] + 1
-            : 1,
+          [newMessage.senderId]: (prevUnseen[newMessage.senderId] || 0) + 1,
         }));
       }
     });
+
+    // ✅ Real-time message deletion
+    socket.on("messageDeleted", ({ messageId }: { messageId: string }) => {
+      setMessages((prev) => prev.filter((msg) => msg._id !== messageId));
+    });
   };
 
-  // Function to unsubscribe from messages
   const unsubscribeFromMessages = () => {
-    if (socket) socket.off("newMessage");
+    if (socket) {
+      socket.off("newMessage");
+      socket.off("messageDeleted");
+    }
   };
 
   useEffect(() => {
     subscribeToMessages();
     return () => unsubscribeFromMessages();
   }, [socket, selectedUser]);
+
+  useEffect(() => {
+    if (authUser) getUsers();
+  }, [authUser]);
 
   const value: ChatContextType = {
     messages,
@@ -130,6 +148,7 @@ export const ChatProvider = ({ children }: { children: ReactNode }) => {
     getUsers,
     getMessages,
     sendMessage,
+    deleteMessage,
     setMessages,
     setSelectedUser,
     unseenMessages,

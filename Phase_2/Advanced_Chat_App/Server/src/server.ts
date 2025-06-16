@@ -14,15 +14,10 @@ const app = express();
 const server=http.createServer(app);
 
 //Middlewarre Setup
+app.use(cors({ origin: 'http://localhost:5173', credentials: true }));
 app.use(cookieParser());
-app.use(express.urlencoded({extended:true}));
-app.use(express.json({limit:"4mb"}));
-
-app.use(cors({
-  origin: 'http://localhost:5173',  // your frontend origin
-  credentials: true,                // 🔥 allow sending cookies
-}));
-
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 //Initialize socket.io server
 export const io=new Server(server,{
@@ -31,6 +26,8 @@ export const io=new Server(server,{
     credentials: true,              // <--- allow sending cookies with socket
   }
 })
+
+app.set("io",io);
 
 //store online users
 export const userSocketMap: { [userId: string]: string } = {};

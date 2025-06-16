@@ -17,13 +17,10 @@ const socket_io_1 = require("socket.io");
 const app = (0, express_1.default)();
 const server = http_1.default.createServer(app);
 //Middlewarre Setup
+app.use((0, cors_1.default)({ origin: 'http://localhost:5173', credentials: true }));
 app.use((0, cookie_parser_1.default)());
+app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: true }));
-app.use(express_1.default.json({ limit: "4mb" }));
-app.use((0, cors_1.default)({
-    origin: 'http://localhost:5173', // your frontend origin
-    credentials: true, // 🔥 allow sending cookies
-}));
 //Initialize socket.io server
 exports.io = new socket_io_1.Server(server, {
     cors: {
@@ -31,6 +28,7 @@ exports.io = new socket_io_1.Server(server, {
         credentials: true, // <--- allow sending cookies with socket
     }
 });
+app.set("io", exports.io);
 //store online users
 exports.userSocketMap = {};
 //socket.io connection handler

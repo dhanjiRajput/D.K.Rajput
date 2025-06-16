@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.sendMessage = exports.markMessageAsSeen = exports.getMessages = exports.getuserForSidebar = void 0;
+exports.deleteMessage = exports.sendMessage = exports.markMessageAsSeen = exports.getMessages = exports.getuserForSidebar = void 0;
 const cloudinary_1 = __importDefault(require("../lib/cloudinary"));
 const Message_1 = __importDefault(require("../models/Message"));
 const User_1 = __importDefault(require("../models/User"));
@@ -124,3 +124,29 @@ const sendMessage = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
     }
 });
 exports.sendMessage = sendMessage;
+const deleteMessage = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { id } = req.params;
+        const message = yield Message_1.default.findById(id);
+        if (!message)
+            return res.status(404).json({ success: false, message: "Message not found" });
+        if (message.senderId.toString() !== req.user._id.toString()) {
+            return res.status(403).json({ success: false, message: "Not allowed to delete this message" });
+        }
+        yield Message_1.default.findByIdAndDelete(id);
+        // Emit to both sender and receiver in real-time
+        const senderSocketId = server_1.userSocketMap[message.senderId.toString()];
+        const receiverSocketId = server_1.userSocketMap[message.receiverId.toString()];
+        [senderSocketId, receiverSocketId].forEach(socketId => {
+            if (socketId) {
+                server_1.io.to(socketId).emit("messageDeleted", { messageId: id });
+            }
+        });
+        res.json({ success: true, message: "Message deleted", messageId: id });
+    }
+    catch (err) {
+        console.error(err);
+        res.status(500).json({ success: false, message: "Internal Server Error" });
+    }
+});
+exports.deleteMessage = deleteMessage;

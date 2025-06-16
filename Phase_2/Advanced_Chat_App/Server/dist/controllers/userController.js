@@ -39,13 +39,12 @@ const signup = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             bio,
         });
         const token = (0, utils_1.generateToken)(newUser._id.toString());
-        // res.cookie("token", token, {
-        //   httpOnly: true,
-        //   secure: process.env.NODE_ENV === "production",
-        //   sameSite: "lax",
-        //   maxAge: 7 * 24 * 60 * 60 * 1000,
-        // });
-        res.cookie("token", token);
+        res.cookie("token", token, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === "production",
+            sameSite: "lax",
+            maxAge: 7 * 24 * 60 * 60 * 1000,
+        });
         res.json({
             success: true,
             userData: newUser,
@@ -78,13 +77,12 @@ const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             return res.json({ success: false, message: "Invalid Credentials.." });
         }
         const token = (0, utils_1.generateToken)(userData._id.toString());
-        // res.cookie("token", token, {
-        //   httpOnly: true,
-        //   secure: process.env.NODE_ENV === "production",
-        //   sameSite: "lax",
-        //   maxAge: 7 * 24 * 60 * 60 * 1000,
-        // });
-        res.cookie("token", token);
+        res.cookie("token", token, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === "production",
+            sameSite: "lax",
+            maxAge: 7 * 24 * 60 * 60 * 1000,
+        });
         res.json({
             success: true,
             userData,
@@ -106,7 +104,8 @@ const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 exports.login = login;
 // -------------------- Check Auth --------------------
 const checkAuth = (req, res) => {
-    console.log("User in check route:", req.user);
+    console.log("Cookie in checkAuth:", req.cookies);
+    console.log("Cookie in user:", req.user);
     if (!req.user) {
         return res.status(401).json({ success: false, message: "Unauthorized" });
     }
@@ -149,12 +148,11 @@ const updateProfile = (req, res) => __awaiter(void 0, void 0, void 0, function* 
 exports.updateProfile = updateProfile;
 // -------------------- Logout --------------------
 const logout = (req, res) => {
-    // res.clearCookie("token", {
-    //   httpOnly: true,
-    //   secure: process.env.NODE_ENV === "production", // must match cookie setting
-    //   sameSite: "lax",
-    // });
-    res.clearCookie("token");
+    res.clearCookie("token", {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production", // must match cookie setting
+        sameSite: "lax",
+    });
     return res.json({ success: true, message: "Logged out successfully" });
 };
 exports.logout = logout;

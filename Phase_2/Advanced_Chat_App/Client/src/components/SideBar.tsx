@@ -62,7 +62,7 @@ const SideBar= () => {
           <div
             onClick={() => {setSelectedUser(user);setUnseenMessages(pre=>({...pre,[user._id]:0}))}}
             key={index}
-            className={`relative flex items-center gap-2 p-2 pl-4 rounded cursor-pointer max-sm:text-sm ${selectedUser?._id === user.id ? "bg-[#282142]/50" : ""}`}
+            className={`relative flex items-center gap-2 m-1 p-2 pl-4 rounded cursor-pointer max-sm:text-sm ${selectedUser?._id === user.id ? "bg-[#282142]/50" : ""}`}
           >
             <img src={user?.profilePic||avatar} alt={user.fullName} className="w-12 h-12 rounded-full" />
             <div className="flex flex-col leading-5">

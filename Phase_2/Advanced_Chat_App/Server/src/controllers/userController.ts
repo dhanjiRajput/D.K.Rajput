@@ -31,14 +31,12 @@ export const signup = async (req: any, res: any) => {
 
     const token = generateToken(newUser._id.toString());
 
-    // res.cookie("token", token, {
-    //   httpOnly: true,
-    //   secure: process.env.NODE_ENV === "production",
-    //   sameSite: "lax",
-    //   maxAge: 7 * 24 * 60 * 60 * 1000,
-    // });
-
-    res.cookie("token", token);
+    res.cookie("token", token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "lax",
+      maxAge: 7 * 24 * 60 * 60 * 1000,
+    });
 
     res.json({
       success: true,
@@ -78,14 +76,12 @@ export const login = async (req: any, res: any) => {
 
     const token = generateToken(userData._id.toString());
 
-    // res.cookie("token", token, {
-    //   httpOnly: true,
-    //   secure: process.env.NODE_ENV === "production",
-    //   sameSite: "lax",
-    //   maxAge: 7 * 24 * 60 * 60 * 1000,
-    // });
-
-    res.cookie("token", token);
+    res.cookie("token", token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "lax",
+      maxAge: 7 * 24 * 60 * 60 * 1000,
+    });
 
     res.json({
       success: true,
@@ -106,12 +102,12 @@ export const login = async (req: any, res: any) => {
 
 // -------------------- Check Auth --------------------
 export const checkAuth = (req: any, res: any) => {
+  console.log("Cookie in checkAuth:", req.cookies);
+  console.log("Cookie in user:", req.user);
 
-  console.log("User in check route:", req.user);
   if (!req.user) {
     return res.status(401).json({ success: false, message: "Unauthorized" });
   }
-
   res.status(200).json({
     success: true,
     user: req.user,
@@ -159,15 +155,11 @@ export const updateProfile = async (req: any, res: any) => {
 };
 
 // -------------------- Logout --------------------
-export const logout = (req:any, res:any) => {
-  // res.clearCookie("token", {
-  //   httpOnly: true,
-  //   secure: process.env.NODE_ENV === "production", // must match cookie setting
-  //   sameSite: "lax",
-  // });
-
-  res.clearCookie("token");
-
+export const logout = (req: any, res: any) => {
+  res.clearCookie("token", {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production", // must match cookie setting
+    sameSite: "lax",
+  });
   return res.json({ success: true, message: "Logged out successfully" });
 };
-

@@ -7,6 +7,11 @@
     npx tsc --init
     npm i tsc-watch -D
     npm i @apollo/server graphql
+    npm i prisma typescript ts-node @types/node -D
+    npx prisma 
+    
+
+    npx prisma migrate dev --name create_users_table
 
 ## update package.json file for automatically reload and compile the file
 

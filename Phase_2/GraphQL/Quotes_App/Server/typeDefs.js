@@ -17,7 +17,19 @@ const typeDefs=gql`
     type Query{
         users:[User]
         user(_id:ID!):User
-        quotes:[Quote]
+        quotes:[QuoteWithName]
+        iquote(by:ID!):[Quote]
+        myprofile:User
+    }
+
+    type IdName{
+        _id:String
+        firstName:String
+    }
+
+    type QuoteWithName{
+        name:String
+        by:IdName
     }
 
     input signup_user_input{

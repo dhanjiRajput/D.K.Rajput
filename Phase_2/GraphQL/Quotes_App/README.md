@@ -6,9 +6,22 @@
 npm install express body-parser cors
 npm install @apollo/server express4
 npm install @apollo/server-plugin-landing-page-graphql-playground
+npm i @apollo/client
 
+client : npm run dev
+server : nodemon
 
+App Fetaures :-
+- Login and Signup
+- Authentication and Authorization
+- Logged user can Create Quote
+- Logged user only can see profile
+- unLogged user can see only normal profile
+- logout the app
+- Logged user can delete the quoate
+- Logged user can update theri quoates
 
+//herer All Queries and mutation which i have used in app
 query getAllUsers{
   users{
     	_id
@@ -34,9 +47,24 @@ query getAllUsers{
 
 query getAllUsers{
   users{
+    _id
+    firstName
+    lastName
+    email
+    quotes{
+      name
+      by
+    }
+  }
+}
+
+
+query getUserById($_id:ID!){
+  user(_id:$_id){
     	_id
     	firstName
     	lastName
+      email
     	quotes{
         name
         by
@@ -44,16 +72,14 @@ query getAllUsers{
   }
 }
 
-
-query getAllUsers($_id:ID!){
-  user(_id:$_id){
-    	_id
-    	firstName
-    	lastName
-    	quotes{
-        name
-        by
-      }
+// Populated Query
+query getAllQuotes{
+  quotes{
+    name
+    by{
+      _id
+      firstName
+    }
   }
 }
 

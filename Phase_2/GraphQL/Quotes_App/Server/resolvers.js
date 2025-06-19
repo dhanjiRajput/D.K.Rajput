@@ -8,15 +8,20 @@ import { jwt_key } from './config.js';
 import Quote from './models/quotes.model.js';
 
 const resolvers={
-    // User:{
-    //     quotes:(ur)=>quotes.filter(qu=>qu.by==ur._id)
-    // },
+    User:{
+        quotes:async(ur)=>await Quote.find({by:ur._id})//quotes.filter(qu=>qu.by==ur._id)
+    },
 
-    // Query:{
-    //     users:()=>users,
-    //     user:(_,{_id})=>users.find(user=>user._id==_id),
-    //     quotes:()=>quotes
-    // },
+    Query:{
+        users:async()=>await User.find({}),
+        user:async(_,{_id})=>await User.findOne({_id}), //users.find(user=>user._id==_id),
+        quotes:async()=>await Quote.find({}).populate("by","_id firstName"),
+        iquote:async(_,{by})=>await Quote.find({by}),
+        myprofile:async(_,args,{userId})=>{
+            if(!userId) throw new Error("You Must be Logged In");
+            return await User.findOne({_id:userId})
+        }
+    },
 
     Mutation:{
         //Create New User

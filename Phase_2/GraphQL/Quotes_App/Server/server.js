@@ -15,19 +15,22 @@ mongoose.connection.on("error",(err)=>{
     console.log("Error Connecting to Databse",err); 
 });
 
+//protect router middleware
+const context = ({req})=>{
+    const {authorization}=req.headers
+    if(authorization){
+        const {userId}=jwt.verify(authorization,jwt_key)
+        return {userId}
+    }
+}
+
 //Import Model
 import resolvers from './resolvers.js'
 
 const server=new ApolloServer({
     typeDefs,
     resolvers,
-    context:({req})=>{
-        const {authorization}=req.headers
-        if(authorization){
-            const {userId}=jwt.verify(authorization,jwt_key)
-            return {userId}
-        }
-    },
+    context,
     plugins:[
         ApolloServerPluginLandingPageGraphQLPlayground()
     ]

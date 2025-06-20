@@ -1,11 +1,25 @@
-import {ApolloServer} from 'apollo-server';
-import {ApolloServerPluginLandingPageGraphQLPlayground} from '@apollo/server-plugin-landing-page-graphql-playground'
+import {ApolloServer} from 'apollo-server-express';
+import {
+    ApolloServerPluginLandingPageGraphQLPlayground,
+    ApolloServerPluginDrainHttpServer,
+    ApolloServerPluginLandingPageDisabled
+} from 'apollo-server-core'
 import typeDefs from './typeDefs.js';
 import mongoose  from 'mongoose';
-import { jwt_key, MONGO_URI } from './config.js';
 import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv'
+import express from 'express';
+import http from 'http'
 
-mongoose.connect(MONGO_URI);
+const port=process.env.PORT || 4000
+
+const app=express();
+const httpServer=http.createServer(app);
+
+if(process.env.NODE_ENV !== "production"){
+    dotenv.config();
+}
+mongoose.connect(process.env.MONGO_URI);
 
 mongoose.connection.on("connected",()=>{
     console.log("Connected to MongoDb");
@@ -19,7 +33,7 @@ mongoose.connection.on("error",(err)=>{
 const context = ({req})=>{
     const {authorization}=req.headers
     if(authorization){
-        const {userId}=jwt.verify(authorization,jwt_key)
+        const {userId}=jwt.verify(authorization,process.env.jwt_key)
         return {userId}
     }
 }
@@ -32,10 +46,23 @@ const server=new ApolloServer({
     resolvers,
     context,
     plugins:[
-        ApolloServerPluginLandingPageGraphQLPlayground()
+        ApolloServerPluginDrainHttpServer({httpServer}),
+        process.env.NODE_ENV!=="production" 
+        ? ApolloServerPluginLandingPageGraphQLPlayground()
+        : ApolloServerPluginLandingPageDisabled
     ]
 })
 
-server.listen().then(({url})=>{
-    console.log(`Server Ready at ${url}`);
+app.get('*',(req,res)=>{
+    res.send("Welcome to the Quotes App")
+})
+
+await server.start();
+server.applyMiddleware({
+    app,
+    path:'/graphql'
+});
+
+httpServer.listen({port},()=>{
+    console.log(`Server Ready at 4000 ${server.graphqlPath}`);
 })

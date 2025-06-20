@@ -4,6 +4,7 @@ import Profile from './components/Profile';
 import Signup from './components/Signup';
 import Home from './components/Home';
 import ProfileSwitcher from './components/ProfileSwitcher';
+import NotFound from './components/NotFound';
 
 export const routes = [
   { path: "/", element: <Home /> },
@@ -12,4 +13,5 @@ export const routes = [
   { path: "/signup", element: <Signup /> },
   { path: "/profile", element: <Profile /> },
   { path: "/profile/:userid", element: <ProfileSwitcher /> }, 
+  { path: "*", element: <NotFound /> },
 ];

@@ -1,7 +1,9 @@
 import { useMutation } from '@apollo/client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Login_User } from '../GraphQl_Operations/Mutation';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -10,13 +12,21 @@ const Login = () => {
   const [signinUser, { error, loading, data }] = useMutation(Login_User, {
     onCompleted(data) {
       localStorage.setItem("token", data.user.token);
-      navigate('/');
+      toast.success("Login successful!");
+      navigate('/')
     }
   });
 
+  useEffect(() => {
+    if (error) {
+      toast.error(error.message || "Login failed");
+    }
+  }, [error]);
+
   const handleChange = (e) => {
     setFormData({
-      ...formData, [e.target.name]: e.target.value
+      ...formData,
+      [e.target.name]: e.target.value
     });
   };
 
@@ -31,17 +41,12 @@ const Login = () => {
 
   return (
     <div className="container d-flex justify-content-center align-items-center" style={{ minHeight: "80vh" }}>
+      <ToastContainer position="top-right" autoClose={2500} />
       <div className="card p-4 shadow-sm" style={{ width: "100%", maxWidth: "500px" }}>
         <h3 className="text-center mb-4">Login</h3>
 
-        {error && (
-          <div className="alert alert-danger text-center" role="alert">
-            {error.message}
-          </div>
-        )}
-
         {loading ? (
-          <div className="text-center">Loading...</div>
+          <div className="text-center text-muted">Logging in...</div>
         ) : (
           <form onSubmit={handleSubmit}>
             <div className="mb-3">

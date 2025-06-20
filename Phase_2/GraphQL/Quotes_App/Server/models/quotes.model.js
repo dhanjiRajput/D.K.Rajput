@@ -9,7 +9,7 @@ const quoteSchema=new mongoose.Schema({
         type:mongoose.Schema.Types.ObjectId,
         ref:"User"
     },
-});
+},{ timestamps: true });
 
 const Quote=mongoose.model("Quote",quoteSchema);
 export default Quote;

@@ -1,4 +1,4 @@
-import { gql } from 'apollo-server-core';
+import { gql } from 'apollo-server-express';
 
 const typeDefs=gql`
     type User{
@@ -10,6 +10,7 @@ const typeDefs=gql`
     }
 
     type Quote{
+        _id: ID!
         name:String!
         by:String!
     }
@@ -53,6 +54,8 @@ const typeDefs=gql`
         signinUser(signin_User:signin_user_input!):Token
 
         createQuote(name:String!):String
+        updateQuote(_id: ID!, name: String!): String
+        deleteQuote(_id: ID!): String
     }
 `;
 

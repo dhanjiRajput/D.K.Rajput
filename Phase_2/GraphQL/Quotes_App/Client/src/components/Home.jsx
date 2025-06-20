@@ -1,6 +1,6 @@
 import { useQuery } from '@apollo/client';
 import { Get_All_Quotes } from '../GraphQl_Operations/Queries';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom'; // ✅ Fix: Correct import
 
 const Home = () => {
   const { loading, error, data } = useQuery(Get_All_Quotes);
@@ -8,9 +8,10 @@ const Home = () => {
   if (loading) return <h1 className="text-center my-5">Loading...</h1>;
   if (error) {
     console.log(error.message);
+    return <h3 className="text-center text-danger mt-4">Error loading quotes.</h3>;
   }
 
-  if (data?.quotes?.length === 0) {
+  if (!data || data.quotes.length === 0) {
     return <h3 className="text-center mt-4">No Quotes Available</h3>;
   }
 
@@ -35,19 +36,33 @@ const Home = () => {
           }}
         >
           <h5 style={{ color: '#333' }}>{quote.name}</h5>
-          <Link to={`/profile/${quote.by._id}`} style={{ textDecoration: 'none' }}>
+
+          {quote.by && quote.by._id ? (
+            <Link to={`/profile/${quote.by._id}`} style={{ textDecoration: 'none' }}>
+              <p
+                className="text-end mt-2"
+                style={{
+                  fontStyle: 'italic',
+                  fontWeight: 'bold',
+                  color: '#512da8',
+                  marginBottom: 0
+                }}
+              >
+                ~ {quote.by.firstName}
+              </p>
+            </Link>
+          ) : (
             <p
-              className="text-end mt-2"
+              className="text-end mt-2 text-muted"
               style={{
                 fontStyle: 'italic',
-                fontWeight: 'bold',
-                color: '#512da8',
+                fontWeight: 'normal',
                 marginBottom: 0
               }}
             >
-              ~ {quote.by.firstName}
+              ~ Unknown Author
             </p>
-          </Link>
+          )}
         </div>
       ))}
     </div>

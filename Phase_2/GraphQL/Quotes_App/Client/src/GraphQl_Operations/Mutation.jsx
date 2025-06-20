@@ -21,3 +21,15 @@ export const Create_Quote=gql`
   	createQuote(name:$name)
 }
 `
+
+export const Update_Quote = gql`
+  mutation updateQuote($_id: ID!, $name: String!) {
+    updateQuote(_id: $_id, name: $name)
+  }
+`;
+
+export const Delete_Quote = gql`
+  mutation deleteQuote($_id: ID!) {
+    deleteQuote(_id: $_id)
+  }
+`;

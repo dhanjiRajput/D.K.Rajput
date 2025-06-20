@@ -1,0 +1,214 @@
+[
+    {
+  "data": [
+    {
+      "id": 5,
+      "documentId": "x4isr9l9t10b0tf16olwobpw",
+      "name": "Apple MacBook Air M3 (15-inch)",
+      "description": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "text": "The MacBook Air M3 combines performance and portability with Apple’s latest M3 chip. It features a 15.3-inch Liquid Retina display with True Tone, 8-core CPU and 10-core GPU, 16GB unified memory, and 512GB SSD. Perfect for students and creatives, it offers all-day battery life (up to 18 hours), a fanless design for silent operation, and seamless integration with all Apple services and devices."
+            }
+          ]
+        }
+      ],
+      "price": 70000,
+      "createdAt": "2025-06-20T11:45:25.658Z",
+      "updatedAt": "2025-06-20T11:46:53.186Z",
+      "publishedAt": "2025-06-20T11:46:53.203Z"
+    },
+    {
+      "id": 6,
+      "documentId": "s41pkcsso4scpe22k6ssxyts",
+      "name": "Dell XPS 13 Plus (2024)",
+      "description": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "text": "The Dell XPS 13 Plus is a premium ultrabook crafted for professionals and creatives. Powered by the latest Intel Core Ultra 7 processor with integrated AI acceleration, this laptop boasts a 13.4-inch InfinityEdge 4K touchscreen, 32GB LPDDR5 RAM, and a 1TB NVMe SSD. Its all-aluminum chassis, seamless glass touchpad, and minimalist design make it both powerful and elegant. With ExpressCharge and Wi-Fi 6E, you’re always productive on the go"
+            }
+          ]
+        }
+      ],
+      "price": 50000,
+      "createdAt": "2025-06-20T11:44:43.481Z",
+      "updatedAt": "2025-06-20T11:47:11.300Z",
+      "publishedAt": "2025-06-20T11:47:11.317Z"
+    },
+    {
+      "id": 10,
+      "documentId": "hs41vn968ut5pxxpuem1w1xl",
+      "name": "Adidas Ultraboost 23 DNA",
+      "description": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "text": "Blending street style with performance, the Adidas Ultraboost 23 DNA offers Primeknit+ uppers for adaptive support and a full-length BOOST midsole for unmatched energy return. The Continental™ rubber outsole ensures excellent traction, and the sleek silhouette pairs easily with casual or athletic wear. A must-have for urban runners and fashion-forward sneaker fans."
+            }
+          ]
+        }
+      ],
+      "price": 10000,
+      "createdAt": "2025-06-20T11:49:15.802Z",
+      "updatedAt": "2025-06-20T11:49:17.417Z",
+      "publishedAt": "2025-06-20T11:49:17.433Z"
+    },
+    {
+      "id": 11,
+      "documentId": "bn3znxzxa8b17emh2cxoj8h0",
+      "name": " Nike Air Zoom Pegasus 41",
+      "description": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "text": "Designed for runners seeking comfort and responsiveness, the Nike Air Zoom Pegasus 41 features a lightweight engineered mesh upper, full-length ReactX foam for improved energy return, and dual Zoom Air units for explosive toe-off. Its breathable, flexible design ensures a locked-in fit, making it ideal for long runs and daily workouts alike."
+            }
+          ]
+        }
+      ],
+      "price": 20000,
+      "createdAt": "2025-06-20T11:47:49.784Z",
+      "updatedAt": "2025-06-20T11:49:47.538Z",
+      "publishedAt": "2025-06-20T11:49:47.555Z"
+    },
+    {
+      "id": 13,
+      "documentId": "g9kmvziwpnd3xbvagigqsuvw",
+      "name": "Zara Floral Midi Wrap Dress",
+      "description": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "text": "Effortlessly feminine, this Zara floral midi wrap dress features a soft, breathable viscose blend with a flattering tie-waist design. The dress is adorned with delicate pastel florals, a V-neckline, and flowy short sleeves. It’s perfect for garden parties, brunch dates, or casual summer outings with a touch of elegance."
+            }
+          ]
+        }
+      ],
+      "price": 15000,
+      "createdAt": "2025-06-20T11:50:48.557Z",
+      "updatedAt": "2025-06-20T11:50:50.433Z",
+      "publishedAt": "2025-06-20T11:50:50.449Z"
+    },
+    {
+      "id": 15,
+      "documentId": "vwswpos3k623u32gdzkucabl",
+      "name": "H&M Women’s Oversized Cotton Blazer",
+      "description": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "text": "This oversized cotton blazer from H&M is a versatile wardrobe staple crafted from sustainably sourced cotton. With its relaxed fit, notch lapels, and structured shoulders, it can be styled casually with jeans or paired with tailored trousers for a sleek business look. The neutral beige tone makes it seasonless and easy to mix and match."
+            }
+          ]
+        }
+      ],
+      "price": 8000,
+      "createdAt": "2025-06-20T11:51:31.411Z",
+      "updatedAt": "2025-06-20T11:51:44.848Z",
+      "publishedAt": "2025-06-20T11:51:44.861Z"
+    },
+    {
+      "id": 17,
+      "documentId": "noyb7ux7mu39wmf4kt5kykn3",
+      "name": "Uniqlo Men’s AirSense Smart Pants",
+      "description": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "text": "Uniqlo's AirSense pants are ultra-lightweight, wrinkle-resistant, and moisture-wicking – designed for modern professionals on the move. Cut in a slim tapered fit, these pants offer four-way stretch comfort and a smart-casual look that works seamlessly from office meetings to after-hours outings. Made with recycled materials."
+            }
+          ]
+        }
+      ],
+      "price": 5000,
+      "createdAt": "2025-06-20T11:52:30.580Z",
+      "updatedAt": "2025-06-20T11:52:32.562Z",
+      "publishedAt": "2025-06-20T11:52:32.575Z"
+    },
+    {
+      "id": 19,
+      "documentId": "d7sh6zis3kuif030ktbdwtt4",
+      "name": "Levi’s 501 Original Fit Jeans – Dark Indigo",
+      "description": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "text": "The iconic Levi’s 501 Original Jeans come in a rich dark indigo wash that never goes out of style. With a straight-leg fit, classic button fly, and durable cotton denim, these jeans are perfect for everyday wear. Whether paired with a graphic tee or a dress shirt, they deliver timeless American style."
+            }
+          ]
+        }
+      ],
+      "price": 2000,
+      "createdAt": "2025-06-20T11:53:22.531Z",
+      "updatedAt": "2025-06-20T11:53:24.682Z",
+      "publishedAt": "2025-06-20T11:53:24.695Z"
+    },
+    {
+      "id": 21,
+      "documentId": "lrsfu02a9mnfjg3iheyen52r",
+      "name": "Sony WH-1000XM5 Wireless Noise Cancelling Headphones",
+      "description": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "text": "Sony's WH-1000XM5 sets a new benchmark in wireless noise-cancelling technology. Featuring an industry-leading QN1 noise-cancelling processor, these headphones offer exceptional sound isolation and crystal-clear audio quality. The lightweight design with soft-fit leather ensures all-day comfort, while the battery life extends up to 30 hours on a single charge. With touch controls, adaptive sound control, and voice assistant integration, it's perfect for commuters, travelers, and audiophiles alike."
+            }
+          ]
+        }
+      ],
+      "price": 30000,
+      "createdAt": "2025-06-20T11:54:37.830Z",
+      "updatedAt": "2025-06-20T11:54:39.690Z",
+      "publishedAt": "2025-06-20T11:54:39.709Z"
+    },
+    {
+      "id": 23,
+      "documentId": "xf4sx4h7prb9hjrcslau8gng",
+      "name": "Bose QuietComfort Ultra Headphones",
+      "description": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "text": "The Bose QuietComfort Ultra Headphones offer an unmatched balance of comfort, acoustic performance, and adaptive noise cancellation. Engineered with custom-tuned drivers and spatial audio support, they deliver rich, immersive sound whether you’re listening to music, watching movies, or taking calls. With up to 24 hours of battery life and plush ear cushions, they are designed for extended listening sessions. Bluetooth 5.3 ensures reliable connectivity, and a foldable design adds to portability."
+            }
+          ]
+        }
+      ],
+      "price": 2500,
+      "createdAt": "2025-06-20T11:55:27.934Z",
+      "updatedAt": "2025-06-20T11:55:30.360Z",
+      "publishedAt": "2025-06-20T11:55:30.375Z"
+    }
+  ],
+  "meta": {
+    "pagination": {
+      "page": 1,
+      "pageSize": 25,
+      "pageCount": 1,
+      "total": 10
+    }
+  }
+}
+]

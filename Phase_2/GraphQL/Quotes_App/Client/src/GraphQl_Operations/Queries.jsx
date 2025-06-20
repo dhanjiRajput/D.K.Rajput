@@ -19,6 +19,7 @@ export const Get_My_Profile=gql`
             lastName
             email
             quotes{
+                _id
                 name
             }
         }

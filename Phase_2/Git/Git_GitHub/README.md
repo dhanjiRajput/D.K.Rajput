@@ -42,4 +42,6 @@
 
 # To see Difference between two commit and two repo                         : git diff --staged
 
-# To Rebase Your master Branch                                              : git merge
+# To Rebase Your master Branch                                              : git rebase master
+
+# To log Whole History of all Commits                                       : git reflog

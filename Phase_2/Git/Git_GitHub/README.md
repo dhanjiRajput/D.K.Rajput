@@ -42,4 +42,4 @@
 
 # To see Difference between two commit and two repo                         : git diff --staged
 
-# To Rebase Your master branch
+# To Rebase Your master Branch                                              : git merge

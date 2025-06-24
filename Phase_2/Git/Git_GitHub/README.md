@@ -41,3 +41,5 @@
 # To Merge the Branch                                                       : git merge branch_name
 
 # To see Difference between two commit and two repo                         : git diff --staged
+
+# To Rebase Your master branch

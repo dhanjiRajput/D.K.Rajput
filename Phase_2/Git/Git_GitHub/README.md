@@ -39,3 +39,9 @@
 # To Create new Branch as well Shift to New Created New Branch together     : git switch -c new_branch_name
                                                                             : git checkout -b new-branch-name
 # To Merge the Branch                                                       : git merge branch_name
+
+# To see Difference between two commit and two repo                         : git diff --staged
+
+# To Rebase Your master Branch                                              : git rebase master
+
+# To log Whole History of all Commits                                       : git reflog

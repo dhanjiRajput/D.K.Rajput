@@ -16,9 +16,9 @@ router.put('/profile/:id',authMiddleware,uploads.single('profile'),ProfileContro
 
 
 router.get('/news',NewsController.index);
-router.post('/news',NewsController.store);
+router.post('/news',authMiddleware,uploads.single('image'),NewsController.store);
 router.get('/news/:id',NewsController.show);
-router.put('/news/:id',NewsController.update);
-router.delete('/news/:id',NewsController.destroy);
+router.put('/news/:id',authMiddleware,uploads.single('image'),NewsController.update);
+router.delete('/news/:id',authMiddleware,NewsController.destroy);
 
 export default router

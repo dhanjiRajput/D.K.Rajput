@@ -2,8 +2,10 @@ import express from 'express';
 import 'dotenv/config';
 import path from 'path';
 import cors from 'cors';
+import helmet from 'helmet';
 import { fileURLToPath } from 'url';
 import router from './Routes/authRoutes.js';
+import { limitter } from './config/rateLimitter.js';
 
 const app=express();
 
@@ -12,8 +14,10 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 //Inbulit Middleware
-app.use(express.json());
 app.use(cors());
+app.use(helmet());
+app.use(express.json());
+app.use(limitter);
 app.use(express.urlencoded({extended:false}));
 app.use(express.static(path.join(__dirname, "public")));
 app.use('/uploads', express.static('uploads'));

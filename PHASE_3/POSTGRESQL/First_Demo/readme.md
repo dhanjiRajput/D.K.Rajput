@@ -9,16 +9,18 @@
 - Delete News
 - Pagination
 - rate Limitting
+- redis caching
+- winston Logger
 
 ## Backend Setup :-
 - npm init -y
 - npm express dotenv nodemon bcryptjs jsonwebtoken express-fileupload uuid multer cors
 
 ## install Some extra npm modules for Advanced Security and for making faster
-- npm i helmet express-rate-limit redis
+- npm i helmet express-rate-limit express-redis-cache winston nodemailer
 
 ### Prisma Setup
-- npm install prisma --save-dev 
+- npm install prisma --save-dev
 - npm i @vinejs/vine
 - npx prisma
 - npx prisma init

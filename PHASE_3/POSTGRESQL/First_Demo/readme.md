@@ -1,4 +1,4 @@
-# Complete Master backend using Express js in One Shot ,Postgress ,Prisma ,Redis ,Nodemailer ,BullMQ
+# Complete Master backend using Express js in One Shot ,Postgress ,Prisma ,Redis
 ## App Fetaures :-
 - Signup User
 - Login User

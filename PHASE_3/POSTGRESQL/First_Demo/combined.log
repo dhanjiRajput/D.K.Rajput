@@ -1,2 +1,23 @@
 2025-06-30T12:15:51.227Z [NewsController] info: Sevrer Started on Port at,
 2025-06-30T12:33:07.778Z [NewsController] error: Create error: user is not defined
+2025-07-03T06:23:14.994Z [NewsController] error: Register error: token is not defined
+2025-07-03T06:27:01.140Z [NewsController] error: Register error: token is not defined
+2025-07-03T07:07:01.814Z [NewsController] error: Register error: read ECONNRESET
+2025-07-03T07:33:07.653Z [NewsController] error: Register error: read ECONNRESET
+2025-07-03T07:43:37.107Z [NewsController] error: Register error: Connection timeout
+2025-07-03T08:24:38.764Z [NewsController] error: [object Object]
+2025-07-03T08:25:25.591Z [NewsController] error: [object Object]
+2025-07-03T08:30:37.873Z [NewsController] error: [object Object]
+2025-07-03T08:31:32.423Z [NewsController] error: [object Object]
+2025-07-03T08:33:44.892Z [NewsController] error: [object Object]
+2025-07-03T08:34:40.194Z [NewsController] error: [object Object]
+2025-07-03T08:38:31.844Z [NewsController] error: Email send error: otp is not defined
+2025-07-03T08:40:02.409Z [NewsController] error: Email send error: read ECONNRESET
+2025-07-03T08:40:52.048Z [NewsController] error: Email send error: read ECONNRESET
+2025-07-03T08:46:59.055Z [NewsController] error: Email send error: read ECONNRESET
+2025-07-03T08:49:08.537Z [NewsController] error: Email send error: read ECONNRESET
+2025-07-03T08:52:03.818Z [NewsController] error: Email send error: read ECONNRESET
+2025-07-03T09:06:24.312Z [NewsController] error: Email send error: read ECONNRESET
+2025-07-03T09:09:15.052Z [NewsController] error: Email send error: read ECONNRESET
+2025-07-03T09:11:00.408Z [NewsController] error: Email send error: read ECONNRESET
+2025-07-03T09:44:02.458Z [NewsController] error: Email send error: read ECONNRESET

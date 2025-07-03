@@ -5,7 +5,6 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import logger from "../config/logger.js";
 
-
 class AuthController {
     static async register(req, res) {
         try {
@@ -33,7 +32,7 @@ class AuthController {
                 user
             });
         } catch (error) {
-            logger.error("Register error: " + error.message);
+            logger.error("Register error: ", error.message);
             if (error instanceof errors.E_VALIDATION_ERROR) {
                 return res.status(400).json({ errors: error.messages });
             }
@@ -78,13 +77,12 @@ class AuthController {
 
             return res.status(400).json({ errors: { email: "No user found with this email-id" } });
         } catch (error) {
-            logger.error("Login error: " + error.message);
+            logger.error("Login error: ", error.message);
             if (error instanceof errors.E_VALIDATION_ERROR) {
                 return res.status(400).json({ errors: error.messages });
             }
             return res.status(500).json({ status: 500, message: "Something went wrong" });
         }
-    }
+    };
 }
-
 export default AuthController;

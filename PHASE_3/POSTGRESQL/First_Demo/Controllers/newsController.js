@@ -40,7 +40,7 @@ class NewsController {
                 metaData: { totalPages, currentPage: page, currentLimit: limit }
             });
         } catch (error) {
-            logger.error("Index fetch failed: " + error.message);
+            logger.error("Index fetch failed: ", error.message);
             return res.status(500).json({ message: "Something went wrong" });
         }
     }
@@ -62,7 +62,7 @@ class NewsController {
 
             return res.json({ status: 200, message: "News Create Successfully!.", news });
         } catch (error) {
-            logger.error("Create error: " + error.message);
+            logger.error("Create error: ", error.message);
             if (error instanceof errors.E_VALIDATION_ERROR) {
                 return res.status(400).json({ errors: error.messages });
             }
@@ -87,7 +87,7 @@ class NewsController {
             });
             return res.json({ status: 200, news });
         } catch (error) {
-            logger.error("Show error: " + error.message);
+            logger.error("Show error: ", error.message);
             if (error instanceof errors.E_VALIDATION_ERROR) {
                 return res.status(400).json({ errors: error.messages });
             }
@@ -129,7 +129,7 @@ class NewsController {
             });
 
         } catch (error) {
-            logger.error("Update error: " + error.message);
+            logger.error("Update error: ", error.message);
             if (error instanceof errors.E_VALIDATION_ERROR) {
                 return res.status(400).json({ errors: error.messages });
             }

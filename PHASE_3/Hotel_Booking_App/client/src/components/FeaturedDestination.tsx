@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom"
 import { roomsDummyData } from "../assets/assets"
-import HotelCard from "./Hotelcard"
 import Title from "./Title"
+import HotelCard from "./HotelCard"
 
 const FeaturedDestination = () => {
     const navigate=useNavigate()

@@ -52,43 +52,14 @@ export default defineConfig({
 ================================================================================================
 ## Backend Setup :-
 - npm init -y
-- npm install express
-- npm install -D typescript ts-node-dev @types/node @types/express
+- npm install -g typescript
 - npx tsc --init
-- npm install -D concurrently
-- To Run Project :- npm run dev:start
+- npm i express
+- npm i --save-dev nodemon
+- npm install express cors dotenv mongoose multer cloudinary svix
+- npm install -D @types/express @types/cors @types/multer @types/node
+- npm install @clerk/express
 
-
-
-### TsConfig file :-
-{
-  "compilerOptions": {
-    "target": "ES2020",                     
-    "module": "commonjs",                  
-    "outDir": "./dist",                    
-    "rootDir": "./src",                    
-    "strict": true,                        
-    "esModuleInterop": true,               
-    "skipLibCheck": true,                  
-    "forceConsistentCasingInFileNames": true
-  }
-}
-
-
-### script in package.json file setup
-"scripts": {
-  // Run app with auto-restart, fast transpile (no type check)
-  "dev": "ts-node-dev --respawn --clear --transpile-only src/app.ts",
-
-  // Watch and compile TypeScript to dist/
-  "tsc:watch": "tsc --watch",
-
-  // Run dev server and compiler together
-  "start:dev": "concurrently \"npm run dev\" \"npm run tsc:watch\"",
-
-  // Build TypeScript once into dist/
-  "build": "tsc",
-
-  // Run compiled app from dist/ (production)
-  "start": "node dist/app.js"
-}
+## To run program in two terminal
+- tsc -w // this is for typescript compilation
+- npm run dev  // this will run javascript file

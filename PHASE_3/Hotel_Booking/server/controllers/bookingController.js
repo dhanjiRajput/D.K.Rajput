@@ -1,4 +1,5 @@
 import Booking from "../models/BookingModel.js";
+import Hotel from "../models/hotelModel.js";
 import Room from "../models/roomModel.js";
 
 // Function to check Availability of Room
@@ -31,7 +32,7 @@ export const checkAvailabilityAPI = async (req, res) => {
 
 //API to create New Booking
 //Post /api/bookings/book
-const createBooking = async (req, res) => {
+export const createBooking = async (req, res) => {
     try {
         const { room, checkInDate, checkOutDate, guests } = req.body;
         const user = req.user._id;
@@ -65,21 +66,50 @@ const createBooking = async (req, res) => {
 
         totalPrice *= nights;
 
-        const booking=await Booking.create({
+        const booking = await Booking.create({
             user,
             room,
-            hotel:roomData.hotel._id,
-            guests:+guests,
+            hotel: roomData.hotel._id,
+            guests: +guests,
             checkInDate,
             checkOutDate,
             totalPrice,
         })
 
-        res.json({success:true,message:"Booking created Successfully.."})
+        res.json({ success: true, message: "Booking created Successfully.." })
     } catch (error) {
         console.log(error);
-        res.json({success:false,message:"Failed to Create Booking.."})
+        res.json({ success: false, message: "Failed to Create Booking.." })
     }
 };
 
 //Api to get all bookings for a user
+//Get /api/bookings/user
+export const getUserBookings = async (req, res) => {
+    try {
+        const user = req.user._id;
+        const bookings = await Booking.find({ user }).populate("room hotel").sort({ createdAt: -1 });
+        res.json({ success: true, bookings });
+    } catch (error) {
+        res.json({ success: false, message: "Failed to Fetch Booking.." });
+    }
+};
+
+//get Booking details for perticular owner
+export const getHotelBookings = async (req, res) => {
+    try {
+        const hotel = await Hotel.findOne({ owner: req.auth.userId });
+        if (!hotel) {
+            return res.json({ success: false, message: "No Hotel Found..." });
+        }
+        const bookings = await Booking.find({ hotel: hotel._id }).populate('room hotel user').sort({ createdAt: -1 });
+        //Total Bookings
+        const totalBookings = bookings.length;
+        //Total Revenue
+        const totalRevenue = bookings.reduce((acc, booking) => acc + booking.totalPrice, 0);
+
+        res.json({ success: true, dashboardData: { totalBookings, totalRevenue, bookings } })
+    } catch (error) {
+        res.json({ success: false, message: "Failed to Fetch Booking.." });
+    }
+};

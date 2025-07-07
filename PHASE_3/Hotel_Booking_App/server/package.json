@@ -4,7 +4,8 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon dist/server.js"
+    "dev": "tsx watch api/server.ts", 
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",

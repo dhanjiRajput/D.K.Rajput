@@ -4,21 +4,13 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "dev": "tsx watch api/server.ts", 
-    "build": "tsc"
+    "server": "nodemon server.js",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
-  "devDependencies": {
-    "@types/cors": "^2.8.19",
-    "@types/express": "^5.0.3",
-    "@types/multer": "^2.0.0",
-    "@types/node": "^24.0.10",
-    "nodemon": "^3.1.10",
-    "typescript": "^5.8.3"
-  },
   "dependencies": {
     "@clerk/express": "^1.7.4",
     "cloudinary": "^2.7.0",
@@ -28,5 +20,8 @@
     "mongoose": "^8.16.1",
     "multer": "^2.0.1",
     "svix": "^1.68.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
   }
 }

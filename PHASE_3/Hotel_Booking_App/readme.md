@@ -52,14 +52,6 @@ export default defineConfig({
 ================================================================================================
 ## Backend Setup :-
 - npm init -y
-- npm install -g typescript
-- npx tsc --init
-- npm i express
+- npm i express dotenv cors mongoose cloudinary multer svix
+- npm i @clerk/express
 - npm i --save-dev nodemon
-- npm install express cors dotenv mongoose multer cloudinary svix
-- npm install -D @types/express @types/cors @types/multer @types/node
-- npm install @clerk/express
-
-## To run program in two terminal
-- tsc -w // this is for typescript compilation
-- npm run dev  // this will run javascript file

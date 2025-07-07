@@ -1,14 +1,10 @@
 import {Webhook} from 'svix';
 import User from '../models/userModel.js';
 
-const clerkWebHooks=async(req:any,res:any)=>{
+const clerkWebHooks=async(req,res)=>{
     try {
         //Create a svix instance  with clerk webhook secret
-        const secret = process.env.CLERK_WEBHOOK_SECRET;
-        if (!secret) {
-            throw new Error("CLERK_WEBHOOK_SECRET environment variable is not set");
-        }
-        const whook = new Webhook(secret);
+        const whook = new Webhook(process.env.CLERK_WEBHOOK_SECRET);
 
         //Getting Headers
         const headers={
@@ -51,14 +47,8 @@ const clerkWebHooks=async(req:any,res:any)=>{
         }
         res.json({success:true,message:"Webhook Recieved.."})
     } catch (error) {
-        if (error instanceof Error) {
             console.log(error.message);
-            res.json({success:false,message:error.message});
-        } else {
-            console.log(error);
-            res.json({success:false,message: String(error)});
-        }
-        
+            res.json({success:false,message:error.message}); 
     }
 }
 

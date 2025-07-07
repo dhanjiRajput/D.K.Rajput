@@ -1,8 +1,8 @@
 # Hotel Booking MERN App
 
 ## Tech Stack :-
-- Nodejs + TypeScript
-- ReactJs + TypeScript + Vite
+- Nodejs
+- ReactJs + Vite
 - MongoDB
 - Express js
 - tailwind css
@@ -18,11 +18,11 @@
 ## Frontend Setup :-
 - npm create vite@latest
 - client
-- React,Typescript
+- React,Javascript
 - cd client
 - npm install
 - npm install react-router-dom
-- npm install -D @types/react-router-dom
+- npm i @clerk/clerk-react
 - To run Frontend Project :-  npm run dev
 
 ### tailwind setup :-

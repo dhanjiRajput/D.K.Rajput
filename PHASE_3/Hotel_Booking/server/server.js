@@ -8,6 +8,7 @@ import userRouter from './routes/userRoutes.js';
 import hotelRoutes from './routes/hotelRoutes.js';
 import connectCloudinary from './config/cloudinary.js';
 import roomRouter from './routes/roomRoutes.js';
+import bookingRouter from './routes/bookinRoutes.js';
 
 connectDB();
 connectCloudinary()
@@ -26,6 +27,7 @@ app.get("/",(req,res)=> res.send("Welcome to the future..."));
 app.use("/api/user",userRouter);
 app.use("/api/hotels",hotelRoutes);
 app.use("/api/rooms",roomRouter);
+app.use("/api/bookings",bookingRouter);
 
 
 const PORT=process.env.PORT || 3000;

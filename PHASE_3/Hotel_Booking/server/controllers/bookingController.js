@@ -26,7 +26,7 @@ export const checkAvailabilityAPI = async (req, res) => {
         res.json({ success: true, isAvailabel });
     } catch (error) {
         res.json({ success: false, message: error.message });
-    }
+    };
 };
 
 //API to create New Booking
@@ -73,12 +73,12 @@ const createBooking = async (req, res) => {
             checkInDate,
             checkOutDate,
             totalPrice,
-        })
+        });
 
         res.json({success:true,message:"Booking created Successfully.."})
     } catch (error) {
         console.log(error);
-        res.json({success:false,message:"Failed to Create Booking.."})
+        res.json({success:false,message:"Failed to Create Booking.."});
     }
 };
 

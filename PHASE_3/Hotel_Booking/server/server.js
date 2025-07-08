@@ -11,7 +11,7 @@ import roomRouter from './routes/roomRoutes.js';
 import bookingRouter from './routes/bookinRoutes.js';
 
 connectDB();
-connectCloudinary()
+connectCloudinary();
 
 const app=express();
 app.use(cors());

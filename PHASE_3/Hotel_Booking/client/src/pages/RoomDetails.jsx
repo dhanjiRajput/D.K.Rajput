@@ -1,15 +1,21 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { assets, facilityIcons, roomCommonData, roomsDummyData } from "../assets/assets"
+import { assets, facilityIcons, roomCommonData } from "../assets/assets"
 import StarRatings from "../components/StarRatings"
+import { useAppContext } from "../context/AppContext"
 
 const RoomDetails = () => {
-    const {id}=useParams()
-    const [room,setRoom]=useState(null)
-    const [mainImage,setMainImage]=useState(null)
+    const {id}=useParams();
+    const {rooms,getToken,axios,navigate}=useAppContext();
+    const [room,setRoom]=useState(null);
+    const [mainImage,setMainImage]=useState(null);
+    const [checkInDate,setCheckInDate]=useState(null);
+    const [checkOutDate,setCheckOutDate]=useState(null);
+    const [isAvailable,setIsAvailable]=useState(false);
+    const [guests,setGuests]=useState(1);
 
     useEffect(()=>{
-        const room=roomsDummyData.find(room=>room._id===id)
+        const room=roomsDummyData.find(room=>room._id===id);
         room && setRoom(room);
         room && setMainImage(room.images[0])
     },[])

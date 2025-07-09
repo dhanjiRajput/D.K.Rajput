@@ -23,6 +23,7 @@
 - npm install
 - npm install react-router-dom
 - npm i @clerk/clerk-react
+- npm i react-hot-toast
 - To run Frontend Project :-  npm run dev
 
 ### tailwind setup :-
@@ -47,11 +48,12 @@ export default defineConfig({
 - https://clerk.com/docs/quickstarts/react?utm_source=greatstack&utm_medium=youtube&utm_campaign=hotel-booking-app&dub_id=XC5BglMWlVDAPBuf
 
 ### .env Setup for clerk key
-- VITE_CLERK_PUBLISHABLE_KEY=pk_test_YXJ0aXN0aWMtcXVldHphbC00NC5jbGVyay5hY2NvdW50cy5kZXYk
 
 ================================================================================================
 ## Backend Setup :-
 - npm init -y
-- npm i express dotenv cors mongoose cloudinary multer svix
+- npm i express dotenv cors mongoose cloudinary multer svix nodemailer
 - npm i @clerk/express
 - npm i --save-dev nodemon
+- npm install stripe
+- to run application - npm run server

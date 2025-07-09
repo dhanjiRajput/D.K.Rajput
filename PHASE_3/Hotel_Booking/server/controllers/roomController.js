@@ -36,7 +36,7 @@ export const createRoom=async(req,res)=>{
 // API to get all Rooms
 export const getRooms=async(req,res)=>{
     try {
-        const rooms=await Room.find({isAvailabel:true}).populate(
+        const rooms=await Room.find({isAvailable:true}).populate(
             {
                 path:'hotel',
                 populate:{
@@ -68,7 +68,7 @@ export const toggleRoomAvailability=async(req,res)=>{
     try {
         const {roomId}=req.body;
         const roomData=await Room.findById(roomId);
-        roomData.isAvailabel=!roomData.isAvailabel;
+        roomData.isAvailable=!roomData.isAvailable;
         await roomData.save();
         res.json({success:true,message:"Room Availability Updated.."});
     } catch (error) {

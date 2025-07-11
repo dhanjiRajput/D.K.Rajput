@@ -1,11 +1,12 @@
-
 # API Documentation
 
-## POST `/users/register`
+## User Endpoints
+
+### POST `/users/register`
 
 Registers a new user in the system.
 
-### Request Body
+#### Request Body
 
 ```json
 {
@@ -18,70 +19,22 @@ Registers a new user in the system.
 }
 ```
 
-#### Field Requirements
+#### Responses
 
-- `fullname.firstname` (string, required): Minimum 3 characters.
-- `fullname.lastname` (string, optional): Minimum 3 characters if provided.
-- `email` (string, required): Must be a valid email address.
-- `password` (string, required): Minimum 6 characters.
-
-### Responses
-
-#### Success
-
-- **Status Code:** `201 Created`
-- **Body Example:**
-
-```json
-{
-  "token": "jwt_token_here",
-  "user": {
-    "_id": "user_id_here",
-    "fullname": {
-      "firstname": "John",
-      "lastname": "Doe"
-    },
-    "email": "john.doe@example.com",
-    "socketId": null
-  }
-}
-```
-
-#### Validation Error
-
-- **Status Code:** `400 Bad Request`
-- **Body Example:**
-
-```json
-{
-  "errors": [
-    {
-      "msg": "First Name must be at least 3 characters long",
-      "param": "fullname.firstname",
-      "location": "body"
-    }
-  ]
-}
-```
-
-#### Email Already Registered
-
-- **Status Code:** `409 Conflict`
-- **Body Example:**
-
-```json
-{
-  "message": "Email is already registered."
-}
-```
+- **201 Created**  
+  Returns JWT token and user object.
+- **400 Bad Request**  
+  Validation errors.
+- **409 Conflict**  
+  Email already registered.
 
 ---
 
-## POST `/users/login`
+### POST `/users/login`
 
 Authenticates a user and returns a JWT token.
 
-### Request Body
+#### Request Body
 
 ```json
 {
@@ -90,148 +43,164 @@ Authenticates a user and returns a JWT token.
 }
 ```
 
-#### Field Requirements
+#### Responses
 
-- `email` (string, required): Must be a valid email address.
-- `password` (string, required): Minimum 6 characters.
+- **200 OK**  
+  Returns JWT token and user object.
+- **400 Bad Request**  
+  Validation errors.
+- **401 Unauthorized**  
+  User not found or invalid password.
 
-### Responses
+---
 
-#### Success
+### GET `/users/profile`
 
-- **Status Code:** `200 OK`
-- **Body Example:**
+Returns the authenticated user's profile information.
+
+#### Headers
+
+- Requires authentication via JWT token in cookies or Authorization header.
+
+#### Responses
+
+- **200 OK**  
+  Returns user profile.
+- **401 Unauthorized**  
+  Authentication required.
+
+---
+
+### GET `/users/logout`
+
+Logs out the authenticated user by clearing and blacklisting the token.
+
+#### Headers
+
+- Requires authentication via JWT token in cookies or Authorization header.
+
+#### Responses
+
+- **200 OK**  
+  `{ "message": "Logged Out.." }`
+- **401 Unauthorized**  
+  Authentication required.
+
+---
+
+## Captain Endpoints
+
+### POST `/captain/register`
+
+Registers a new captain (driver) in the system.
+
+#### Request Body
 
 ```json
 {
-  "token": "jwt_token_here",
-  "user": {
-    "_id": "user_id_here",
-    "fullname": {
-      "firstname": "John",
-      "lastname": "Doe"
-    },
-    "email": "john.doe@example.com",
-    "socketId": null
+  "fullname": {
+    "firstname": "Jane",
+    "lastname": "Smith"
+  },
+  "email": "jane.smith@example.com",
+  "password": "yourpassword",
+  "vehicle": {
+    "color": "Red",
+    "plate": "ABC123",
+    "capacity": 4,
+    "vehicleType": "Sedan"
   }
 }
 ```
 
-#### Validation Error
+#### Responses
 
-- **Status Code:** `400 Bad Request`
-- **Body Example:**
-
-```json
-{
-  "errors": [
-    {
-      "msg": "Invalid Email",
-      "param": "email",
-      "location": "body"
+- **201 Created**  
+  Returns JWT token and captain object.
+  ```json
+  {
+    "token": "jwt_token_here",
+    "captain": {
+      "_id": "captain_id_here",
+      "fullname": {
+        "firstname": "Jane",
+        "lastname": "Smith"
+      },
+      "email": "jane.smith@example.com",
+      "vehicle": {
+        "color": "Red",
+        "plate": "ABC123",
+        "capacity": 4,
+        "vehicleType": "Sedan"
+      }
     }
-  ]
-}
-```
-
-#### User Not Found
-
-- **Status Code:** `401 Unauthorized`
-- **Body Example:**
-
-```json
-{
-  "message": "User Not Found.."
-}
-```
-
-#### Invalid Password
-
-- **Status Code:** `401 Unauthorized`
-- **Body Example:**
-
-```json
-{
-  "message": "Invalid Password"
-}
-```
+  }
+  ```
+- **400 Bad Request**  
+  Validation errors.
+- **409 Conflict**  
+  Email already registered.
 
 ---
 
-## GET `/users/profile`
+### POST `/captain/login`
 
-Returns the authenticated user's profile information.
+Authenticates a captain and returns a JWT token.
 
-### Headers
-
-- Requires authentication via JWT token in cookies or Authorization header.
-
-### Responses
-
-#### Success
-
-- **Status Code:** `200 OK`
-- **Body Example:**
+#### Request Body
 
 ```json
 {
-  "_id": "user_id_here",
-  "fullname": {
-    "firstname": "John",
-    "lastname": "Doe"
-  },
-  "email": "john.doe@example.com",
-  "socketId": null
+  "email": "jane.smith@example.com",
+  "password": "yourpassword"
 }
 ```
 
-#### Unauthorized
+#### Responses
 
-- **Status Code:** `401 Unauthorized`
-- **Body Example:**
-
-```json
-{
-  "message": "Authentication required"
-}
-```
+- **200 OK**  
+  Returns JWT token and captain object.
+- **400 Bad Request**  
+  Validation errors.
+- **401 Unauthorized**  
+  Captain not found or invalid password.
 
 ---
 
-## GET `/users/logout`
+### GET `/captain/profile`
 
-Logs out the authenticated user by clearing the authentication token and blacklisting it.
+Returns the authenticated captain's profile information.
 
-### Headers
+#### Headers
 
 - Requires authentication via JWT token in cookies or Authorization header.
 
-### Responses
+#### Responses
 
-#### Success
+- **200 OK**  
+  Returns captain profile.
+- **401 Unauthorized**  
+  Authentication required.
 
-- **Status Code:** `200 OK`
-- **Body Example:**
+---
 
-```json
-{
-  "message": "Logged Out.."
-}
-```
+### GET `/captain/logout`
 
-#### Unauthorized
+Logs out the authenticated captain by clearing and blacklisting the token.
 
-- **Status Code:** `401 Unauthorized`
-- **Body Example:**
+#### Headers
 
-```json
-{
-  "message": "Authentication required"
-}
-```
+- Requires authentication via JWT token in cookies or Authorization header.
+
+#### Responses
+
+- **200 OK**  
+  `{ "message": "Logged Out.." }`
+- **401 Unauthorized**  
+  Authentication required.
 
 ---
 
 **Note:**  
 - All endpoints that require authentication expect a valid JWT token in the `token` cookie or `Authorization` header.
-- The password is never returned in
+- The password is never returned

@@ -71,5 +71,5 @@ exports.logoutUser=async(req,res,next)=>{
 
     await blacklistTokenModel.create({token});
 
-    res.status(200).json({message:"Logged Out.."})
+    res.status(200).json({message:"Logged Out.."});
 };

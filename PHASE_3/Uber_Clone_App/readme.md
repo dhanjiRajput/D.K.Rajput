@@ -10,4 +10,5 @@
 - npm create vite@latest
 - React,Javascript
 - npm install tailwindcss @tailwindcss/vite
-- npm i react-router-dom
+- npm i react-router-dom axios gsap @gsap/react
+- npm i remixicon --save

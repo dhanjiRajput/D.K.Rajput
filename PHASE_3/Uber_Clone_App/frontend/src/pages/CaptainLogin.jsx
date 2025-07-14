@@ -1,14 +1,28 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { CaptainDataContext } from '../context/CaptainContext';
+import axios from 'axios';
 
-const CaptainLogin = () => {
+const CaptainLogin =() => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [captainData, setCaptainData] = useState({});
 
-  const onSubmitHandler = (e) => {
+  const { captain, setCaptain } = useContext(CaptainDataContext);
+
+  const onSubmitHandler = async (e) => {
     e.preventDefault();
-    setCaptainData({ email: email, password: password });
+    const newCaptain = {
+      email: email,
+      password: password,
+    };
+    const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/captains/login`, newCaptain);
+    if (response.status === 200) {
+      const data = response.data;
+      setCaptain(data.captain);
+      localStorage.setItem('token', data.token);
+      navigate('/captain-home');
+    }
     setEmail('');
     setPassword('');
   };
@@ -22,7 +36,7 @@ const CaptainLogin = () => {
           <input value={email} onChange={(e) => setEmail(e.target.value)} className='bg-[#eeeeee] mb-7 rounded px-4 py-2 border w-full text-lg placeholder:text-base' type="email" required placeholder='email@example.com' />
           <h3 className='text-xl font-medium mb-2'>Enter Password</h3>
           <input value={password} onChange={(e) => setPassword(e.target.value)} className='bg-[#eeeeee] mb-7 rounded px-4 py-2 border w-full text-lg placeholder:text-base' type="password" placeholder='password' required />
-          <button className='bg-[#111] mb-7 font-semibold text-white rounded px-4 py-2 w-full text-lg placeholder:text-base'>Login</button>
+          <button className='bg-[#111] mb-7 font-semibold text-white rounded px-4 py-2 w-full text-lg placeholder:text-base'>Captain Login</button>
           <p className='text-center'>New Here?<Link to='/captain-signup' className='text-blue-700'>Create New Account</Link></p>
         </form>
       </div>

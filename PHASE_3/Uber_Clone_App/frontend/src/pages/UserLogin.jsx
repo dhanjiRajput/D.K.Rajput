@@ -1,16 +1,32 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import axios from 'axios';
+import { UserDataContext } from '../context/UserContext';
+
 
 const UserLogin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [userData, setUserData] = useState({});
 
-  const onSubmitHandler = (e) => {
+  const navigate = useNavigate();
+
+  const { user, setUser } = useContext(UserDataContext);
+
+  const onSubmitHandler = async (e) => {
     e.preventDefault();
-    setUserData({ email: email, password: password });
+    const userData = {
+      email: email,
+      password: password,
+    };
+    const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/users/login`, userData);
+    if (response.status === 200) {
+      const data = response.data;
+      setUser(data.user);
+      localStorage.setItem('token', data.token);
+      navigate('/home');
+    }
     setEmail('');
-    setPassword('')
+    setPassword('');
   };
 
   return (
@@ -23,7 +39,7 @@ const UserLogin = () => {
           <input value={email} onChange={(e) => setEmail(e.target.value)} className='bg-[#eeeeee] mb-7 rounded px-4 py-2 border w-full text-lg placeholder:text-base' type="email" required placeholder='email@example.com' />
           <h3 className='text-xl font-medium mb-2'>Enter Password</h3>
           <input value={password} onChange={(e) => setPassword(e.target.value)} className='bg-[#eeeeee] mb-7 rounded px-4 py-2 border w-full text-lg placeholder:text-base' type="password" placeholder='password' required />
-          <button className='bg-[#111] mb-7 font-semibold text-white rounded px-4 py-2 w-full text-lg placeholder:text-base'>Login</button>
+          <button className='bg-[#111] mb-7 font-semibold text-white rounded px-4 py-2 w-full text-lg placeholder:text-base'>User Login</button>
           <p className='text-center'>New Here?<Link to='/signup' className='text-blue-700'>Create New Account</Link></p>
         </form>
       </div>

@@ -5,6 +5,7 @@ const cookie=require('cookie-parser');
 const connectToDb = require('./db/db');
 const userRouter = require('./routes/user.routes');
 const captainRoutes = require('./routes/captain.routes');
+const mapsRouter = require('./routes/maps.routes');
 dotenv.config();
 const app=express();
 
@@ -23,5 +24,6 @@ app.get('/',(req,res)=>{
 });
 app.use('/users',userRouter);
 app.use('/captains',captainRoutes);
+app.use('/maps',mapsRouter);
 
 module.exports=app;

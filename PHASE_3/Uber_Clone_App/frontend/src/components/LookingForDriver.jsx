@@ -1,13 +1,13 @@
 import React from 'react'
 
-const ConfirmRide = (props) => {
+const LookingForDriver = (props) => {
   return (
     <div>
-      <h1 className='absolute top-7 right-6 font-extrabold text-2xl' onClick={() => props.setConfirmRidePanel(false)}><i className="ri-arrow-down-wide-line"></i></h1>
-      <h3 className='text-2xl font-semibold mb-5'>Confirm Your Ride</h3>
+      <h1 className='absolute top-7 right-6 font-extrabold text-2xl' onClick={() => props.setVehicleFound(false)}><i className="ri-arrow-down-wide-line"></i></h1>
+      <h3 className='text-2xl font-semibold mb-5'>Looking For A Driver..</h3>
       <div className='flex gap-2 justify-between flex-col items-center'>
         <img src="https://www.pngplay.com/wp-content/uploads/8/Uber-PNG-Photos.png" alt="" />
-        <div className='w-full mt-5'>
+        <div className='w-full mt-5'> 
           <div className='flex items-center gap-2 p-2 border-b-2 border-gray-200'>
             <i className="text-lg ri-map-pin-fill"></i>
             <div>
@@ -32,10 +32,9 @@ const ConfirmRide = (props) => {
             </div>
           </div>
         </div>
-        <button onClick={()=>{props.setVehicleFound(true); props.setConfirmRidePanel(false)}} className='w-full mt-5 bg-green-700 text-white rounded-full py-2 text-lg font-bold'>Confirm</button>
       </div>
     </div>
   )
 }
 
-export default ConfirmRide
+export default LookingForDriver

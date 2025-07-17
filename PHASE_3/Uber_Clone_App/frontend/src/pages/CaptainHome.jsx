@@ -48,6 +48,8 @@ const CaptainHome = () => {
   useEffect(() => {
     const handleNewRide = (data) => {
       console.log('New Ride:', data);
+      setRide(data);
+      setRidePopupPanel(true);
     };
 
     socket.on('new-ride', handleNewRide);
@@ -56,6 +58,12 @@ const CaptainHome = () => {
       socket.off('new-ride', handleNewRide); // ✅ Clean up
     };
   }, [socket]);
+
+  async function confirmRide() {
+    const response=await axios.post(`${import.meta.env.VITE_BASE_URL}/rides/confirm`);
+    setRidePopupPanel(false);
+    setConfirmRidePopupPanel(true);
+  }
 
   useGSAP(function () {
     if (ridePopupPanel) {
@@ -101,7 +109,8 @@ const CaptainHome = () => {
         <RidePopUp 
         ride={ride}
         setRidePopupPanel={setRidePopupPanel} 
-        setConfirmRidePopupPanel={setConfirmRidePopupPanel} />
+        setConfirmRidePopupPanel={setConfirmRidePopupPanel}
+        confirmRide={confirmRide} />
       </div>
 
       <div ref={confirmRidePopupPanelRef} className='fixed z-10 bottom-0  translate-y-full bg-white px-3 py-8 pt-12 w-full'>

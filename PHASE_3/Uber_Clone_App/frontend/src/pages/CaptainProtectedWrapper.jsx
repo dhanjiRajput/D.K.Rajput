@@ -13,7 +13,7 @@ const CaptainProtectedWrapper = ({ children }) => {
     if (!token) {
       navigate('/captain-login');
     }
-  }, [token,navigate]);
+  }, [token]);
 
   axios.get(`${import.meta.env.VITE_BASE_URL}/captains/profile`, {
     headers: {
@@ -23,7 +23,7 @@ const CaptainProtectedWrapper = ({ children }) => {
   .then(response => {
     if (response.status === 200) {
       const data = response.data;
-      setCaptain(data.captain);
+      setCaptain(data);
       setIsLoading(false);
     }
   }).catch(error => {

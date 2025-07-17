@@ -1,4 +1,5 @@
 const axios = require('axios');
+const captainModel = require('../models/captain.model');
 
 exports.getAddressCoordinates = async (address) => {
     // const apiKey = process.env.GOOGLE_MAPS_API;
@@ -30,7 +31,7 @@ exports.getAddressCoordinates = async (address) => {
         // OpenWeatherMap returns status in 'cod', not 'status'
         if (response.data.cod === 200 && response.data.coord) {
             return {
-                lat: response.data.coord.lat,
+                ltd: response.data.coord.lat,
                 lng: response.data.coord.lon,
             };
         } else {
@@ -129,3 +130,14 @@ exports.getSuggestions = async (input) => {
         throw new Error(`Nominatim Error: ${error.message}`);
     }
 };
+
+exports.getCaptainInTheRadius=async(ltd,lng,radius)=>{
+    const captains=await captainModel.find({
+        location:{
+            $geoWithin:{
+                $centerSphere:[[ltd,lng],radius/6371]
+            }
+        }
+    });
+    return captains;
+}

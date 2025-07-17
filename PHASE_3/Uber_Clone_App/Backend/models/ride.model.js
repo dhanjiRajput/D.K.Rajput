@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
 const rideSchema = new mongoose.Schema({
-    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
-    captain: { type: mongoose.Schema.Types.ObjectId, ref: 'Captain' },
+    user: { type: mongoose.Schema.Types.ObjectId, ref: 'user' },
+    captain: { type: mongoose.Schema.Types.ObjectId, ref: 'captain' },
     pickup: { type: String, required: true },
     destination: { type: String, required: true },
     vehicleType: { type: String, enum: ['auto', 'car', 'moto'], required: true },

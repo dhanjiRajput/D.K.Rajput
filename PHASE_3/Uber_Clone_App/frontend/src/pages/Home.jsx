@@ -10,8 +10,12 @@ import axios from 'axios';
 import WaitingForDriver from '../components/WaitingForDriver';
 import { SocketContext } from '../context/SocketContext';
 import { UserDataContext } from '../context/UserContext';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
+
+  const navigate=useNavigate();
+
   const [pickup, setPickup] = useState('');
   const [destination, setDestination] = useState('');
   const [panelOpen, setPanelOpen] = useState(false);
@@ -30,6 +34,7 @@ const Home = () => {
   const [activeField, setActiveField] = useState(null);
   const [fare, setFare] = useState({});
   const [vehicleType,setVehicleType]=useState(null);
+  const [ride,setRide]=useState(null);
 
   const {socket} =useContext(SocketContext);
 
@@ -38,6 +43,14 @@ const Home = () => {
   useEffect(()=>{
     socket.emit("join",{userId:user._id,userType:"user"});
   },[]);
+
+  socket.on('ride-confirmed',ride=>{
+    console.log("Ride Confirmed Message :-",ride);
+    
+    setVehicleFound(false);
+    setWaitingForDriver(true);
+    setRide(ride);
+  });
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
@@ -230,7 +243,7 @@ const Home = () => {
       </div>
 
       <div ref={WaitingForDriverRef} className='fixed z-10 bottom-0 bg-white px-3 py-8 pt-12 w-full'>
-        <WaitingForDriver waitingForDriver={waitingForDriver} setWaitingForDriver={setWaitingForDriver} />
+        <WaitingForDriver ride={ride} setVehicleFound={setVehicleFound} waitingForDriver={waitingForDriver} setWaitingForDriver={setWaitingForDriver} />
       </div>
     </div>
   )

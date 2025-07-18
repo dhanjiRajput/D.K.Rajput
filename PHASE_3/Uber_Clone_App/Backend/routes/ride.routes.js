@@ -15,4 +15,13 @@ ridesRouter.get('/get-fare',[
     query('destination').isString().isLength({ min: 1 }).withMessage('Dropoff location is required'),
 ],authMiddleware.authUser,rideController.getFares);
 
+ridesRouter.post('/confirm',[
+    body('rideId').isMongoId().withMessage('Invalid Ride Id'),
+],authMiddleware.authCaptain,rideController.confirmRide);
+
+ridesRouter.get('/start-ride',[
+    query('rideId').isMongoId().withMessage('Invalid Ride Id'),
+    query('otp').isString().isLength({min:6,max:6}).withMessage("Invalid OTP"),
+],authMiddleware.authCaptain,rideController.startRide)
+
 module.exports = ridesRouter;

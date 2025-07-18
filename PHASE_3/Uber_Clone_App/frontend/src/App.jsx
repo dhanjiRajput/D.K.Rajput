@@ -25,7 +25,7 @@ const App = () => {
         <Route path='/captain-login' element={<CaptainLogin/>}/>
         <Route path='/captain-signup' element={<CaptainSignup/>}/>
         <Route path='/riding' element={<Riding/>}/>
-        <Route path='/captain/riding' element={<CaptainRiding/>}/>
+        <Route path='/captain-riding' element={<CaptainRiding/>}/>
         <Route path='/home' element={
           <UserProtectedWrapper>
             <Home/>

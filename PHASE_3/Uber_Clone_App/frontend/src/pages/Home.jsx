@@ -11,10 +11,11 @@ import WaitingForDriver from '../components/WaitingForDriver';
 import { SocketContext } from '../context/SocketContext';
 import { UserDataContext } from '../context/UserContext';
 import { useNavigate } from 'react-router-dom';
+import LiveTracking from '../components/LiveTracking';
 
 const Home = () => {
 
-  const navigate=useNavigate();
+  const navigate = useNavigate();
 
   const [pickup, setPickup] = useState('');
   const [destination, setDestination] = useState('');
@@ -33,24 +34,38 @@ const Home = () => {
   const [destinationSuggestions, setDestinationSuggestions] = useState([]);
   const [activeField, setActiveField] = useState(null);
   const [fare, setFare] = useState({});
-  const [vehicleType,setVehicleType]=useState(null);
-  const [ride,setRide]=useState(null);
+  const [vehicleType, setVehicleType] = useState(null);
+  const [ride, setRide] = useState(null);
 
-  const {socket} =useContext(SocketContext);
+  const { socket } = useContext(SocketContext);
 
-  const {user}=useContext(UserDataContext);
+  const { user } = useContext(UserDataContext);
 
-  useEffect(()=>{
-    socket.emit("join",{userId:user._id,userType:"user"});
-  },[]);
+  useEffect(() => {
+    socket.emit("join", { userId: user._id, userType: "user" });
+  }, []);
 
-  socket.on('ride-confirmed',ride=>{
-    console.log("Ride Confirmed Message :-",ride);
-    
-    setVehicleFound(false);
-    setWaitingForDriver(true);
-    setRide(ride);
-  });
+  useEffect(() => {
+    const handleRideConfirmed = (ride) => {
+      console.log("Ride Confirmed Message :-", ride);
+
+      setVehicleFound(false);
+      setWaitingForDriver(true);
+      setRide(ride);
+    };
+
+    socket.on('ride-confirmed', handleRideConfirmed);
+
+    // 🔁 Cleanup to avoid duplicate listeners
+    return () => {
+      socket.off('ride-confirmed', handleRideConfirmed);
+    };
+  }, [socket]);
+
+  socket.on('ride-started', ride => {
+    setWaitingForDriver(false);
+    navigate('/riding',{state:{ride}});
+  })
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
@@ -179,7 +194,7 @@ const Home = () => {
   //Create Ride
   async function createRide() {
     const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/rides/create`,
-      { 
+      {
         pickup,
         destination,
         vehicleType,
@@ -190,22 +205,25 @@ const Home = () => {
         }
       }
     );
-    console.log("Create Rides :-",response.data);
+    console.log("Create Rides :-", response.data);
   }
 
   return (
     <div className='h-screen relative overflow-hidden'>
-      <img className='w-40 absolute' src="https://static.vecteezy.com/system/resources/previews/027/127/451/non_2x/uber-logo-uber-icon-transparent-free-png.png" alt="" />
+      <img className='w-40 z-1 absolute' src="https://static.vecteezy.com/system/resources/previews/027/127/451/non_2x/uber-logo-uber-icon-transparent-free-png.png" alt="" />
       <div className='h-screen w-screen'>
-        <img className='h-full w-full object-cover' src="https://miro.medium.com/v2/resize:fit:1400/0*gwMx05pqII5hbfmX.gif" alt="" />
+        {/* <img className='h-full w-full object-cover' src="https://miro.medium.com/v2/resize:fit:1400/0*gwMx05pqII5hbfmX.gif" alt="" /> */}
+        <LiveTracking/>
       </div>
 
-      <div className='flex flex-col justify-end absolute h-screen top-0 w-full'>
-        <div className='h-[25%] bg-white p-5 rounded-t-xl relative'>
+      <div className='flex flex-col justify-end absolute h-screen top-15 w-full'>
+        <div className='h-[40%] bg-white p-5 rounded-t-xl relative'>
           <h1 ref={panelRefClose} onClick={() => setPanelOpen(false)} className='opacity-0 absolute top-5 right-6 font-extrabold text-2xl'><i className="ri-arrow-down-wide-line"></i></h1>
           <h4 className='text-2xl font-semibold'>Find Your Ride</h4>
           <form onSubmit={onSubmitHandler}>
-            <div className='line absolute h-16 w-1 top-[55%] left-10 bg-gray-700 rounded-full'></div>
+            <div className='line absolute h-1 w-1 top-[33%] left-10 bg-gray-700 rounded-full'></div>
+            <div className='line absolute h-12 w-1 top-[35%] left-10 bg-gray-700 rounded-full'></div>
+            <div className='line absolute h-1 w-1 top-[53%] left-10 bg-gray-700 rounded-full'></div>
             <input onClick={() => {
               setPanelOpen(true)
               setActiveField('pickup')
@@ -219,7 +237,7 @@ const Home = () => {
         </div>
         <div ref={panelRef} className='h-0 bg-white'>
           <button onClick={findTrip}
-            className='bg-black text-white px-4 py-2 rounded-lg mt-3 w-full'>Find Trip</button>
+            className='bg-black text-white px-4 py-2 rounded-lg w-full'>Find Trip</button>
           <LocationSearchPanel suggestions={activeField === 'pickup' ? pickupSuggestions : destinationSuggestions}
             setPanelOpen={setPanelOpen}
             setVehiclePanel={setVehiclePanel}

@@ -9,6 +9,7 @@ import ConfirmRidePopup from '../components/ConfirmRidePopup'
 import { SocketContext } from '../context/SocketContext'
 import { CaptainDataContext } from '../context/CaptainContext'
 import axios from 'axios'
+import LiveTracking from '../components/LiveTracking'
 
 
 const CaptainHome = () => {
@@ -107,13 +108,14 @@ const CaptainHome = () => {
   return (
     <div className='h-screen'>
       <div>
-        <img className='w-40 absolute' src="https://static.vecteezy.com/system/resources/previews/027/127/451/non_2x/uber-logo-uber-icon-transparent-free-png.png" alt="" />
+        <img className='w-40 z-1 absolute' src="https://static.vecteezy.com/system/resources/previews/027/127/451/non_2x/uber-logo-uber-icon-transparent-free-png.png" alt="" />
         <Link to="/captain/logout" className='fixed h-12 w-12 bg-gray-300 rounded-full top-4 right-4 flex items-center justify-center text-black cursor-pointer'>
           <i className="text-[25px] ri-logout-box-r-line"></i>
         </Link>
       </div>
       <div className='h-3/5'>
-        <img className='h-full w-full object-cover' src="https://miro.medium.com/v2/resize:fit:1400/0*gwMx05pqII5hbfmX.gif" alt="" />
+        {/* <img className='h-full w-full object-cover' src="https://miro.medium.com/v2/resize:fit:1400/0*gwMx05pqII5hbfmX.gif" alt="" /> */}
+        <LiveTracking/>
       </div>
       <div className='h-2/5 p-6'>
         <CaptainDetails />

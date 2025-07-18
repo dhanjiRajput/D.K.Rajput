@@ -1,14 +1,20 @@
 import React, { useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link,useLocation } from 'react-router-dom'
 import 'remixicon/fonts/remixicon.css'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import FinishRide from '../components/FinishRide'
+import LiveTracking from '../components/LiveTracking'
 
 const CaptainRiding = () => {
 
     const [finishRidePanel, setFinishRidePanel] = useState(false);
     const finishRidePanelRef = useRef(null);
+    const location=useLocation();
+    const rideData=location.state?.ride;
+
+    console.log("CaptainRiding :-",rideData);
+    
 
      useGSAP(function () {
     if (finishRidePanel) {
@@ -25,13 +31,14 @@ const CaptainRiding = () => {
   return (
     <div className='h-screen'>
       <div>
-        <img className='w-40 absolute' src="https://static.vecteezy.com/system/resources/previews/027/127/451/non_2x/uber-logo-uber-icon-transparent-free-png.png" alt="" />
+        <img className='w-40 z-1 absolute' src="https://static.vecteezy.com/system/resources/previews/027/127/451/non_2x/uber-logo-uber-icon-transparent-free-png.png" alt="" />
         <Link to="/captain-home" className='fixed h-12 w-12 bg-gray-300 rounded-full top-4 right-4 flex items-center justify-center text-black cursor-pointer'>
           <i className="text-[25px] ri-home-4-fill"></i>
         </Link>
       </div>
       <div className='h-4/5'>
-        <img className='h-full w-full object-cover' src="https://miro.medium.com/v2/resize:fit:1400/0*gwMx05pqII5hbfmX.gif" alt="" />
+        {/* <img className='h-full w-full object-cover' src="https://miro.medium.com/v2/resize:fit:1400/0*gwMx05pqII5hbfmX.gif" alt="" /> */}
+        <LiveTracking/>
       </div>
       <div className='h-1/5 p-6 flex items-center justify-between bg-yellow-400 relative' 
         onClick={() => setFinishRidePanel(true)}>
@@ -41,7 +48,7 @@ const CaptainRiding = () => {
       </div>
 
       <div ref={finishRidePanelRef} className='fixed z-10 bottom-0  translate-y-full bg-white px-3 py-8 pt-12 w-full'>
-        <FinishRide setFinishRidePanel={setFinishRidePanel} />
+        <FinishRide ride={rideData} setFinishRidePanel={setFinishRidePanel} />
       </div>
     </div>
   )

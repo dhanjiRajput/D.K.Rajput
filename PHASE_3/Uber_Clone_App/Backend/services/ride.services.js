@@ -1,6 +1,7 @@
 const rideModel = require('../models/ride.model');
 const axios = require('axios');
 const crypto = require('crypto');
+const { sendMessageToSocketId } = require('../socket');
 
 // Generate OTP
 async function generateOtp(num) {
@@ -133,16 +134,49 @@ async function startRide({ rideId, otp, captain }) {
 
         await rideModel.findOneAndUpdate({ _id: rideId }, { status: 'ongoing' });
 
+        sendMessageToSocketId(ride.user.socketId,{
+            event:'ride-started',
+            data: ride
+        })
+
         return ride;
     } catch (error) {
         console.error("Error starting ride:", error.message);
         throw new Error("Unable to start ride. Please check the OTP and try again.");
     }
-}
+};
+
+async function endRide({ rideId, captain }) {
+    if (!rideId) {
+        throw new Error('Ride id is required');
+    }
+
+    const ride = await rideModel.findOne({
+        _id: rideId,
+        captain: captain._id
+    }).populate('user').populate('captain').select('+otp');
+
+    if (!ride) {
+        throw new Error('Ride not found');
+    }
+
+    if (ride.status !== 'ongoing') {
+        throw new Error('Ride not ongoing');
+    }
+
+    await rideModel.findOneAndUpdate({
+        _id: rideId
+    }, {
+        status: 'completed'
+    })
+
+    return ride;
+};
 
 module.exports = {
     getFare,
     createRide,
     confirmRide,
     startRide,
+    endRide,
 };

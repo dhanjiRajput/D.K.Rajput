@@ -7,6 +7,7 @@ userRoutes.post('/register',userController.register);
 userRoutes.post('/login',userController.login);
 userRoutes.get('/logout',authMiddleware.authUser,userController.logout);
 userRoutes.get('/profile',authMiddleware.authUser,userController.profile);
+userRoutes.get('/accepted-ride',authMiddleware.authUser,userController.acceptedRide);
 
 
 module.exports=userRoutes;

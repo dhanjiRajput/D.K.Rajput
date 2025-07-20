@@ -1,5 +1,5 @@
 {
-  "name": "user",
+  "name": "ride",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
@@ -11,6 +11,7 @@
   "description": "",
   "dependencies": {
     "amqplib": "^0.10.8",
+    "axios": "^1.10.0",
     "bcrypt": "^6.0.0",
     "cookie-parser": "^1.4.7",
     "dotenv": "^17.2.0",

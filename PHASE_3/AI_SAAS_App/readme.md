@@ -13,4 +13,5 @@
 - npm i react-router-dom lucide-react
 - npm install tailwindcss @tailwindcss/vite
 - npm install @clerk/clerk-react
+- npm i react-markdown
 ## Backend Setup :-

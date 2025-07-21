@@ -27,6 +27,7 @@
 - npm install @neondatabase/serverless
 - npm install @clerk/express
 - npm openai
+- npm i pdf-parse
 - App Run Command :- npm run server
 
 ## Database Setup :-

@@ -16,6 +16,7 @@
 - npm install tailwindcss @tailwindcss/vite
 - npm install @clerk/clerk-react
 - npm i react-markdown
+- npm i axios react-hot-toast
 - App Run Command :- npm run dev
 
 

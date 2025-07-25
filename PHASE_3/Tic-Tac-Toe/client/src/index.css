@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Happy+Monkey&display=swap');
 body {
-  background-color: #1f1f2f;
-  color: white;
-  font-family: "Poppins", sans-serif;
+  background: linear-gradient(120deg, #1f1f2f 60%, #3fa7f0 100%);
+  color: #fff;
+  font-family: 'Happy Monkey', cursive;
+  min-height: 100vh;
 }

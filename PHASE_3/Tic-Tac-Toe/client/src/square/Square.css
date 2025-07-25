@@ -1,26 +1,42 @@
+
 .square {
-  width: 100px;
-  height: 100px;
-  background-color: #4b495f;
-  border-radius: 5px;
+  width: 110px;
+  height: 110px;
+  background: linear-gradient(145deg, #5a5670 0%, #2c2c3c 100%);
+  border-radius: 18px;
+  box-shadow: 0 8px 24px 0 rgba(0,0,0,0.25), 0 1.5px 0 #e4ca56 inset;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
+
 
 .square:hover {
   cursor: pointer;
+  transform: translateY(-8px) scale(1.07);
+  box-shadow: 0 16px 32px 0 rgba(228,202,86,0.25), 0 2px 0 #e4ca56 inset;
+  background: linear-gradient(145deg, #e4ca56 0%, #3fa7f0 100%);
+  z-index: 2;
 }
 
 .not-allowed {
   cursor: not-allowed !important;
+  filter: grayscale(0.7) brightness(0.7);
 }
 
 .circle-won {
-  background-color: #dd7f9f;
+  background: linear-gradient(135deg, #dd7f9f 60%, #fff 100%);
+  box-shadow: 0 0 24px 0 #dd7f9f;
 }
 
 .grey-background{
-  background-color: grey !important;
+  background: linear-gradient(135deg, #888 60%, #fff 100%) !important;
+  box-shadow: 0 0 24px 0 #888;
 }
 
 .cross-won {
-  background-color: rgb(63, 167, 240);
+  background: linear-gradient(135deg, #3fa7f0 60%, #fff 100%);
+  box-shadow: 0 0 24px 0 #3fa7f0;
 }

@@ -6,6 +6,8 @@ import redisCache from "../utils/redisClient.js";
 import logger from "../config/logger.js";
 
 
+
+//get news with pagination
 class NewsController {
     static async index(req, res) {
         let page = Number(req.query.page) || 1;

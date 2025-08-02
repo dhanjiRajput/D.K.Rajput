@@ -1,5 +1,6 @@
 const express = require('express');
 const http = require('http');
+const { off } = require('process');
 const { Server } = require('socket.io');
 
 const app = express();
@@ -33,6 +34,10 @@ io.on('connection', (socket) => {
         socket.join(room);
         //Second event From  server send new event to client with this data... go to client
         io.to(socket.id).emit('room:join',data);
+    });
+
+    socket.on('user:call',({to,offer})=>{
+        io.to(to).emit('incomming:call',{from:socket.id,offer})
     });
 
     socket.on('disconnect', () => {

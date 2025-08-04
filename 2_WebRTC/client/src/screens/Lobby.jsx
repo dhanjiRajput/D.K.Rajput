@@ -18,8 +18,8 @@ const Lobby = () => {
 
   const handleJoinRoom=useCallback((data)=>{
     const {email,room}=data;
-    navigate(`/room/${room}`) 
-  },[])
+    navigate(`/room/${room}`)
+  },[]);
 
   useEffect(()=>{
     //second event came to server with data

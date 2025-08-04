@@ -28,16 +28,36 @@ io.on('connection', (socket) => {
 
     socket.on('room:join',data=>{
         const {email,room}=data
-        emailToSocketIdMap.set(email,socket.id)
-        SocketIdToEmailMap.set(socket.id,email)
-        io.to(room).emit('user:joined',{email,id:socket.id});
+        emailToSocketIdMap.set(email,socket.id);
+        SocketIdToEmailMap.set(socket.id,email);
+
+        // Join the Socket.IO room
         socket.join(room);
-        //Second event From  server send new event to client with this data... go to client
+
+        // Optionally notify others in the room that this user joined
+        io.to(room).emit('user:joined',{email,id:socket.id});
+
+        // Confirm to the joining user
         io.to(socket.id).emit('room:join',data);
     });
 
+
+    //After joined room page will be redirect to the room page with room id
+
     socket.on('user:call',({to,offer})=>{
-        io.to(to).emit('incomming:call',{from:socket.id,offer})
+        io.to(to).emit('incomming:call',{from:socket.id,offer});
+    });
+
+    socket.on('call:accepted',({to,ans})=>{
+        io.to(to).emit('call:accepted',{from:socket.id,ans});
+    });
+
+    socket.on('peer:nego:needed',({to,offer})=>{
+        io.to(to).emit('peer:nego:neededd',{from:socket.id,offer});
+    });
+
+    socket.on('peer:nego:done',({to,ans})=>{
+        io.to(to).emit('peer:nego:final',{from:socket.id,ans});
     });
 
     socket.on('disconnect', () => {

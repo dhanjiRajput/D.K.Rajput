@@ -41,10 +41,9 @@ io.on('connection', (socket) => {
         io.to(socket.id).emit('room:join',data);
     });
 
-
-    //After joined room page will be redirect to the room page with room id
-
+    // signaling offer came from front-side first user
     socket.on('user:call',({to,offer})=>{
+        // send offer to another user
         io.to(to).emit('incomming:call',{from:socket.id,offer});
     });
 

@@ -1,0 +1,152 @@
+[
+	{
+		"name": "Google has eliminated 35% of managers overseeing small teams in past year",
+		"url": "https://www.cnbc.com/2025/08/27/google-executive-says-company-has-cut-a-third-of-its-managers.html",
+		"score": 423
+	},
+	{
+		"name": "Unexpected productivity boost of Rust",
+		"url": "https://lubeno.dev/blog/rusts-productivity-curve",
+		"score": 386
+	},
+	{
+		"name": "Malicious versions of Nx and some supporting plugins were published",
+		"url": "https://github.com/nrwl/nx/security/advisories/GHSA-cxm3-wv7p-598c",
+		"score": 360
+	},
+	{
+		"name": "The GitHub website is slow on Safari",
+		"url": "https://github.com/orgs/community/discussions/170758",
+		"score": 352
+	},
+	{
+		"name": "Altered states of consciousness induced by breathwork accompanied by music",
+		"url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0329411",
+		"score": 280
+	},
+	{
+		"name": "VIM Master",
+		"url": "https://github.com/renzorlive/vimmaster",
+		"score": 272
+	},
+	{
+		"name": "Toyota is recycling old EV batteries to help power Mazda's production line",
+		"url": "https://www.thedrive.com/news/toyota-is-recycling-old-ev-batteries-to-help-power-mazdas-production-line",
+		"score": 239
+	},
+	{
+		"name": "A failure of security systems at PayPal is causing concern for German banks",
+		"url": "https://www.nordbayern.de/news-in-english/paypal-security-systems-down-german-banks-block-payments-in-the-billions-1.14811187",
+		"score": 238
+	},
+	{
+		"name": "Object-oriented design patterns in C and kernel development",
+		"url": "https://oshub.org/projects/retros-32/posts/object-oriented-design-patterns-in-osdev",
+		"score": 220
+	},
+	{
+		"name": "Yamanot.es: A music box of train station melodies from the JR Yamanote Line",
+		"url": "https://yamanot.es/",
+		"score": 216
+	},
+	{
+		"name": "Beginning 1 September, we will need to geoblock Mississippi IPs",
+		"url": "https://dw-news.dreamwidth.org/44429.html",
+		"score": 210
+	},
+	{
+		"name": "GMP damaging Zen 5 CPUs?",
+		"url": "https://gmplib.org/gmp-zen5",
+		"score": 185
+	},
+	{
+		"name": "Researchers find evidence of ChatGPT buzzwords turning up in everyday speech",
+		"url": "https://news.fsu.edu/news/education-society/2025/08/26/on-screen-and-now-irl-fsu-researchers-find-evidence-suggesting-chatgpt-influences-how-we-speak/",
+		"score": 151
+	},
+	{
+		"name": "Implementing Forth in Go and C",
+		"url": "https://eli.thegreenplace.net/2025/implementing-forth-in-go-and-c/",
+		"score": 145
+	},
+	{
+		"name": "Launch HN: Bitrig (YC S25) – Build Swift apps on your iPhone",
+		"url": "item?id=45041185",
+		"score": 136
+	},
+	{
+		"name": "Areal, Are.na's new typeface",
+		"url": "https://www.are.na/editorial/introducing-areal-are-nas-new-typeface",
+		"score": 124
+	},
+	{
+		"name": "The Deletion of Docker.io/Bitnami",
+		"url": "https://community.broadcom.com/tanzu/blogs/beltran-rueda-borrego/2025/08/18/how-to-prepare-for-the-bitnami-changes-coming-soon",
+		"score": 122
+	},
+	{
+		"name": "Sci-Hub has been blocked in India",
+		"url": "https://sci-hub.se/sci-hub-blocked-india",
+		"score": 109
+	},
+	{
+		"name": "Nvidia DGX Spark",
+		"url": "https://www.nvidia.com/en-us/products/workstations/dgx-spark/",
+		"score": 108
+	},
+	{
+		"name": "Using information theory to solve Mastermind",
+		"url": "https://www.goranssongaspar.com/mastermind",
+		"score": 101
+	},
+	{
+		"name": "Bookmarks.txt is a concept of keeping URLs in plain text files",
+		"url": "https://github.com/soulim/bookmarks.txt",
+		"score": 87
+	},
+	{
+		"name": "Show HN: Meetup.com and eventribe alternative to small groups",
+		"url": "https://github.com/polaroi8d/cactoide",
+		"score": 78
+	},
+	{
+		"name": "Canaries in the Coal Mine? Recent Employment Effects of AI [pdf]",
+		"url": "https://digitaleconomy.stanford.edu/wp-content/uploads/2025/08/Canaries_BrynjolfssonChandarChen.pdf",
+		"score": 62
+	},
+	{
+		"name": "Prediction-Encoded Pixels image format",
+		"url": "https://github.com/ENDESGA/PEP",
+		"score": 34
+	},
+	{
+		"name": "On the screen, Libyans learned about everything but themselves (2021)",
+		"url": "https://newlinesmag.com/argument/on-the-screen-libyans-learned-about-everything-but-themselves/",
+		"score": 26
+	},
+	{
+		"name": "Certificates for Onion Services",
+		"url": "https://onionservices.torproject.org/research/proposals/usability/certificates/",
+		"score": 21
+	},
+	{
+		"name": "Will Bardenwerper on Baseball's Betrayal of Its Minor League Roots",
+		"url": "https://lithub.com/will-bardenwerper-on-baseballs-betrayal-of-its-minor-league-roots/",
+		"score": 15
+	},
+	{
+		"name": "What is this? The case for continually questioning our online experience",
+		"url": "https://systems-souls-society.com/what-is-this-the-case-for-continually-questioning-our-online-experience/",
+		"score": 10
+	},
+	{
+		"name": "Lesser known mobile adtech domains where data is sent",
+		"url": "https://jamesoclaire.com/2025/08/28/uncovering-lesser-known-mobile-adtech-domains/",
+		"score": 8
+	},
+	{
+		"name": "Show HN: I built AI that turns 4 hours of financial analysis into 30 seconds",
+		"url": "https://duebase.com/",
+		"score": 7
+	}
+]

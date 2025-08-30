@@ -38,3 +38,7 @@
 ## Used API:-
 - For Generate Article And Generate Blog Title  :- https://ai.google.dev/gemini-api/docs/openai#javascript
 - For Generate Image :- https://clipdrop.co/apis/signin
+
+
+Deployed Link :-
+https://quick-ai-client-two.vercel.app/

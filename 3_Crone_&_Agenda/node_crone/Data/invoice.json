@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "status": "paid",
+        "description": "Smartphone - Samsung Galaxy S23",
+        "date": "2022-08-27T10:00:00.000Z"
+    },
+    {
+        "id": 2,
+        "status": "paid",
+        "description": "Laptop - Dell XPS 13",
+        "date": "2023-08-26T11:15:00.000Z"
+    },
+    {
+        "id": 3,
+        "status": "paid",
+        "description": "Wireless Headphones - Sony WH-1000XM5",
+        "date": "2024-08-25T14:30:00.000Z"
+    },
+    {
+        "id": 4,
+        "status": "pending",
+        "description": "Smartwatch - Apple Watch Series 9",
+        "date": "2025-08-24T09:45:00.000Z"
+    }
+]

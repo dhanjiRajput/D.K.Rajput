@@ -1,23 +1,26 @@
-  // New game handler
-  function handleNewGame() {
-    // Always return to main menu after game over
-    setPlayAI(false);
-    setAiLevel(null);
-    setPlayOnline(false);
-    setPlayerName("");
-    setOpponentName(null);
-    setPlayingAs(null);
-    setGameState(renderFrom);
-    setCurrentPlayer("circle");
-    setFinishetState(false);
-    setFinishedArrayState([]);
-    setTimer(15);
-    setTimeOver(false);
-    if (socket) {
-      socket.disconnect();
-      setSocket(null);
-    }
+// New game handler
+function handleNewGame() {
+  Swal.fire('Game Over').then(() => {
+    window.location.reload();
+  });
+  // Always return to main menu after game over
+  setPlayAI(false);
+  setAiLevel(null);
+  setPlayOnline(false);
+  setPlayerName("");
+  setOpponentName(null);
+  setPlayingAs(null);
+  setGameState(renderFrom);
+  setCurrentPlayer("circle");
+  setFinishetState(false);
+  setFinishedArrayState([]);
+  setTimer(15);
+  setTimeOver(false);
+  if (socket) {
+    socket.disconnect();
+    setSocket(null);
   }
+}
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import Square from "./Square/Square";
@@ -334,11 +337,11 @@ const App = () => {
         <button onClick={playOnlineClick} className="playOnline">
           Play Online
         </button>
-        <div style={{display:'flex', gap:20, marginTop:40}}>
-          <button onClick={() => playAIClick('normal')} className="playOnline" style={{backgroundColor:'#3fa7f0', fontSize:32, padding:'12px 24px', marginTop:0}}>
+        <div style={{ display: 'flex', gap: 20, marginTop: 40 }}>
+          <button onClick={() => playAIClick('normal')} className="playOnline" style={{ backgroundColor: '#3fa7f0', fontSize: 32, padding: '12px 24px', marginTop: 0 }}>
             Play vs AI (Normal)
           </button>
-          <button onClick={() => playAIClick('hard')} className="playOnline" style={{backgroundColor:'#dd7f9f', fontSize:32, padding:'12px 24px', marginTop:0}}>
+          <button onClick={() => playAIClick('hard')} className="playOnline" style={{ backgroundColor: '#dd7f9f', fontSize: 32, padding: '12px 24px', marginTop: 0 }}>
             Play vs AI (Hard)
           </button>
         </div>
@@ -405,7 +408,7 @@ const App = () => {
               className="new-game-btn"
               onClick={handleNewGame}
             >
-              <span style={{fontWeight:700, letterSpacing:1}}>🔄 Start New Game</span>
+              <span style={{ fontWeight: 700, letterSpacing: 1 }}>🔄 Start New Game</span>
             </button>
           )}
         </div>
@@ -422,16 +425,14 @@ const App = () => {
     <div className="main-div">
       <div className="move-detection">
         <div
-          className={`left ${
-            currentPlayer === playingAs ? "current-move-" + currentPlayer : ""
-          }`}
+          className={`left ${currentPlayer === playingAs ? "current-move-" + currentPlayer : ""
+            }`}
         >
           {playerName}
         </div>
         <div
-          className={`right ${
-            currentPlayer !== playingAs ? "current-move-" + currentPlayer : ""
-          }`}
+          className={`right ${currentPlayer !== playingAs ? "current-move-" + currentPlayer : ""
+            }`}
         >
           {opponentName}
         </div>
